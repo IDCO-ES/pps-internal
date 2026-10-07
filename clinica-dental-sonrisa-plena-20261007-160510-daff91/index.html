@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+    <html lang="es">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Propuesta · Clínica Dental Sonrisa Plena · IDCO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+      :root { --negro:#0A0A0A; --rojo:#DD1927; --gris:#F2F2F2; --texto:#1A1A1A; --suave:#6B6B6B; }
+      * { box-sizing:border-box; }
+      body { margin:0; background:#E9E9E9; font-family:'DM Sans',Arial,sans-serif; color:var(--texto); line-height:1.55; }
+      .barra { position:sticky; top:0; z-index:10; background:var(--negro); padding:12px 24px; display:flex; gap:12px; justify-content:flex-end; }
+      .barra button { font-family:inherit; font-weight:700; font-size:14px; border:0; border-radius:6px; padding:10px 16px; cursor:pointer; }
+      .btn-todo { background:#fff; color:var(--negro); }
+      .btn-cliente { background:var(--rojo); color:#fff; }
+      .hoja { max-width:860px; margin:28px auto; background:#fff; box-shadow:0 2px 14px rgba(0,0,0,.08); }
+      .cabecera { background:var(--negro); color:#fff; padding:28px 40px; }
+      .marca { font-family:'Bebas Neue',sans-serif; font-size:30px; letter-spacing:4px; }
+      .etiqueta { display:inline-block; background:var(--rojo); color:#fff; font-weight:700; font-size:12px; letter-spacing:1.5px; padding:4px 10px; margin-top:10px; }
+      h1 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:40px; letter-spacing:1px; margin:10px 0 4px; line-height:1.1; }
+      .meta { color:#BDBDBD; font-size:14px; }
+      .cuerpo { padding:28px 40px 36px; }
+      h2 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:26px; letter-spacing:1px; margin:26px 0 8px; }
+      h2:first-child { margin-top:0; }
+      table { width:100%; border-collapse:collapse; margin:8px 0 4px; font-size:15px; }
+      th, td { text-align:left; padding:9px 12px; border-bottom:1px solid #E5E5E5; vertical-align:top; }
+      th { width:46%; font-weight:500; color:var(--suave); }
+      td { font-weight:700; }
+      .semaforo { display:flex; align-items:center; gap:14px; padding:14px 18px; background:var(--gris); margin-bottom:6px; }
+      .punto { width:18px; height:18px; border-radius:50%; background:#1E8E3E; flex:none; }
+      .semaforo strong { font-size:18px; }
+      .aviso { border-left:4px solid #E0A800; background:#FFF8E1; padding:10px 14px; margin:12px 0; font-size:14px; }
+      .tabla-cliente td { font-size:17px; }
+      ul { padding-left:20px; margin:6px 0; }
+      p { margin:6px 0; }
+      .pie { color:var(--suave); font-size:12px; padding:0 40px 24px; }
+      @media (max-width:640px) { .cabecera, .cuerpo { padding:22px; } h1 { font-size:32px; } th { width:52%; } }
+      @media print {
+        @page { size:A4; margin:12mm; }
+        body { background:#fff; }
+        .barra { display:none; }
+        .hoja { box-shadow:none; margin:0; max-width:none; }
+        .hoja, .cabecera, .etiqueta, .semaforo, .punto, .aviso { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+        .salto { page-break-before:always; }
+        body.solo-cliente .interno { display:none; }
+        body.solo-cliente .salto { page-break-before:auto; }
+      }
+    </style>
+    </head>
+    <body>
+    <div class="barra">
+      <button class="btn-todo" onclick="imprimir(false)">Descargar todo (PDF)</button>
+      <button class="btn-cliente" onclick="imprimir(true)">Descargar propuesta cliente (PDF)</button>
+    </div>
+
+    <section class="hoja interno">
+      <div class="cabecera">
+        <div class="marca">IDCO</div>
+        <span class="etiqueta">USO INTERNO · NO COMPARTIR</span>
+        <h1>Clínica Dental Sonrisa Plena</h1>
+        <div class="meta">Clínica dental · Implantes dentales y ortodoncia invisible · 07/10/2026</div>
+      </div>
+      <div class="cuerpo">
+        <div class="semaforo"><span class="punto"></span><div><strong>VERDE</strong><br><span>Sin advertencias</span></div></div>
+        <div class="aviso"><strong>Cifras no verificadas.</strong> El texto incluye cifras que no aparecen en el cálculo: 64, 85. Revísalas antes de usar el informe.</div>
+        <h2>Resumen</h2><p>Clínica Dental Sonrisa Plena encaja para el modelo pay‑per‑show (semáforo VERDE, confianza ALTA, madurez ALTA). Abrir a 60 €/show (rango 50–90). Con 4.000 € de ads, el conservador estima 20 shows/mes y un coste total de 251,03 €/show (191,03 € en ads + 60 €), con un ahorro vs su situación actual del 15,7 %. Facturación IDCO estimada: 1.256,34 € (cons.) y 2.134,96 € (base).</p>
+        <h2>Números para negociar</h2><table><tr><th>Precio recomendado (apertura)</th><td>60 €/show</td></tr><tr><th>Límite inferior IDCO</th><td>50 €/show</td></tr><tr><th>Techo (ahorro nulo para el cliente)</th><td>90 €/show</td></tr><tr><th>Coste actual del cliente por show</th><td>204,55 €</td></tr><tr><th>Coste ads por show (base / conservador)</th><td>112,41 € / 191,03 €</td></tr><tr><th>Shows al mes (base / conservador)</th><td>35 / 20</td></tr><tr><th>Facturación IDCO (base / conservador)</th><td>2.135 € / 1.256 €</td></tr><tr><th>Ahorro vs actual (escenario base)</th><td>15,7 %</td></tr><tr><th>Confianza del cálculo</th><td>ALTA</td></tr><tr><th>Madurez</th><td>ALTA (6/6)</td></tr><tr><th>Origen de las variables</th><td>cpl: MEZCLA (85 % real), lead_agenda: MEZCLA (85 % real), agenda_show: MEZCLA (64 % real)</td></tr></table>
+        <h2>Cómo negociar</h2><ul><li>Precio de apertura: 60 €/show.</li><li>Límite inferior (suelo): 50 €/show.</li><li>Techo: 90 €/show.</li><li>Palancas:</li><li>Precio: mantener 60 €/show; si pide ajuste, no bajar de 50 €/show.</li><li>Tope mensual: proponer 20 shows/mes facturables durante el piloto (alineado con el conservador); revisar al cierre del mes 2.</li><li>Periodo inicial: 2–3 meses en pay‑per‑show; si se cumplen KPIs, transición al servicio completo con fee fijo.</li></ul>
+        <h2>Objeciones probables</h2><p>1) “Quiero un precio por show más bajo.”</p><ul><li>Respuesta: El rango viable es 50–90 €/show; proponemos abrir en 60 €/show. Podemos movernos dentro del rango si fijamos tope de shows facturables y un piloto acotado.</li></ul><p>2) “¿Y si hay no‑shows o citas de baja calidad?”</p><ul><li>Respuesta: Solo se factura la cita presentada. Definimos criterios de validez, confirmaciones y reprogramaciones; reforzamos la cualificación y los guiones de llamada.</li></ul><p>3) “Prefiero un fee fijo desde el principio.”</p><ul><li>Respuesta: Empezamos con pay‑per‑show para minimizar tu riesgo; si se cumplen objetivos en el piloto, migramos a servicio completo con fee fijo.</li></ul>
+        <h2>Riesgos</h2><ul><li>Confianza ALTA; fuentes mayoritariamente reales (CPL y lead→agenda 85 %, agenda→show 64 %).</li><li>Riesgos operativos: capacidad para absorber 20–35 shows/mes sin demoras; coordinación de agenda y cierres.</li><li>Si cae lead→agenda (0,28 cons.) o agenda→show (0,56 cons.), caerán los shows y subirá el coste total por show.</li><li>Dos verticales a la vez (implantes y ortodoncia) pueden diluir el mensaje; priorizar una al inicio.</li><li>Tiempo de respuesta declarado “menos de 1 h”: mantener disciplina para proteger el ratio agenda→show.</li></ul>
+        <h2>Siguiente paso</h2><p>Enviar para aprobación la propuesta con 60 €/show y tope de 20 shows/mes durante 2–3 meses, y agendar la reunión de onboarding (accesos a Meta Ads, landing/formulario y agenda).</p>
+      </div>
+      <div class="pie">Calculadora PPS · modelo v1.0 · 07/10/2026</div>
+    </section>
+
+    <section class="hoja salto">
+      <div class="cabecera">
+        <div class="marca">IDCO</div>
+        <span class="etiqueta">PROPUESTA</span>
+        <h1>Pago por cita presentada para Clínica Dental Sonrisa Plena</h1>
+        <div class="meta">Preparada para Clínica Dental Sonrisa Plena · 07/10/2026</div>
+      </div>
+      <div class="cuerpo">
+        <h2>Tu situación actual</h2><p>Hoy inviertes 4.000 €/mes en publicidad y 2.500 €/mes en tu agencia. Consideras que el volumen de citas es bajo para esa inversión y prefieres probar el modelo antes de un compromiso largo.</p>
+        <h2>Nuestra propuesta</h2><p>Te proponemos trabajar con pago por cita presentada. Tú mantienes la inversión en publicidad y nosotros gestionamos las campañas y el seguimiento de los contactos hasta la cita. Solo nos pagas por cada cita a la que la persona realmente acude a tu clínica.</p><p>Nos encargamos de: estrategia y gestión de campañas (Meta Ads), creatividades, embudos y formularios, cualificación, confirmaciones y reprogramaciones, integración con tu agenda y reporting. La estimación de resultados (escenario conservador) y la inversión aparecen en la tabla adjunta.</p>
+        <h2>Inversión y resultados esperados</h2>
+        <table class="tabla-cliente">
+          <tr><th>Inversión mensual en publicidad</th><td>4.000 €</td></tr>
+          <tr><th>Precio por cita presentada</th><td>60 €</td></tr>
+          <tr><th>Citas presentadas estimadas al mes</th><td>20 como punto de partida</td></tr>
+          <tr><th>Cuándo pagas a IDCO</th><td>Solo por cada cita a la que la persona asiste</td></tr>
+        </table>
+        <h2>Próximos pasos</h2><p>1) Sesión de alineación para priorizar servicios (implantes y ortodoncia invisible) y mensajes.</p><p>2) Onboarding técnico: accesos a cuentas de anuncios y web, configuración de CRM y agenda para confirmaciones.</p><p>3) Firma del acuerdo de pago por cita presentada y activación de campañas.</p>
+      </div>
+      <div class="pie">IDCO · Instituto de Crecimiento Orgánico</div>
+    </section>
+
+    <script type="application/json" id="idco-pps-data">{"model_version": "1.0", "nombre_lead": "Clínica Dental Sonrisa Plena", "industria": "Clínica dental", "servicio": "Implantes dentales y ortodoncia invisible", "semaforo": "VERDE", "confianza": "ALTA", "presupuesto_ads": 4000.0, "precio_recomendado": 60.0, "shows_mes_cons": 20.94, "escenarios": {}}</script>
+    <script>
+      function imprimir(soloCliente) {
+        const titulo = document.title;
+        document.body.classList.toggle('solo-cliente', soloCliente);
+        document.title = soloCliente ? 'Propuesta IDCO - Clínica Dental Sonrisa Plena' : 'Informe completo IDCO - Clínica Dental Sonrisa Plena';
+        window.print();
+        setTimeout(() => { document.body.classList.remove('solo-cliente'); document.title = titulo; }, 500);
+      }
+    </script>
+    </body>
+    </html>
