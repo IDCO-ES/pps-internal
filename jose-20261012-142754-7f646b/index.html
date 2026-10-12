@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+    <html lang="es">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Propuesta · jose · IDCO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+      :root { --negro:#0A0A0A; --rojo:#DD1927; --gris:#F2F2F2; --texto:#1A1A1A; --suave:#6B6B6B; }
+      * { box-sizing:border-box; }
+      body { margin:0; background:#E9E9E9; font-family:'DM Sans',Arial,sans-serif; color:var(--texto); line-height:1.55; }
+      .barra { position:sticky; top:0; z-index:10; background:var(--negro); padding:12px 24px; display:flex; gap:12px; justify-content:flex-end; }
+      .barra button { font-family:inherit; font-weight:700; font-size:14px; border:0; border-radius:6px; padding:10px 16px; cursor:pointer; }
+      .btn-todo { background:#fff; color:var(--negro); }
+      .btn-cliente { background:var(--rojo); color:#fff; }
+      .hoja { max-width:860px; margin:28px auto; background:#fff; box-shadow:0 2px 14px rgba(0,0,0,.08); }
+      .cabecera { background:var(--negro); color:#fff; padding:28px 40px; }
+      .marca { font-family:'Bebas Neue',sans-serif; font-size:30px; letter-spacing:4px; }
+      .etiqueta { display:inline-block; background:var(--rojo); color:#fff; font-weight:700; font-size:12px; letter-spacing:1.5px; padding:4px 10px; margin-top:10px; }
+      h1 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:40px; letter-spacing:1px; margin:10px 0 4px; line-height:1.1; }
+      .meta { color:#BDBDBD; font-size:14px; }
+      .cuerpo { padding:28px 40px 36px; }
+      h2 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:26px; letter-spacing:1px; margin:26px 0 8px; }
+      h2:first-child { margin-top:0; }
+      table { width:100%; border-collapse:collapse; margin:8px 0 4px; font-size:15px; }
+      th, td { text-align:left; padding:9px 12px; border-bottom:1px solid #E5E5E5; vertical-align:top; }
+      th { width:46%; font-weight:500; color:var(--suave); }
+      td { font-weight:700; }
+      .semaforo { display:flex; align-items:center; gap:14px; padding:14px 18px; background:var(--gris); margin-bottom:6px; }
+      .punto { width:18px; height:18px; border-radius:50%; background:#DD1927; flex:none; }
+      .semaforo strong { font-size:18px; }
+      .aviso { border-left:4px solid #E0A800; background:#FFF8E1; padding:10px 14px; margin:12px 0; font-size:14px; }
+      .tabla-cliente td { font-size:17px; }
+      ul { padding-left:20px; margin:6px 0; }
+      p { margin:6px 0; }
+      .pie { color:var(--suave); font-size:12px; padding:0 40px 24px; }
+      @media (max-width:640px) { .cabecera, .cuerpo { padding:22px; } h1 { font-size:32px; } th { width:52%; } }
+      @media print {
+        @page { size:A4; margin:12mm; }
+        body { background:#fff; }
+        .barra { display:none; }
+        .hoja { box-shadow:none; margin:0; max-width:none; }
+        .hoja, .cabecera, .etiqueta, .semaforo, .punto, .aviso { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+        .salto { page-break-before:always; }
+        body.solo-cliente .interno { display:none; }
+        body.solo-cliente .salto { page-break-before:auto; }
+      }
+    </style>
+    </head>
+    <body>
+    <div class="barra">
+      <button class="btn-todo" onclick="imprimir(false)">Descargar todo (PDF)</button>
+      <button class="btn-cliente" onclick="imprimir(true)">Descargar propuesta cliente (PDF)</button>
+    </div>
+
+    <section class="hoja interno">
+      <div class="cabecera">
+        <div class="marca">IDCO</div>
+        <span class="etiqueta">USO INTERNO · NO COMPARTIR</span>
+        <h1>jose</h1>
+        <div class="meta">Podología · Cirugía podológica · 12/10/2026</div>
+      </div>
+      <div class="cuerpo">
+        <div class="semaforo"><span class="punto"></span><div><strong>ROJO</strong><br><span>El precio mínimo que necesita IDCO (300 €/show) supera el techo de referencia | Confianza baja: la proyección depende sobre todo de benchmarks o valores por defecto</span></div></div>
+        
+        <h2>Resumen</h2><p>Jose es un podólogo sin histórico de anuncios. Semáforo ROJO: el mínimo de IDCO (300 €/show) supera el techo de referencia (150 €/show) y la confianza es BAJA por depender de benchmarks. Con 1.000 € de ads, el conservador proyecta 17 leads y 3 shows al mes; proponemos servicio completo con fee fijo en lugar de pay‑per‑show.</p>
+        <h2>Números para negociar</h2><table><tr><th>Precio recomendado (apertura)</th><td>—</td></tr><tr><th>Límite inferior IDCO</th><td>300 €/show</td></tr><tr><th>Techo (ahorro nulo para el cliente)</th><td>150 €/show</td></tr><tr><th>Coste actual del cliente por show</th><td>Sin datos actuales</td></tr><tr><th>Coste ads por show (base / conservador)</th><td>174,23 € / 296,07 €</td></tr><tr><th>Shows al mes (base / conservador)</th><td>5 / 3</td></tr><tr><th>Facturación IDCO (base / conservador)</th><td>1.722 € / 1.013 €</td></tr><tr><th>Ahorro vs actual (escenario base)</th><td>—</td></tr><tr><th>Confianza del cálculo</th><td>BAJA</td></tr><tr><th>Madurez</th><td>MEDIA (3/6)</td></tr><tr><th>Origen de las variables</th><td>cpl: BENCHMARK, lead_agenda: BENCHMARK, agenda_show: BENCHMARK</td></tr></table>
+        <h2>Cómo negociar</h2><ul><li>Precio de apertura: 300 €/show (solo si insiste en pay‑per‑show).</li><li>Límite inferior (IDCO): 300 €/show.</li><li>Techo de referencia: 150 €/show (no hay solape; no habría ahorro para el cliente).</li><li>Palancas: mover el precio dentro del rango (inviable con estos límites), fijar un tope mensual de shows facturables y plantear un periodo inicial de 2 a 3 meses antes de pasar al servicio completo con fee fijo. Priorizar directamente el servicio completo.</li></ul>
+        <h2>Objeciones probables</h2><p>1) Prefiero un modelo a éxito (solo pago por resultados).</p><p>Respuesta: Con estos números el pay‑per‑show no es viable: el mínimo de IDCO (300 €/show) supera el techo de referencia (150 €/show). Proponer servicio completo con fee fijo.</p><p>2) No quiero invertir en anuncios; el boca a boca me funciona.</p><p>Respuesta: El orgánico es limitado y poco predecible. El servicio completo combina Meta Ads, marca personal y captación orgánica para construir un flujo estable de demanda.</p><p>3) No quiero llenar la agenda con tratamientos de bajo ticket.</p><p>Respuesta: Enfocamos campañas, embudos y contenido a cirugía; segmentamos por intención y filtramos en el embudo para priorizar pacientes de alto valor.</p>
+        <h2>Riesgos</h2><ul><li>Pay‑per‑show inviable: mínimo 300 €/show vs techo 150 €/show.</li><li>Confianza BAJA: CPL (58,37 €), lead→agenda (0,32) y agenda→show (0,63) proceden de benchmarks; coste actual por show no disponible.</li><li>Volumen conservador ajustado: 3 shows/mes con 1.000 €; si la intención a cirugía es baja, puede disminuir.</li><li>Riesgo de expectativas: sin histórico de campañas; impacto del servicio completo será progresivo.</li></ul>
+        <h2>Siguiente paso</h2><p>Agendar con Jose una reunión para presentar el servicio completo y acordar accesos a Meta para la auditoría inicial.</p>
+      </div>
+      <div class="pie">Calculadora PPS · modelo v1.0 · 12/10/2026</div>
+    </section>
+
+    <section class="hoja salto">
+      <div class="cabecera">
+        <div class="marca">IDCO</div>
+        <span class="etiqueta">PROPUESTA</span>
+        <h1>Plan de crecimiento con servicio completo para tu clínica de podología</h1>
+        <div class="meta">Preparada para jose · 12/10/2026</div>
+      </div>
+      <div class="cuerpo">
+        <h2>Tu situación actual</h2><p>Hoy dependes del boca a boca y no tienes campañas activas. No contamos con un coste actual por cita presentada contrastado, por lo que partimos sin una referencia propia. El objetivo es generar citas cualificadas de cirugía y tratamientos en tu zona.</p>
+        <h2>Nuestra propuesta</h2><p>Te proponemos trabajar con nuestro servicio completo con fee fijo. Nos encargamos de:</p><ul><li>Campañas de Meta Ads.</li><li>Embudos.</li><li>Estrategia.</li><li>Contenido.</li><li>Marca personal.</li><li>Captación orgánica.</li></ul><p>Tú te centras en los pacientes; nosotros activamos y escalamos la demanda con un sistema coherente y medible.</p>
+        
+        <h2>Próximos pasos</h2><ul><li>Sesión de arranque para alinear objetivos, mensajes y segmentos.</li><li>Accesos a Meta y recopilación de materiales (fotos, casos y testimonios).</li><li>Calendario de lanzamiento con creatividades y primeros contenidos.</li></ul>
+      </div>
+      <div class="pie">IDCO · Instituto de Crecimiento Orgánico</div>
+    </section>
+
+    <script type="application/json" id="idco-pps-data">{"model_version": "1.0", "nombre_lead": "jose", "industria": "Podología", "servicio": "Cirugía podológica", "semaforo": "ROJO", "confianza": "BAJA", "presupuesto_ads": 1000.0, "precio_recomendado": null, "shows_mes_cons": 3.38, "escenarios": {"conservador": {"cpl": 58.37, "lead_agenda": 0.32, "agenda_show": 0.63, "coste_ads_show": 296.07, "shows_mes": 3.38, "leads_mes": 17.13, "limitado_capacidad": false}, "base": {"cpl": 44.9, "lead_agenda": 0.35, "agenda_show": 0.74, "coste_ads_show": 174.23, "shows_mes": 5.74, "leads_mes": 22.27, "limitado_capacidad": false}, "favorable": {"cpl": 38.16, "lead_agenda": 0.37, "agenda_show": 0.77, "coste_ads_show": 134.33, "shows_mes": 7.44, "leads_mes": 26.2, "limitado_capacidad": false}}}</script>
+    <script>
+      function imprimir(soloCliente) {
+        const titulo = document.title;
+        document.body.classList.toggle('solo-cliente', soloCliente);
+        document.title = soloCliente ? 'Propuesta IDCO - jose' : 'Informe completo IDCO - jose';
+        window.print();
+        setTimeout(() => { document.body.classList.remove('solo-cliente'); document.title = titulo; }, 500);
+      }
+    </script>
+    </body>
+    </html>
