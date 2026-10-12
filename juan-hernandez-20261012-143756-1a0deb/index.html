@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+    <html lang="es">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Propuesta · Juan Hernandez · IDCO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+      :root { --negro:#0A0A0A; --rojo:#DD1927; --gris:#F2F2F2; --texto:#1A1A1A; --suave:#6B6B6B; }
+      * { box-sizing:border-box; }
+      body { margin:0; background:#E9E9E9; font-family:'DM Sans',Arial,sans-serif; color:var(--texto); line-height:1.55; }
+      .barra { position:sticky; top:0; z-index:10; background:var(--negro); padding:12px 24px; display:flex; gap:12px; justify-content:flex-end; }
+      .barra button { font-family:inherit; font-weight:700; font-size:14px; border:0; border-radius:6px; padding:10px 16px; cursor:pointer; }
+      .btn-todo { background:#fff; color:var(--negro); }
+      .btn-cliente { background:var(--rojo); color:#fff; }
+      .hoja { max-width:860px; margin:28px auto; background:#fff; box-shadow:0 2px 14px rgba(0,0,0,.08); }
+      .cabecera { background:var(--negro); color:#fff; padding:28px 40px; }
+      .marca { font-family:'Bebas Neue',sans-serif; font-size:30px; letter-spacing:4px; }
+      .etiqueta { display:inline-block; background:var(--rojo); color:#fff; font-weight:700; font-size:12px; letter-spacing:1.5px; padding:4px 10px; margin-top:10px; }
+      h1 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:40px; letter-spacing:1px; margin:10px 0 4px; line-height:1.1; }
+      .meta { color:#BDBDBD; font-size:14px; }
+      .cuerpo { padding:28px 40px 36px; }
+      h2 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:26px; letter-spacing:1px; margin:26px 0 8px; }
+      h2:first-child { margin-top:0; }
+      table { width:100%; border-collapse:collapse; margin:8px 0 4px; font-size:15px; }
+      th, td { text-align:left; padding:9px 12px; border-bottom:1px solid #E5E5E5; vertical-align:top; }
+      th { width:46%; font-weight:500; color:var(--suave); }
+      td { font-weight:700; }
+      .semaforo { display:flex; align-items:center; gap:14px; padding:14px 18px; background:var(--gris); margin-bottom:6px; }
+      .punto { width:18px; height:18px; border-radius:50%; background:#DD1927; flex:none; }
+      .semaforo strong { font-size:18px; }
+      .aviso { border-left:4px solid #E0A800; background:#FFF8E1; padding:10px 14px; margin:12px 0; font-size:14px; }
+      .tabla-cliente td { font-size:17px; }
+      ul { padding-left:20px; margin:6px 0; }
+      p { margin:6px 0; }
+      .pie { color:var(--suave); font-size:12px; padding:0 40px 24px; }
+      @media (max-width:640px) { .cabecera, .cuerpo { padding:22px; } h1 { font-size:32px; } th { width:52%; } }
+      @media print {
+        @page { size:A4; margin:12mm; }
+        body { background:#fff; }
+        .barra { display:none; }
+        .hoja { box-shadow:none; margin:0; max-width:none; }
+        .hoja, .cabecera, .etiqueta, .semaforo, .punto, .aviso { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+        .salto { page-break-before:always; }
+        body.solo-cliente .interno { display:none; }
+        body.solo-cliente .salto { page-break-before:auto; }
+      }
+    </style>
+    </head>
+    <body>
+    <div class="barra">
+      <button class="btn-todo" onclick="imprimir(false)">Descargar todo (PDF)</button>
+      <button class="btn-cliente" onclick="imprimir(true)">Descargar propuesta cliente (PDF)</button>
+    </div>
+
+    <section class="hoja interno">
+      <div class="cabecera">
+        <div class="marca">IDCO</div>
+        <span class="etiqueta">USO INTERNO · NO COMPARTIR</span>
+        <h1>Juan Hernandez</h1>
+        <div class="meta">Medicina estética · Consultas de medicina estética · 12/10/2026</div>
+      </div>
+      <div class="cuerpo">
+        <div class="semaforo"><span class="punto"></span><div><strong>ROJO</strong><br><span>El precio mínimo que necesita IDCO (390 €/show) supera el techo de referencia | Confianza baja: la proyección depende sobre todo de benchmarks o valores por defecto</span></div></div>
+        
+        <h2>Resumen</h2><p>Juan Hernandez (medicina estética), semáforo ROJO: el mínimo que necesita IDCO (390 €/show) supera el techo de referencia (150 €/show). Propuesta: servicio completo con fee fijo (no PPS). En conservador, con 1.000 € de ads, estimamos 2 shows/mes y 16 leads; facturación de IDCO prevista 1.010,70 €.</p>
+        <h2>Números para negociar</h2><table><tr><th>Precio recomendado (apertura)</th><td>—</td></tr><tr><th>Límite inferior IDCO</th><td>390 €/show</td></tr><tr><th>Techo (ahorro nulo para el cliente)</th><td>150 €/show</td></tr><tr><th>Coste actual del cliente por show</th><td>Sin datos actuales</td></tr><tr><th>Coste ads por show (base / conservador)</th><td>227,07 € / 385,87 €</td></tr><tr><th>Shows al mes (base / conservador)</th><td>4 / 2</td></tr><tr><th>Facturación IDCO (base / conservador)</th><td>1.718 € / 1.011 €</td></tr><tr><th>Ahorro vs actual (escenario base)</th><td>—</td></tr><tr><th>Confianza del cálculo</th><td>BAJA</td></tr><tr><th>Madurez</th><td>MEDIA (3/6)</td></tr><tr><th>Origen de las variables</th><td>cpl: BENCHMARK, lead_agenda: BENCHMARK, agenda_show: BENCHMARK</td></tr></table>
+        <h2>Cómo negociar</h2><p>Precio de apertura (si fuerzan PPS): 390 €/show. Límite inferior: 390 €/show. Techo: 150 €/show (techo de referencia). Palancas: no hay rango viable para PPS; orientar la conversación a fee fijo. Si aun así lo piden, abrir a 390 €/show, ofrecer tope mensual de shows facturables y pactar un periodo inicial breve antes de migrar a servicio completo con fee fijo.</p>
+        <h2>Objeciones probables</h2><ul><li>Quiero pagar solo por resultados (PPS), no fee fijo. Respuesta: con los datos actuales el PPS no es sostenible: mínimo 390 €/show y techo 150 €/show. Orientar a servicio completo con fee fijo y revaluar PPS cuando existan métricas propias.</li><li>Con ese presupuesto el volumen es bajo. Respuesta: en conservador, con 1.000 € de ads, se estiman 2 shows/mes y 16 leads. Empezar optimizando mensajes y creatividades; el servicio completo permitirá escalar tras validar.</li><li>Las estimaciones no me cuadran; están basadas en benchmarks. Respuesta: reconocemos confianza BAJA. Alinear tracking desde el inicio y solicitar histórico de coste por cita presentada para recalibrar con datos propios cuanto antes.</li></ul>
+        <h2>Riesgos</h2><ul><li>Sin rango viable para PPS: mínimo 390 €/show &gt; techo 150 €/show.</li><li>Confianza BAJA: variables clave por BENCHMARK; coste actual por show vacío, ahorro no calculable.</li><li>Volumen bajo en conservador: 2 shows/mes; coste ads/show 385,87 € y coste total/show 775,87 €.</li><li>Facturación IDCO conservadora 1.010,70 € muy próxima al mínimo mensual 1.000 €; riesgo de quedarse por debajo si el rendimiento inicial cae.</li></ul>
+        <h2>Siguiente paso</h2><p>Preparar y enviar a Juan la propuesta de servicio completo con fee fijo y ejemplos de activos. Agendar sesión de estrategia para mensajes y oferta. Solicitar accesos a Meta y, si existen, datos del coste por cita presentada.</p>
+      </div>
+      <div class="pie">Calculadora PPS · modelo v1.0 · 12/10/2026</div>
+    </section>
+
+    <section class="hoja salto">
+      <div class="cabecera">
+        <div class="marca">IDCO</div>
+        <span class="etiqueta">PROPUESTA</span>
+        <h1>Propuesta de servicio completo para tu clínica de medicina estética</h1>
+        <div class="meta">Preparada para Juan Hernandez · 12/10/2026</div>
+      </div>
+      <div class="cuerpo">
+        <h2>Tu situación actual</h2><p>Partes de una captación activa de contactos y citas. Aún no contamos con un dato fiable de coste por cita presentada. El objetivo es ordenar y fortalecer el sistema para poder escalar con control.</p>
+        <h2>Nuestra propuesta</h2><p>Te proponemos trabajar con el servicio completo de IDCO con fee fijo. Incluye: campañas de Meta Ads, embudos, estrategia, contenido, marca personal y captación orgánica. Construiremos contigo un sistema que genere demanda constante y consolide tu agenda.</p>
+        
+        <h2>Próximos pasos</h2><ul><li>Reunión de arranque para alinear público, oferta y mensajes.</li><li>Accesos a cuentas y activos necesarios (Meta y creatividades).</li><li>Configuración inicial de campañas, embudos y calendario de contenidos.</li></ul>
+      </div>
+      <div class="pie">IDCO · Instituto de Crecimiento Orgánico</div>
+    </section>
+
+    <script type="application/json" id="idco-pps-data">{"model_version": "1.0", "nombre_lead": "Juan Hernandez", "industria": "Medicina estética", "servicio": "Consultas de medicina estética", "semaforo": "ROJO", "confianza": "BAJA", "presupuesto_ads": 1000.0, "precio_recomendado": null, "shows_mes_cons": 2.59, "escenarios": {"conservador": {"cpl": 59.31, "lead_agenda": 0.25, "agenda_show": 0.6, "coste_ads_show": 385.87, "shows_mes": 2.59, "leads_mes": 16.86, "limitado_capacidad": false}, "base": {"cpl": 45.62, "lead_agenda": 0.28, "agenda_show": 0.71, "coste_ads_show": 227.07, "shows_mes": 4.4, "leads_mes": 21.92, "limitado_capacidad": false}, "favorable": {"cpl": 38.78, "lead_agenda": 0.3, "agenda_show": 0.75, "coste_ads_show": 175.07, "shows_mes": 5.71, "leads_mes": 25.79, "limitado_capacidad": false}}}</script>
+    <script>
+      function imprimir(soloCliente) {
+        const titulo = document.title;
+        document.body.classList.toggle('solo-cliente', soloCliente);
+        document.title = soloCliente ? 'Propuesta IDCO - Juan Hernandez' : 'Informe completo IDCO - Juan Hernandez';
+        window.print();
+        setTimeout(() => { document.body.classList.remove('solo-cliente'); document.title = titulo; }, 500);
+      }
+    </script>
+    </body>
+    </html>
