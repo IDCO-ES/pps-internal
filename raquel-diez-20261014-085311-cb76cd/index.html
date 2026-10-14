@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+    <html lang="es">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>PPS · Raquel Diez · IDCO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+      :root { --negro:#0A0A0A; --rojo:#DD1927; --gris:#F2F2F2; --texto:#1A1A1A; --suave:#6B6B6B; --sem:#1E8E3E; }
+      * { box-sizing:border-box; }
+      body { margin:0; background:#E9E9E9; font-family:'DM Sans',Arial,sans-serif; color:var(--texto); line-height:1.55; }
+      .nav { position:sticky; top:0; z-index:10; background:var(--negro); padding:10px 24px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+      .nav a { color:#BDBDBD; text-decoration:none; font-weight:700; font-size:14px; padding:8px 12px; border-radius:6px; }
+      .nav a:hover { color:#fff; background:#222; }
+      .nav .sp { flex:1; }
+      .btn { font-family:inherit; font-weight:700; font-size:14px; border:0; border-radius:6px; padding:10px 16px; cursor:pointer; background:#fff; color:var(--negro); }
+      .btn.rojo { background:var(--rojo); color:#fff; }
+      .btn.sec { background:var(--gris); color:var(--negro); font-size:13px; padding:8px 12px; }
+      .hoja { max-width:860px; margin:28px auto; background:#fff; box-shadow:0 2px 14px rgba(0,0,0,.08); }
+      .cabecera { background:var(--negro); color:#fff; padding:28px 40px; display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; }
+      .cabecera .btn { margin-top:6px; }
+      .marca { font-family:'Bebas Neue',sans-serif; font-size:30px; letter-spacing:4px; }
+      .etiqueta { display:inline-block; background:var(--rojo); color:#fff; font-weight:700; font-size:12px; letter-spacing:1.5px; padding:4px 10px; margin-top:10px; }
+      .etiqueta.gris { background:#444; }
+      h1 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:40px; letter-spacing:1px; margin:10px 0 4px; line-height:1.1; }
+      .meta { color:#BDBDBD; font-size:14px; }
+      .cuerpo { padding:28px 40px 36px; }
+      h2 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:26px; letter-spacing:1px; margin:26px 0 8px; }
+      h2:first-child { margin-top:0; }
+      table { width:100%; border-collapse:collapse; margin:8px 0 4px; font-size:15px; }
+      th, td { text-align:left; padding:9px 12px; border-bottom:1px solid #E5E5E5; vertical-align:top; }
+      th { width:46%; font-weight:500; color:var(--suave); }
+      td { font-weight:700; }
+      .semaforo { display:flex; align-items:center; gap:14px; padding:14px 18px; background:var(--gris); margin-bottom:14px; }
+      .punto { width:18px; height:18px; border-radius:50%; background:var(--sem); flex:none; }
+      .semaforo strong { font-size:18px; }
+      .kpis { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:0 0 8px; }
+      .kpi { background:var(--gris); padding:14px; border-top:3px solid var(--sem); }
+      .kpi .v { font-family:'Bebas Neue',sans-serif; font-size:30px; line-height:1; }
+      .kpi .l { color:var(--suave); font-size:12px; margin-top:4px; }
+      .aviso { border-left:4px solid #E0A800; background:#FFF8E1; padding:10px 14px; margin:12px 0; font-size:14px; }
+      .aviso.rojo { border-left-color:var(--rojo); background:#FDECEC; }
+      .aviso ul { margin:4px 0 0; }
+      .tabla-cliente td { font-size:17px; }
+      .calculo { margin:14px 0; border:1px solid #E5E5E5; border-radius:6px; padding:8px 12px; }
+      .calculo summary { cursor:pointer; font-weight:700; }
+      .nota { font-weight:400; color:var(--suave); font-size:13px; }
+      #analisis.plegado .cuerpo, #analisis.plegado .pie { display:none; }
+      #analisis.plegado .cabecera { padding:18px 40px; }
+      #analisis.plegado h1 { font-size:26px; margin:4px 0 0; }
+      .acciones { display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+      ul { padding-left:20px; margin:6px 0; }
+      p { margin:6px 0; }
+      .pie { color:var(--suave); font-size:12px; padding:0 40px 24px; }
+      @media (max-width:640px) { .cabecera, .cuerpo { padding:22px; } h1 { font-size:32px; } th { width:52%; } .kpis { grid-template-columns:repeat(2, 1fr); } }
+      @media print {
+        @page { size:A4; margin:12mm; }
+        body { background:#fff; }
+        .nav, .cabecera .btn, .abrir { display:none; }
+        .hoja { box-shadow:none; margin:0; max-width:none; page-break-before:always; }
+        #comercial { page-break-before:auto; }
+        .hoja, .cabecera, .etiqueta, .semaforo, .punto, .aviso, .kpi { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+        #analisis.plegado .cuerpo, #analisis.plegado .pie { display:block; }
+        body.solo-comercial .hoja:not(#comercial), body.solo-cliente .hoja:not(#cliente), body.solo-analisis .hoja:not(#analisis) { display:none; }
+        body.solo-comercial #comercial, body.solo-cliente #cliente, body.solo-analisis #analisis { page-break-before:auto; }
+      }
+    </style>
+    </head>
+    <body>
+    <div class="nav">
+      <a href="#comercial">Comercial</a><a href="#cliente">Propuesta cliente</a><a href="#analisis" onclick="toggleAnalisis(true)">Análisis interno</a>
+      <span class="sp"></span>
+      <button class="btn" onclick="imprimir('')">Descargar todo (PDF)</button>
+    </div>
+
+    <section class="hoja" id="comercial">
+      <div class="cabecera">
+        <div>
+          <div class="marca">IDCO</div>
+          <span class="etiqueta">COMERCIAL · USO INTERNO</span>
+          <h1>Raquel Diez</h1>
+          <div class="meta">Medicina estética · Tratamientos estéticos (lifting de párpados, micropigmentación, Dermapen) · 14/10/2026</div>
+        </div>
+        <button class="btn" onclick="imprimir('comercial')">Descargar sección (PDF)</button>
+      </div>
+      <div class="cuerpo">
+        <div class="semaforo"><span class="punto"></span><div><strong>Encaja pay-per-show</strong><br><span>Sin advertencias</span></div></div>
+        <div class="kpis">
+          <div class="kpi"><div class="v">75 €</div><div class="l">Precio de apertura por cita</div></div>
+          <div class="kpi"><div class="v">65–150 €</div><div class="l">Rango de negociación</div></div>
+          <div class="kpi"><div class="v">16–20</div><div class="l">Citas presentadas al mes</div></div>
+          <div class="kpi"><div class="v">13</div><div class="l">Citas garantizables al mes</div></div>
+        </div>
+        
+        <h2>Resumen</h2><p>Raquel encaja en pay-per-show (resultado: Encaja pay-per-show) con confianza MEDIA. Con 1.000,00 € de ads, el escenario conservador estima 67 leads y 16 shows/mes; proponemos 75,00 €/show con un coste total por show de 136,27 € (ads 61,27 € + IDCO 75,00 €). Facturación estimada de IDCO en conservador: 1.224,00 €. El coste total por show supone el 27,3 % de un ticket detectado de 500,00 €.</p>
+        
+        <h2>Números para negociar</h2><table><tr><th>Precio de apertura</th><td>75 €/show</td></tr><tr><th>No bajar de</th><td>65 €/show</td></tr><tr><th>Techo</th><td>150 €/show</td></tr><tr><th>Inversión en ads del cliente</th><td>1.000 €/mes</td></tr><tr><th>Citas presentadas al mes (conservador / base)</th><td>16 / 20</td></tr><tr><th>Coste total por cita para el cliente (conservador)</th><td>136,27 €</td></tr><tr><th>Citas presentadas garantizables al mes</th><td><strong>13</strong> <span class='nota'>(coste garantía 61,27 €/show)</span></td></tr><tr><th>Coste por cita / ticket mencionado</th><td>27,3 % de 500 €</td></tr></table>
+        <h2>Cómo negociar</h2><ul><li>Precio de apertura: 75,00 €/show.</li><li>Límite inferior (no bajar de): 65,00 €/show.</li><li>Techo de referencia: 150,00 €/show.</li><li>Palancas:</li><li>Mover el precio dentro del rango según foco y capacidad.</li><li>Fijar tope mensual de shows facturables en 16 (escenario conservador).</li><li>Proponer un periodo inicial de 2–3 meses en pay‑per‑show antes de pasar al servicio completo con fee fijo.</li></ul>
+        <h2>Objeciones probables</h2><ul><li>Objeción: “El precio por show es alto; necesito algo más bajo.” Respuesta: El valor está en pagar solo por asistencia real. No bajar de 65,00 €/show. Podemos proteger con tope de 16 shows facturables y un piloto inicial para validar rendimiento.</li><li>Objeción: “1.000,00 € de ads es mucho para empezar.” Respuesta: Ese nivel está calibrado para ~67 leads y ~16 shows/mes en conservador. Si ajustamos presupuesto, asumimos menor volumen; el modelo sigue siendo a éxito (solo por show presentado).</li><li>Objeción: “Me preocupa la calidad de las citas.” Respuesta: Segmentamos por tratamiento y gestionamos el seguimiento hasta la asistencia. Solo se factura asistencia real; el filtrado creativo y el proceso de seguimiento priorizan intención y reducen no‑shows.</li></ul>
+        <h2>Riesgos</h2><ul><li>Datos apoyados en benchmarks; confianza MEDIA. Los ratios usados son 35 % lead→cita y 75 % asistencia. Si caen, bajan los shows.</li><li>Avisos benchmark: el CPL de contraste (18,00 €) difiere del calculado por componentes (9,20 €). Se usa CPL triangulado de 12,87 €. Riesgo de que el CPL real se sitúe en el tramo alto y reduzca volumen.</li><li>Sin dato de coste actual por show. El techo de 150,00 €/show es de referencia; revisar tras el primer mes.</li><li>Capacidad operativa: necesitan confirmar y recordar citas para sostener ~16 shows/mes. Si la agenda no acompaña, la asistencia cae y sube el coste por oportunidad útil.</li></ul>
+        <h2>Siguiente paso</h2><p>Agendar llamada de cierre para validar presupuesto de ads (1.000,00 €), confirmar tratamientos prioritarios y formalizar piloto pay‑per‑show a 75,00 €/show con tope de 16 shows; enviar acuerdo y onboarding.</p>
+      </div>
+      <div class="pie">Calculadora PPS · modelo v1.5 · 14/10/2026</div>
+    </section>
+
+    <section class="hoja" id="cliente">
+      <div class="cabecera">
+        <div>
+          <div class="marca">IDCO</div>
+          <span class="etiqueta">PROPUESTA</span>
+          <h1>Pago por cita presentada para tratamientos estéticos</h1>
+          <div class="meta">Preparada para Raquel Diez · 14/10/2026</div>
+        </div>
+        <button class="btn rojo" onclick="imprimir('cliente')">Descargar propuesta (PDF)</button>
+      </div>
+      <div class="cuerpo">
+        
+        <h2>Tu situación actual</h2><p>Quieres impulsar la agenda de tratamientos estéticos (lifting de párpados, micropigmentación y Dermapen). No contamos aún con un dato consolidado de coste por cita presentada.</p>
+        <h2>Nuestra propuesta</h2><p>Te proponemos trabajar en pago por cita presentada. Tú inviertes en publicidad. Nosotros gestionamos las campañas de Meta Ads, creamos las creatividades de los anuncios y hacemos el seguimiento de los contactos hasta que asisten a la cita. Tú solo pagas a IDCO por cada cita a la que la persona realmente asiste.</p>
+        <h2>Inversión y resultados esperados</h2>
+        <table class="tabla-cliente">
+          <tr><th>Inversión mensual en publicidad</th><td>1.000 €</td></tr>
+          <tr><th>Precio por cita presentada</th><td>75 €</td></tr>
+          <tr><th>Citas presentadas estimadas al mes</th><td>16 como punto de partida</td></tr>
+          <tr><th>Cuándo pagas a IDCO</th><td>Solo por cada cita a la que la persona asiste</td></tr>
+        </table>
+        <h2>Próximos pasos</h2><ul><li>Alinear tratamientos prioritarios, mensajes y qué consideramos una cita válida.</li><li>Aprobar creatividades y el proceso de seguimiento hasta la asistencia.</li><li>Configurar campañas y el calendario de lanzamiento.</li></ul>
+      </div>
+      <div class="pie">IDCO · Instituto de Crecimiento Orgánico</div>
+    </section>
+
+    <section class="hoja" id="analisis">
+      <div class="cabecera">
+        <div>
+          <div class="marca">IDCO</div>
+          <span class="etiqueta gris">ANÁLISIS INTERNO</span>
+          <h1>Cálculo y benchmarks</h1>
+        </div>
+        <div class="acciones">
+          <button class="btn" id="btn-analisis" onclick="toggleAnalisis()">Ocultar análisis</button>
+          <button class="btn" onclick="imprimir('analisis')">Descargar análisis (PDF)</button>
+        </div>
+      </div>
+      <div class="cuerpo">
+        <h2>Benchmarks y cálculo del coste por show</h2><table><tr><th>CPM (coste por mil impresiones, mercado objetivo)</th><td>7,60 €<br><span class='nota'><a href="https://www.superads.ai/facebook-ads-costs/cpm-cost-per-mille/spain" target="_blank">fuente 1</a> · <a href="https://www.shopify.com/es/blog/cuanto-cuestan-los-anuncios-de-facebook" target="_blank">fuente 2</a></span></td></tr><tr><th>CTR (clics / impresiones)</th><td>1,62 %<br><span class='nota'><a href="https://www.superads.ai/facebook-ads-costs/ctr-click-through-rate/spain" target="_blank">fuente 1</a></span></td></tr><tr><th>Conversión de la página de reserva</th><td>5,1 %<br><span class='nota'><a href="https://unbounce.com/conversion-benchmark-report/healthcare-wellness-conversion-rate/" target="_blank">fuente 1</a> · <a href="https://unbounce.com/landing-pages/whats-a-good-conversion-rate/" target="_blank">fuente 2</a></span></td></tr><tr><th>CPL calculado = CPM / 1000 / (CTR × conversión)</th><td>9,20 €</td></tr><tr><th>CPL publicado de contraste</th><td>18,00 €</td></tr><tr><th>CPL usado</th><td><strong>12,87 €</strong> <span class='nota'>(media geométrica entre calculado y contraste)</span></td></tr><tr><th>Leads que reservan la primera cita</th><td>35 %<br><span class='nota'><a href="https://pronkmedspamarketing.com/blog/med-spa-digital-marketing-benchmarks/" target="_blank">fuente 1</a> · <a href="https://aesthetixmedia.com/blog/dermatology-digital-marketing" target="_blank">fuente 2</a></span></td></tr><tr><th>Asistencia de leads fríos</th><td>75 %<br><span class='nota'><a href="https://pronkmedspamarketing.com/blog/med-spa-digital-marketing-benchmarks/" target="_blank">fuente 1</a> · <a href="https://www.mdpi.com/2227-9032/14/5/623" target="_blank">fuente 2</a></span></td></tr><tr><th>Coste en ads por show (base)</th><td>49,02 € = CPL / (reserva × asistencia)</td></tr><tr><th>Escenario conservador</th><td>61,27 € (CPL × 1,15 y asistencia × 0,92)</td></tr><tr><th>Garantía de citas</th><td>13 al mes = inversión ÷ max(conservador, suelo 35 €) × 0,8</td></tr></table><div class="aviso">CPL publicado de contraste (18,00 €) difiere mucho del calculado por componentes (9,20 €) | CPL triangulado: se usa 12,87 € (media geométrica entre componentes y contraste)</div>
+        <h2>Economía y fiabilidad</h2><table><tr><th>Facturación IDCO (conservador / base)</th><td>1.224 € / 1.530 €</td></tr><tr><th>Coste en ads por show (base / conservador)</th><td>49,02 € / 61,27 €</td></tr><tr><th>Confianza del cálculo</th><td>MEDIA</td></tr><tr><th>Madurez del cliente</th><td>MEDIA (3/6)</td></tr><tr><th>Origen de las variables</th><td>cpl: BENCHMARK, lead_agenda: BENCHMARK, agenda_show: BENCHMARK</td></tr><tr><th>Motivos del semáforo</th><td>Sin advertencias</td></tr><tr><th>Modelo</th><td>v1.5 · 14/10/2026</td></tr></table>
+      </div>
+      <div class="pie">Calculadora PPS · modelo v1.5 · 14/10/2026</div>
+    </section>
+
+    <script type="application/json" id="idco-pps-data">{"model_version": "1.5", "nombre_lead": "Raquel Diez", "industria": "Medicina estética", "servicio": "Tratamientos estéticos (lifting de párpados, micropigmentación, Dermapen)", "semaforo": "VERDE", "confianza": "MEDIA", "presupuesto_ads": 1000.0, "precio_recomendado": 75.0, "shows_mes_cons": 16.32, "escenarios": {"conservador": {"cpl": 14.8, "lead_agenda": 0.35, "agenda_show": 0.69, "coste_ads_show": 61.27, "shows_mes": 16.32, "leads_mes": 67.58, "limitado_capacidad": false}, "base": {"cpl": 12.87, "lead_agenda": 0.35, "agenda_show": 0.75, "coste_ads_show": 49.02, "shows_mes": 20.4, "leads_mes": 77.71, "limitado_capacidad": false}, "favorable": {"cpl": 11.58, "lead_agenda": 0.35, "agenda_show": 0.79, "coste_ads_show": 42.02, "shows_mes": 23.8, "leads_mes": 86.35, "limitado_capacidad": false}}, "garantia_shows_mes": 13.0, "garantia_coste_show": 61.27, "garantia_suelo_aplicado": false, "tipo_informe": "COMPLETO", "supuestos": [], "descalificado": false, "motivo_descalificacion": "", "ticket_tramo": "", "ticket_min": null}</script>
+    <script>
+      function imprimir(seccion) {
+        const titulo = document.title;
+        const nombres = ;
+        document.body.classList.remove('solo-comercial', 'solo-cliente', 'solo-analisis');
+        if (seccion) document.body.classList.add('solo-' + seccion);
+        const an = document.getElementById('analisis'); const estabaPlegado = an.classList.contains('plegado'); an.classList.remove('plegado');
+        document.title = nombres[seccion] + ' IDCO - Raquel Diez';
+        window.print();
+        setTimeout(() => { document.body.classList.remove('solo-comercial', 'solo-cliente', 'solo-analisis'); if (estabaPlegado) an.classList.add('plegado'); document.title = titulo; }, 500);
+      }
+      function toggleAnalisis(abrir) {
+        const an = document.getElementById('analisis');
+        const plegar = abrir === true ? false : !an.classList.contains('plegado');
+        an.classList.toggle('plegado', plegar);
+        document.getElementById('btn-analisis').textContent = plegar ? 'Mostrar análisis' : 'Ocultar análisis';
+        if (!plegar) an.scrollIntoView();
+      }
+    </script>
+    </body>
+    </html>
