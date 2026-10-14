@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+    <html lang="es">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Preliminar · Daniel Perez · IDCO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+      :root { --negro:#0A0A0A; --rojo:#DD1927; --gris:#F2F2F2; --texto:#1A1A1A; --suave:#6B6B6B; --sem:#E0A800; }
+      * { box-sizing:border-box; }
+      body { margin:0; background:#E9E9E9; font-family:'DM Sans',Arial,sans-serif; color:var(--texto); line-height:1.55; }
+      .nav { position:sticky; top:0; z-index:10; background:var(--negro); padding:10px 24px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+      .nav a { color:#BDBDBD; text-decoration:none; font-weight:700; font-size:14px; padding:8px 12px; border-radius:6px; }
+      .nav a:hover { color:#fff; background:#222; }
+      .nav .sp { flex:1; }
+      .btn { font-family:inherit; font-weight:700; font-size:14px; border:0; border-radius:6px; padding:10px 16px; cursor:pointer; background:#fff; color:var(--negro); }
+      .btn.rojo { background:var(--rojo); color:#fff; }
+      .btn.sec { background:var(--gris); color:var(--negro); font-size:13px; padding:8px 12px; }
+      .hoja { max-width:860px; margin:28px auto; background:#fff; box-shadow:0 2px 14px rgba(0,0,0,.08); }
+      .cabecera { background:var(--negro); color:#fff; padding:28px 40px; display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; }
+      .cabecera .btn { margin-top:6px; }
+      .marca { font-family:'Bebas Neue',sans-serif; font-size:30px; letter-spacing:4px; }
+      .etiqueta { display:inline-block; background:var(--rojo); color:#fff; font-weight:700; font-size:12px; letter-spacing:1.5px; padding:4px 10px; margin-top:10px; }
+      .etiqueta.gris { background:#444; }
+      h1 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:40px; letter-spacing:1px; margin:10px 0 4px; line-height:1.1; }
+      .meta { color:#BDBDBD; font-size:14px; }
+      .cuerpo { padding:28px 40px 36px; }
+      h2 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:26px; letter-spacing:1px; margin:26px 0 8px; }
+      h2:first-child { margin-top:0; }
+      table { width:100%; border-collapse:collapse; margin:8px 0 4px; font-size:15px; }
+      th, td { text-align:left; padding:9px 12px; border-bottom:1px solid #E5E5E5; vertical-align:top; }
+      th { width:46%; font-weight:500; color:var(--suave); }
+      td { font-weight:700; }
+      .semaforo { display:flex; align-items:center; gap:14px; padding:14px 18px; background:var(--gris); margin-bottom:14px; }
+      .punto { width:18px; height:18px; border-radius:50%; background:var(--sem); flex:none; }
+      .semaforo strong { font-size:18px; }
+      .kpis { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:0 0 8px; }
+      .kpi { background:var(--gris); padding:14px; border-top:3px solid var(--sem); }
+      .kpi .v { font-family:'Bebas Neue',sans-serif; font-size:30px; line-height:1; }
+      .kpi .l { color:var(--suave); font-size:12px; margin-top:4px; }
+      .aviso { border-left:4px solid #E0A800; background:#FFF8E1; padding:10px 14px; margin:12px 0; font-size:14px; }
+      .aviso.rojo { border-left-color:var(--rojo); background:#FDECEC; }
+      .aviso ul { margin:4px 0 0; }
+      .tabla-cliente td { font-size:17px; }
+      .calculo { margin:14px 0; border:1px solid #E5E5E5; border-radius:6px; padding:8px 12px; }
+      .calculo summary { cursor:pointer; font-weight:700; }
+      .nota { font-weight:400; color:var(--suave); font-size:13px; }
+      #analisis.plegado .cuerpo, #analisis.plegado .pie { display:none; }
+      #analisis.plegado .cabecera { padding:18px 40px; }
+      #analisis.plegado h1 { font-size:26px; margin:4px 0 0; }
+      .acciones { display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+      ul { padding-left:20px; margin:6px 0; }
+      p { margin:6px 0; }
+      .pie { color:var(--suave); font-size:12px; padding:0 40px 24px; }
+      @media (max-width:640px) { .cabecera, .cuerpo { padding:22px; } h1 { font-size:32px; } th { width:52%; } .kpis { grid-template-columns:repeat(2, 1fr); } }
+      @media print {
+        @page { size:A4; margin:12mm; }
+        body { background:#fff; }
+        .nav, .cabecera .btn, .abrir { display:none; }
+        .hoja { box-shadow:none; margin:0; max-width:none; page-break-before:always; }
+        #comercial { page-break-before:auto; }
+        .hoja, .cabecera, .etiqueta, .semaforo, .punto, .aviso, .kpi { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+        #analisis.plegado .cuerpo, #analisis.plegado .pie { display:block; }
+        body.solo-comercial .hoja:not(#comercial), body.solo-cliente .hoja:not(#cliente), body.solo-analisis .hoja:not(#analisis) { display:none; }
+        body.solo-comercial #comercial, body.solo-cliente #cliente, body.solo-analisis #analisis { page-break-before:auto; }
+      }
+    </style>
+    </head>
+    <body>
+    <div class="nav">
+      <a href="#comercial">Comercial</a><a href="#cliente">Propuesta cliente</a><a href="#analisis" onclick="toggleAnalisis(true)">Análisis interno</a>
+      <span class="sp"></span>
+      <button class="btn" onclick="imprimir('')">Descargar todo (PDF)</button>
+    </div>
+
+    <section class="hoja" id="comercial">
+      <div class="cabecera">
+        <div>
+          <div class="marca">IDCO</div>
+          <span class="etiqueta">EVALUACIÓN PRELIMINAR PRE-REUNIÓN · USO INTERNO</span>
+          <h1>Daniel Perez</h1>
+          <div class="meta">Software (B2B) · Software de control horario (demo) · 14/10/2026</div>
+        </div>
+        <button class="btn" onclick="imprimir('comercial')">Descargar sección (PDF)</button>
+      </div>
+      <div class="cuerpo">
+        <div class="semaforo"><span class="punto"></span><div><strong>Perfil apto con reservas (preliminar)</strong><br><span>El coste total por cita (139,30 €) supone el 27,9 % del ticket mínimo (500 €); necesita cerrar más de 1 de cada 4 citas</span></div></div>
+        <div class="kpis">
+          <div class="kpi"><div class="v">75 €</div><div class="l">Precio de apertura por cita</div></div>
+          <div class="kpi"><div class="v">65–150 €</div><div class="l">Rango de negociación</div></div>
+          <div class="kpi"><div class="v">15–19</div><div class="l">Citas presentadas al mes</div></div>
+          <div class="kpi"><div class="v">12</div><div class="l">Citas garantizables al mes</div></div>
+        </div>
+        <div class="aviso"><strong>Evaluación preliminar automática</strong> con los datos del formulario corto, previa a la reunión. Las cifras son orientativas: el análisis detallado se hace después con el formulario completo.<br><strong>Supuestos:</strong><ul><li>Ticket usado: 500 € (mínimo del tramo &quot;Entre 500-1.000€&quot;)</li><li>Inversión en publicidad asumida: 1.000 €/mes (el formulario solo pregunta si dispone de esa cantidad)</li><li>Capacidad de atender citas: sin límite (no se pregunta)</li><li>Mercado: España (no se pregunta)</li><li>Sin datos propios de leads, citas ni asistencia: 100 % benchmarks investigados para el sector</li><li>Sin coste actual por cita: techo de referencia 150 €/show</li></ul></div>
+        <h2>Resumen</h2><p>Evaluación preliminar (pre-reunión). Daniel encaja como Perfil apto con reservas (preliminar) en software B2B: ya vende y declara capacidad de invertir. La viabilidad depende de dos supuestos clave: inversión de 1.000 €/mes en publicidad y ticket mínimo de 500 €. El coste total estimado por show (139,30 €) es el 27,9 % del ticket, por lo que exige un cierre sólido.</p>
+        <h2>Datos del formulario</h2><table><tr><th>Sector</th><td>Ok in</td></tr><tr><th>¿Ya vende servicios?</th><td>Si</td></tr><tr><th>Qué vende</th><td>Software control horario</td></tr><tr><th>Ticket medio</th><td>Entre 500-1.000€</td></tr><tr><th>Captación actual</th><td>Orgánico - Redes Sociales (Instagram, Youtube...)</td></tr><tr><th>Instagram / web</th><td>www@logroot.es</td></tr><tr><th>¿Dispone de 1.000 €/mes para ads?</th><td>Si</td></tr><tr><th>Email</th><td>daniel.cobaleda@firmatel.com</td></tr><tr><th>Origen (UTM)</th><td>source: fb, medium: paid, campaign: 120222164487800339</td></tr></table>
+        <h2>Números para negociar</h2><table><tr><th>Precio de apertura</th><td>75 €/show</td></tr><tr><th>No bajar de</th><td>65 €/show</td></tr><tr><th>Techo</th><td>150 €/show</td></tr><tr><th>Inversión en ads del cliente</th><td>1.000 €/mes</td></tr><tr><th>Citas presentadas al mes (conservador / base)</th><td>15 / 19</td></tr><tr><th>Coste total por cita para el cliente (conservador)</th><td>139,30 €</td></tr><tr><th>Citas presentadas garantizables al mes</th><td><strong>12</strong> <span class='nota'>(coste garantía 64,30 €/show)</span></td></tr><tr><th>Coste por cita / ticket mínimo del tramo</th><td>27,9 % de 500 €</td></tr></table>
+        <h2>Cómo negociar</h2><p>Confirmar en reunión: 1) Inversión real disponible en publicidad el primer mes y tope mensual. 2) Ticket medio real del producto principal (validar tramo 500–1.000 €). 3) Si ya vende por llamadas: proceso y tasa de cierre actual; quién cierra. 4) Capacidad operativa: citas que puede atender por semana. 5) Coste actual por cita presentada si hace publicidad (ads + agencia). 6) Mercado objetivo (España) y canal principal (Meta Ads). 7) Activos: landing, pixel y calendario para confirmar shows.</p>
+        <h2>Objeciones probables</h2><p>1) “Con un ticket de 500–1.000 €, ¿no es alto pagar ~139 € por show?” Respuesta: el break-even exige cerrar &gt;1/4; se mitiga con cualificación y guion de cierre. Arrancar con 75 €/show y un tope de shows controla el riesgo mientras validamos tasas reales.</p><p>2) “No quiero poner 1.000 €/mes en ads desde el inicio.” Respuesta: es el supuesto de cálculo; con él, el escenario conservador proyecta 15 shows/mes. Se puede limitar el número de shows facturables y revisar calidad antes de escalar.</p><p>3) “Me preocupa la calidad y los no-shows.” Respuesta: se cobra solo por show asistido y hacemos el seguimiento hasta la asistencia; el show rate conservador usado es 74 %. Reforzar confirmaciones y ventanas de agenda reduce ausencias.</p>
+        <h2>Riesgos</h2><ul><li>Motivo principal de reserva: el coste total por cita (139,30 €) supone el 27,9 % del ticket mínimo (500 €); necesita cerrar más de 1 de cada 4 citas.</li><li>Avisos de benchmark: CPL por componentes 12,35 € vs. CPL de contraste 65,50 €; el contraste se limita a 49,38 € (4×) y se triangula a 24,69 €.</li><li>Confianza MEDIA y madurez no evaluada (formulario corto); todo con benchmarks y supuestos.</li><li>Captación actual orgánica; sin referencia de coste actual por show.</li><li>Sensibilidad al umbral interno: el coste total por show (27,9 % sobre ticket) supera el objetivo del 25 %.</li></ul>
+        <h2>Siguiente paso</h2><p>Reunión de descubrimiento; después, formulario PPS completo</p>
+      </div>
+      <div class="pie">Calculadora PPS · modelo vP-1.1 · 14/10/2026</div>
+    </section>
+
+    <section class="hoja" id="cliente">
+      <div class="cabecera">
+        <div>
+          <div class="marca">IDCO</div>
+          <span class="etiqueta">PROPUESTA ORIENTATIVA</span>
+          <h1>Pago por cita presentada para software de control horario</h1>
+          <div class="meta">Preparada para Daniel Perez · 14/10/2026</div>
+        </div>
+        <button class="btn rojo" onclick="imprimir('cliente')">Descargar propuesta (PDF)</button>
+      </div>
+      <div class="cuerpo">
+        <div class="aviso">Cifras orientativas calculadas con benchmarks del sector antes de la reunión; se concretan con tus datos en la propuesta definitiva.</div>
+        <h2>Tu situación actual</h2><p>Actualmente captas clientes principalmente de forma orgánica en redes sociales. No contamos con un coste actual por cita presentada medido con campañas de pago. Estimaríamos resultados iniciales con benchmarks del sector y los validaríamos contigo antes de escalar.</p>
+        <h2>Nuestra propuesta</h2><p>Te proponemos trabajar en pago por cita presentada (PPS). Tú asumes la inversión publicitaria y nosotros gestionamos las campañas en Meta Ads, creamos las creatividades de los anuncios y hacemos el seguimiento de los contactos hasta que asisten a la cita. Solo pagarías por cada cita efectivamente asistida.</p>
+        <h2>Inversión y resultados esperados</h2>
+        <table class="tabla-cliente">
+          <tr><th>Inversión mensual en publicidad</th><td>1.000 €</td></tr>
+          <tr><th>Precio por cita presentada</th><td>75 €</td></tr>
+          <tr><th>Citas presentadas estimadas al mes</th><td>15 como punto de partida</td></tr>
+          <tr><th>Cuándo pagas a IDCO</th><td>Solo por cada cita a la que la persona asiste</td></tr>
+        </table>
+        <h2>Próximos pasos</h2><p>1) Reunirnos para validar mercado, oferta y los supuestos del cálculo. 2) Completar el formulario PPS completo. 3) Preparar accesos a Meta Ads y al calendario para arrancar.</p>
+      </div>
+      <div class="pie">IDCO · Instituto de Crecimiento Orgánico</div>
+    </section>
+
+    <section class="hoja" id="analisis">
+      <div class="cabecera">
+        <div>
+          <div class="marca">IDCO</div>
+          <span class="etiqueta gris">ANÁLISIS INTERNO</span>
+          <h1>Cálculo y benchmarks</h1>
+        </div>
+        <div class="acciones">
+          <button class="btn" id="btn-analisis" onclick="toggleAnalisis()">Ocultar análisis</button>
+          <button class="btn" onclick="imprimir('analisis')">Descargar análisis (PDF)</button>
+        </div>
+      </div>
+      <div class="cuerpo">
+        <h2>Benchmarks y cálculo del coste por show</h2><table><tr><th>CPM (coste por mil impresiones, mercado objetivo)</th><td>7,60 €<br><span class='nota'><a href="https://www.superads.ai/facebook-ads-costs/cpm-cost-per-mille/spain" target="_blank">fuente 1</a> · <a href="https://lebesgue.io/facebook-ads/facebook-cpm-by-country" target="_blank">fuente 2</a></span></td></tr><tr><th>CTR (clics / impresiones)</th><td>1,62 %<br><span class='nota'><a href="https://www.superads.ai/facebook-ads-costs/ctr-click-through-rate/spain" target="_blank">fuente 1</a></span></td></tr><tr><th>Conversión de la página de reserva</th><td>3,8 %<br><span class='nota'><a href="https://unbounce.com/conversion-benchmark-report/saas-conversion-rate/" target="_blank">fuente 1</a> · <a href="https://www.marketingprofs.com/charts/2024/52374/landing-page-conversion-benchmarks" target="_blank">fuente 2</a></span></td></tr><tr><th>CPL calculado = CPM / 1000 / (CTR × conversión)</th><td>12,35 €</td></tr><tr><th>CPL publicado de contraste</th><td>65,50 €</td></tr><tr><th>CPL usado</th><td><strong>24,69 €</strong> <span class='nota'>(media geométrica entre calculado y contraste)</span></td></tr><tr><th>Leads que reservan la primera cita</th><td>60 %<br><span class='nota'><a href="https://www.chilipiper.com/post/form-conversion-rate-benchmark-report" target="_blank">fuente 1</a> · <a href="https://www.revenuehero.io/inbound-conversion-benchmark" target="_blank">fuente 2</a></span></td></tr><tr><th>Asistencia de leads fríos</th><td>80 %<br><span class='nota'><a href="https://www.revenuehero.io/reports/no-show-benchmark-december-02-2024" target="_blank">fuente 1</a> · <a href="https://superhumanprospecting.com/how-to-reduce-no-show-appointments/" target="_blank">fuente 2</a> · <a href="https://aexus.com/what-is-a-good-show-rate-for-sales-appointments/" target="_blank">fuente 3</a></span></td></tr><tr><th>Coste en ads por show (base)</th><td>51,44 € = CPL / (reserva × asistencia)</td></tr><tr><th>Escenario conservador</th><td>64,30 € (CPL × 1,15 y asistencia × 0,92)</td></tr><tr><th>Garantía de citas</th><td>12 al mes = inversión ÷ max(conservador, suelo 35 €) × 0,8</td></tr></table><div class="aviso">CPL publicado de contraste (65,50 €) difiere mucho del calculado por componentes (12,35 €) | CPL de contraste limitado a 49,38 € (4x el calculado) para la triangulación | CPL triangulado: se usa 24,69 € (media geométrica entre componentes y contraste)</div>
+        <h2>Economía y fiabilidad</h2><table><tr><th>Facturación IDCO (conservador / base)</th><td>1.166 € / 1.458 €</td></tr><tr><th>Coste en ads por show (base / conservador)</th><td>51,44 € / 64,30 €</td></tr><tr><th>Confianza del cálculo</th><td>MEDIA</td></tr><tr><th>Madurez del cliente</th><td>No evaluada (formulario corto) (—/6)</td></tr><tr><th>Origen de las variables</th><td>cpl: BENCHMARK, lead_agenda: BENCHMARK, agenda_show: BENCHMARK</td></tr><tr><th>Motivos del semáforo</th><td>El coste total por cita (139,30 €) supone el 27,9 % del ticket mínimo (500 €); necesita cerrar más de 1 de cada 4 citas</td></tr><tr><th>Supuestos del informe preliminar</th><td>Ticket usado: 500 € (mínimo del tramo &quot;Entre 500-1.000€&quot;) · Inversión en publicidad asumida: 1.000 €/mes (el formulario solo pregunta si dispone de esa cantidad) · Capacidad de atender citas: sin límite (no se pregunta) · Mercado: España (no se pregunta) · Sin datos propios de leads, citas ni asistencia: 100 % benchmarks investigados para el sector · Sin coste actual por cita: techo de referencia 150 €/show</td></tr><tr><th>Modelo</th><td>vP-1.1 · 14/10/2026</td></tr></table>
+      </div>
+      <div class="pie">Calculadora PPS · modelo vP-1.1 · 14/10/2026</div>
+    </section>
+
+    <script type="application/json" id="idco-pps-data">{"model_version": "P-1.1", "nombre_lead": "Daniel Perez", "industria": "Software (B2B)", "servicio": "Software de control horario (demo)", "semaforo": "AMARILLO", "confianza": "MEDIA", "presupuesto_ads": 1000.0, "precio_recomendado": 75.0, "shows_mes_cons": 15.55, "escenarios": {"conservador": {"cpl": 28.4, "lead_agenda": 0.6, "agenda_show": 0.74, "coste_ads_show": 64.3, "shows_mes": 15.55, "leads_mes": 35.22, "limitado_capacidad": false}, "base": {"cpl": 24.69, "lead_agenda": 0.6, "agenda_show": 0.8, "coste_ads_show": 51.44, "shows_mes": 19.44, "leads_mes": 40.5, "limitado_capacidad": false}, "favorable": {"cpl": 22.22, "lead_agenda": 0.6, "agenda_show": 0.84, "coste_ads_show": 44.09, "shows_mes": 22.68, "leads_mes": 45.0, "limitado_capacidad": false}}, "garantia_shows_mes": 12.0, "garantia_coste_show": 64.3, "garantia_suelo_aplicado": false, "tipo_informe": "PRELIMINAR"}</script>
+    <script>
+      function imprimir(seccion) {
+        const titulo = document.title;
+        const nombres = {'': 'Informe completo', 'comercial': 'Comercial', 'cliente': 'Propuesta', 'analisis': 'Análisis interno'};
+        document.body.classList.remove('solo-comercial', 'solo-cliente', 'solo-analisis');
+        if (seccion) document.body.classList.add('solo-' + seccion);
+        const an = document.getElementById('analisis'); const estabaPlegado = an.classList.contains('plegado'); an.classList.remove('plegado');
+        document.title = nombres[seccion] + ' IDCO - Daniel Perez';
+        window.print();
+        setTimeout(() => { document.body.classList.remove('solo-comercial', 'solo-cliente', 'solo-analisis'); if (estabaPlegado) an.classList.add('plegado'); document.title = titulo; }, 500);
+      }
+      function toggleAnalisis(abrir) {
+        const an = document.getElementById('analisis');
+        const plegar = abrir === true ? false : !an.classList.contains('plegado');
+        an.classList.toggle('plegado', plegar);
+        document.getElementById('btn-analisis').textContent = plegar ? 'Mostrar análisis' : 'Ocultar análisis';
+        if (!plegar) an.scrollIntoView({behavior: 'smooth', block: 'start'});
+      }
+    </script>
+    </body>
+    </html>
