@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+    <html lang="es">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Preliminar · Andrea Franco Rodriguez · IDCO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+      :root { --negro:#0A0A0A; --rojo:#DD1927; --gris:#F2F2F2; --texto:#1A1A1A; --suave:#6B6B6B; --sem:#E0A800; }
+      * { box-sizing:border-box; }
+      body { margin:0; background:#E9E9E9; font-family:'DM Sans',Arial,sans-serif; color:var(--texto); line-height:1.55; }
+      .nav { position:sticky; top:0; z-index:10; background:var(--negro); padding:10px 24px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+      .nav a { color:#BDBDBD; text-decoration:none; font-weight:700; font-size:14px; padding:8px 12px; border-radius:6px; }
+      .nav a:hover { color:#fff; background:#222; }
+      .nav .sp { flex:1; }
+      .btn { font-family:inherit; font-weight:700; font-size:14px; border:0; border-radius:6px; padding:10px 16px; cursor:pointer; background:#fff; color:var(--negro); }
+      .btn.rojo { background:var(--rojo); color:#fff; }
+      .btn.sec { background:var(--gris); color:var(--negro); font-size:13px; padding:8px 12px; }
+      .hoja { max-width:860px; margin:28px auto; background:#fff; box-shadow:0 2px 14px rgba(0,0,0,.08); }
+      .cabecera { background:var(--negro); color:#fff; padding:28px 40px; display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; }
+      .cabecera .btn { margin-top:6px; }
+      .marca { font-family:'Bebas Neue',sans-serif; font-size:30px; letter-spacing:4px; }
+      .etiqueta { display:inline-block; background:var(--rojo); color:#fff; font-weight:700; font-size:12px; letter-spacing:1.5px; padding:4px 10px; margin-top:10px; }
+      .etiqueta.gris { background:#444; }
+      h1 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:40px; letter-spacing:1px; margin:10px 0 4px; line-height:1.1; }
+      .meta { color:#BDBDBD; font-size:14px; }
+      .cuerpo { padding:28px 40px 36px; }
+      h2 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:26px; letter-spacing:1px; margin:26px 0 8px; }
+      h2:first-child { margin-top:0; }
+      table { width:100%; border-collapse:collapse; margin:8px 0 4px; font-size:15px; }
+      th, td { text-align:left; padding:9px 12px; border-bottom:1px solid #E5E5E5; vertical-align:top; }
+      th { width:46%; font-weight:500; color:var(--suave); }
+      td { font-weight:700; }
+      .semaforo { display:flex; align-items:center; gap:14px; padding:14px 18px; background:var(--gris); margin-bottom:14px; }
+      .punto { width:18px; height:18px; border-radius:50%; background:var(--sem); flex:none; }
+      .semaforo strong { font-size:18px; }
+      .kpis { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:0 0 8px; }
+      .kpi { background:var(--gris); padding:14px; border-top:3px solid var(--sem); }
+      .kpi .v { font-family:'Bebas Neue',sans-serif; font-size:30px; line-height:1; }
+      .kpi .l { color:var(--suave); font-size:12px; margin-top:4px; }
+      .aviso { border-left:4px solid #E0A800; background:#FFF8E1; padding:10px 14px; margin:12px 0; font-size:14px; }
+      .aviso.rojo { border-left-color:var(--rojo); background:#FDECEC; }
+      .aviso ul { margin:4px 0 0; }
+      .tabla-cliente td { font-size:17px; }
+      .calculo { margin:14px 0; border:1px solid #E5E5E5; border-radius:6px; padding:8px 12px; }
+      .calculo summary { cursor:pointer; font-weight:700; }
+      .nota { font-weight:400; color:var(--suave); font-size:13px; }
+      #analisis.plegado .cuerpo, #analisis.plegado .pie { display:none; }
+      #analisis.plegado .cabecera { padding:18px 40px; }
+      #analisis.plegado h1 { font-size:26px; margin:4px 0 0; }
+      .acciones { display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+      ul { padding-left:20px; margin:6px 0; }
+      p { margin:6px 0; }
+      .pie { color:var(--suave); font-size:12px; padding:0 40px 24px; }
+      @media (max-width:640px) { .cabecera, .cuerpo { padding:22px; } h1 { font-size:32px; } th { width:52%; } .kpis { grid-template-columns:repeat(2, 1fr); } }
+      @media print {
+        @page { size:A4; margin:12mm; }
+        body { background:#fff; }
+        .nav, .cabecera .btn, .abrir { display:none; }
+        .hoja { box-shadow:none; margin:0; max-width:none; page-break-before:always; }
+        #comercial { page-break-before:auto; }
+        .hoja, .cabecera, .etiqueta, .semaforo, .punto, .aviso, .kpi { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+        #analisis.plegado .cuerpo, #analisis.plegado .pie { display:block; }
+        body.solo-comercial .hoja:not(#comercial), body.solo-cliente .hoja:not(#cliente), body.solo-analisis .hoja:not(#analisis) { display:none; }
+        body.solo-comercial #comercial, body.solo-cliente #cliente, body.solo-analisis #analisis { page-break-before:auto; }
+      }
+    </style>
+    </head>
+    <body>
+    <div class="nav">
+      <a href="#comercial">Comercial</a><a href="#cliente">Propuesta cliente</a><a href="#analisis" onclick="toggleAnalisis(true)">Análisis interno</a>
+      <span class="sp"></span>
+      <button class="btn" onclick="imprimir('')">Descargar todo (PDF)</button>
+    </div>
+
+    <section class="hoja" id="comercial">
+      <div class="cabecera">
+        <div>
+          <div class="marca">IDCO</div>
+          <span class="etiqueta">EVALUACIÓN PRELIMINAR PRE-REUNIÓN · USO INTERNO</span>
+          <h1>Andrea Franco Rodriguez</h1>
+          <div class="meta">Estética · Tratamientos faciales y corporales · 15/10/2026</div>
+        </div>
+        <button class="btn" onclick="imprimir('comercial')">Descargar sección (PDF)</button>
+      </div>
+      <div class="cuerpo">
+        <div class="semaforo"><span class="punto"></span><div><strong>Encaja con condiciones (preliminar)</strong><br><span>Rentabilidad ajustada para el cliente: ingreso estimado 3.623 €/mes frente a 2.294 € de coste (ratio 1,58x, objetivo 2,0x). Para VERDE: ticket ≥ 886 € o precio ≤ 31 €/show | Benchmark recortado al rango plausible en: CVR. Revisar fuentes</span></div></div>
+        <div class="kpis">
+          <div class="kpi"><div class="v">50 €</div><div class="l">Precio de apertura por cita</div></div>
+          <div class="kpi"><div class="v">40–65 €</div><div class="l">Rango de negociación</div></div>
+          <div class="kpi"><div class="v">20–25</div><div class="l">Videollamadas presentadas al mes</div></div>
+          <div class="kpi"><div class="v">20</div><div class="l">Citas garantizables al mes</div></div>
+        </div>
+        <div class="aviso"><strong>Evaluación preliminar automática</strong> con los datos del formulario corto, previa a la reunión. Las cifras son orientativas: el análisis detallado se hace después con el formulario completo.<br><strong>Supuestos:</strong><ul><li>Ticket de evaluación: 700 € (investigado (dentro del tramo typeform), tramo &quot;Entre 500-1.000€&quot;)</li><li>Inversión en publicidad asumida: 1.000 €/mes (el formulario solo pregunta si dispone de esa cantidad)</li><li>Capacidad de atender videollamadas: sin límite (no se pregunta)</li><li>Mercado: España (no se pregunta)</li><li>Sin datos propios de leads, citas ni asistencia: 100 % benchmarks investigados para el subtipo de servicio</li><li>Sin coste actual por cita: techo de referencia 150 €/show</li></ul></div>
+        <h2>Resumen</h2><p>Evaluación preliminar (pre-reunión). Encaja con condiciones (preliminar): con 25 citas presentadas/mes y un ticket de 700 € (INVESTIGADO, tramo “Entre 500-1.000€”), el ingreso estimado sería 3.622,5 € frente a 2.293,75 € de coste total (ratio 1,58x). Supuestos clave: inversión asumida de 1.000 €/mes en publicidad y ticket de evaluación de 700 € (investigado por tramo).</p>
+        <h2>Datos del formulario</h2><table><tr><th>Sector</th><td>Centro de estética</td></tr><tr><th>¿Ya vende servicios?</th><td>Si</td></tr><tr><th>Qué vende</th><td>Tratamientos faciales y corporales</td></tr><tr><th>Ticket medio</th><td>Entre 500-1.000€</td></tr><tr><th>Captación actual</th><td>Publicidad (Google ads, Facebook ads...)</td></tr><tr><th>Instagram / web</th><td>Esbelta707</td></tr><tr><th>¿Dispone de 1.000 €/mes para ads?</th><td>Si</td></tr><tr><th>Email</th><td>andrea22.franco@gmail.com</td></tr><tr><th>Origen (UTM)</th><td>source: ig, medium: paid, campaign: 120222164487800339</td></tr></table>
+        <h2>Números para negociar</h2><table><tr><th>Precio de apertura</th><td>50 €/show</td></tr><tr><th>No bajar de</th><td>40 €/show</td></tr><tr><th>Techo</th><td>65 €/show</td></tr><tr><th>Inversión en ads del cliente</th><td>1.000 €/mes</td></tr><tr><th>Citas presentadas al mes (conservador / base)</th><td>20 / 25</td></tr><tr><th>Qué cuenta como cita</th><td>Videollamada o llamada de consulta inicial (15–20 min) reservada online a la que la persona asiste</td></tr><tr><th>Coste total por cita para el cliente (escenario base)</th><td>88,65 €</td></tr><tr><th>Citas presentadas garantizables al mes</th><td><strong>20</strong> <span class='nota'>(coste garantía 38,65 €/show)</span></td></tr><tr><th>Coste por cita / ticket mínimo del tramo</th><td>12,7 % de 700 €</td></tr></table>
+        <h2>Rentabilidad para el cliente</h2><table><tr><th>Ticket usado</th><td>700 € <span class='nota'>(investigado (dentro del tramo typeform))</span></td></tr><tr><th>Cierre asumido videollamada → venta</th><td>20 %</td></tr><tr><th>Ingreso estimado del cliente al mes (escenario base)</th><td>3.622 € = 25 citas × 20 % × 700 €</td></tr><tr><th>Coste total del cliente al mes</th><td>2.294 € = ads + citas × precio IDCO</td></tr><tr><th>Ratio ingreso / coste</th><td><strong>1,58x</strong> <span class='nota'>(objetivo ≥ 2,0x; mínimo 1,3x)</span></td></tr><tr><th>Precio máximo para que le salga rentable</th><td>69 €/show <span class='nota'>(VERDE hasta 31 €/show)</span></td></tr><tr><th>Ticket mínimo para VERDE con este precio</th><td>886 €</td></tr></table>
+        <h2>Cómo negociar</h2><p>Precio de apertura: 50 € por cita presentada. Límite inferior: 40 €. Techo orientativo: 65 €. Palancas: mover el precio dentro del rango según performance, fijar un tope mensual de shows facturables y priorizar servicios de mayor ticket si la rentabilidad queda corta. Para validar en la reunión: inversión real disponible (hoy asumimos 1.000 €/mes), ticket real del servicio a promocionar, que ya vende y su tasa de cierre, capacidad de videollamadas y coste actual por cita si hace publicidad. Garantía orientativa de 20 citas presentadas al mes (se formaliza en el anexo de garantía). Periodo inicial de 3 meses en pay-per-show y revisión del precio por cita con datos reales.</p>
+        <h2>Objeciones probables</h2><ul><li>“Si la videollamada no compra, ¿por qué pago?” Respuesta: en pay-per-show solo se factura por la cita presentada (asistencia verificada); el 20 % de cierre es un supuesto prudente y revisable con datos reales.</li><li>“Quiero un precio por cita más bajo.” Respuesta: referencia de apertura 50 € con rango 40–65 €. Podemos movernos dentro del rango según datos; no se alcanza Encaja pay-per-show únicamente bajando precio (precio verde 31,35 € &lt; mínimo 40 €), la palanca principal es ticket/valor percibido o inversión.</li><li>“Me preocupa la saturación de agenda.” Respuesta: se puede fijar un tope mensual de citas facturables y escalar progresivamente; confirmaremos capacidad diaria y franjas para asegurar asistencia.</li></ul>
+        <h2>Riesgos</h2><ul><li>Motivos del resultado: Rentabilidad ajustada para el cliente: ingreso estimado 3.623 €/mes frente a 2.294 € de coste (ratio 1,58x, objetivo 2,0x). Para VERDE: ticket ≥ 886 € o precio ≤ 31 €/show | Benchmark recortado al rango plausible en: CVR. Revisar fuentes.</li><li>Rentabilidad actual basada en benchmarks y cierre asumido del 20 %. Escenario base: 25 citas/mes y 88,65 € por cita total (ads+IDCO). Escenario conservador: 20 citas/mes y 98,31 € por cita.</li><li>El “precio verde” (31,35 €) está por debajo del precio mínimo (40 €): no se alcanzará el umbral de Encaja pay-per-show (2,0x) solo bajando precio; requiere mayor ticket o más inversión.</li><li>Confianza MEDIA al ser 100 % benchmarks (formulario corto). Avisos benchmark: CVR recortado; CPL calculado 4,69 € pero se aplica suelo real 8,00 €.</li><li>Capacidad de videollamadas no confirmada (en supuestos: sin límite). Ticket detectado 700 € con un coste total por cita equivalente al 12,7 % del ticket.</li></ul>
+        <h2>Siguiente paso</h2><p>Reunión de descubrimiento; después, formulario PPS completo</p>
+      </div>
+      <div class="pie">Calculadora PPS · modelo v2.5 · 15/10/2026</div>
+    </section>
+
+    <section class="hoja" id="cliente">
+      <div class="cabecera">
+        <div>
+          <div class="marca">IDCO</div>
+          <span class="etiqueta">PROPUESTA ORIENTATIVA</span>
+          <h1>Pay-per-show para tu centro de estética (evaluación preliminar)</h1>
+          <div class="meta">Preparada para Andrea Franco Rodriguez · 15/10/2026</div>
+        </div>
+        <button class="btn rojo" onclick="imprimir('cliente')">Descargar propuesta (PDF)</button>
+      </div>
+      <div class="cuerpo">
+        <div class="aviso">Cifras orientativas calculadas con benchmarks del sector antes de la reunión; se concretan con tus datos en la propuesta definitiva.</div>
+        <h2>Tu situación actual</h2><p>Estás captando clientes con publicidad y ya vendes tratamientos faciales y corporales. Partimos de una evaluación preliminar sin dato consolidado de tu coste por cita presentada, por lo que validaremos la información en una breve llamada.</p>
+        <h2>Nuestra propuesta</h2><p>Te propondríamos trabajar en pay-per-show: tú inviertes en publicidad y nosotros gestionamos las campañas de Meta Ads, las creatividades y el seguimiento de los contactos hasta que asisten a la videollamada de consulta (15–20 min) reservada online. Solo pagarías a IDCO por cada cita presentada, no por leads ni por ausencias. Esta evaluación es orientativa y validaríamos servicio y ticket en una breve reunión.</p>
+        <h2>Inversión y resultados esperados</h2>
+        <table class="tabla-cliente">
+          <tr><th>Inversión mensual en publicidad</th><td>1.000 €</td></tr>
+          <tr><th>Precio por cita presentada</th><td>50 €</td></tr>
+          <tr><th>Videollamadas de consulta presentadas al mes</th><td>25 como punto de partida</td></tr>
+          <tr><th>Qué cuenta como cita</th><td>Videollamada o llamada de consulta inicial (15–20 min) reservada online a la que la persona asiste</td></tr>
+          <tr><th>Cuándo pagas a IDCO</th><td>Solo por cada videollamada de consulta a la que la persona asiste</td></tr>
+        </table>
+        <h2>Próximos pasos</h2><ul><li>Reunión breve para validar el servicio a promocionar, el ticket y el proceso de agenda.</li><li>Si encaja, te enviamos el acuerdo de pay-per-show y el onboarding.</li><li>Configuración de campañas y calendario de seguimiento para las videollamadas de consulta.</li></ul>
+      </div>
+      <div class="pie">IDCO · Instituto de Crecimiento Orgánico</div>
+    </section>
+
+    <section class="hoja" id="analisis">
+      <div class="cabecera">
+        <div>
+          <div class="marca">IDCO</div>
+          <span class="etiqueta gris">ANÁLISIS INTERNO</span>
+          <h1>Cálculo y benchmarks</h1>
+        </div>
+        <div class="acciones">
+          <button class="btn" id="btn-analisis" onclick="toggleAnalisis()">Ocultar análisis</button>
+          <button class="btn" onclick="imprimir('analisis')">Descargar análisis (PDF)</button>
+        </div>
+      </div>
+      <div class="cuerpo">
+        <h2>Benchmarks y cálculo del coste por show</h2><table><tr><th>CPM (coste por mil impresiones, mercado objetivo)</th><td>7,60 €<br><span class='nota'><a href="https://www.superads.ai/facebook-ads-costs/cpm-cost-per-mille/spain" target="_blank">fuente 1</a> · <a href="https://lebesgue.io/facebook-ads/facebook-cpm-by-country" target="_blank">fuente 2</a> · <a href="https://adlibrary.com/posts/meta-ads-spain-playbook-2026" target="_blank">fuente 3</a></span></td></tr><tr><th>CTR (clics / impresiones)</th><td>1,62 %<br><span class='nota'><a href="https://www.superads.ai/facebook-ads-costs/ctr-click-through-rate/spain" target="_blank">fuente 1</a></span></td></tr><tr><th>Conversión de la página de reserva</th><td>10,0 % <span class='nota'>(investigado: 12,0, recortado al rango plausible)</span><br><span class='nota'><a href="https://aestheticpatientacquisition.com/blog/med-spa-landing-page-design-conversion" target="_blank">fuente 1</a> · <a href="https://prospyrmed.com/blog/post/paid-ad-roi-benchmarks-aesthetic-clinics" target="_blank">fuente 2</a></span></td></tr><tr><th>CPL calculado = CPM / 1000 / (CTR × conversión)</th><td>4,69 €</td></tr><tr><th>CPL publicado de contraste</th><td>Sin dato</td></tr><tr><th>CPL usado</th><td><strong>8,00 €</strong> <span class='nota'>(calculado por componentes)</span></td></tr><tr><th>Leads que reservan la primera cita</th><td>23 %<br><span class='nota'><a href="https://ijrcms.com/uploads2026/ijrcms_08_860.pdf" target="_blank">fuente 1</a> · <a href="https://www.queencitygrowthlab.com/blog/cost-per-booked-appointment-2026" target="_blank">fuente 2</a></span></td></tr><tr><th>Asistencia de leads fríos</th><td>90 % <span class='nota'>(investigado: 94, recortado al rango plausible)</span><br><span class='nota'><a href="https://ijrcms.com/uploads2026/ijrcms_08_860.pdf" target="_blank">fuente 1</a> · <a href="https://www.zenoti.com/thecheckin/salon-spa-booking-communication-trends" target="_blank">fuente 2</a></span></td></tr><tr><th>Coste en ads por show (base)</th><td>38,65 € = CPL / (reserva × asistencia)</td></tr><tr><th>Escenario conservador</th><td>48,31 € (CPL × 1,15 y asistencia × 0,92)</td></tr><tr><th>Garantía de citas</th><td>20 al mes = inversión ÷ max(coste por show base, suelo 35 €) × 0,8</td></tr></table><div class="aviso">Conversión de la página: la investigación dio 12,00 y se ha recortado a 10,00 (rango plausible 2,0–10,0) | Asistencia a la videollamada: la investigación dio 94,00 y se ha recortado a 90,00 (rango plausible 55,0–90,0) | CPL por componentes (4,69 €) por debajo de lo que IDCO ve en campañas reales: se usa el suelo de 8,00 €</div>
+        <h2>Economía y fiabilidad</h2><table><tr><th>Facturación IDCO (conservador / base)</th><td>1.035 € / 1.294 €</td></tr><tr><th>Coste en ads por show (base / conservador)</th><td>38,65 € / 48,31 €</td></tr><tr><th>Confianza del cálculo</th><td>MEDIA</td></tr><tr><th>Madurez del cliente</th><td>No evaluada (formulario corto) (—/6)</td></tr><tr><th>Origen de las variables</th><td>cpl: BENCHMARK, lead_agenda: BENCHMARK, agenda_show: BENCHMARK</td></tr><tr><th>Motivos del semáforo</th><td>Rentabilidad ajustada para el cliente: ingreso estimado 3.623 €/mes frente a 2.294 € de coste (ratio 1,58x, objetivo 2,0x). Para VERDE: ticket ≥ 886 € o precio ≤ 31 €/show | Benchmark recortado al rango plausible en: CVR. Revisar fuentes</td></tr><tr><th>Supuestos del informe preliminar</th><td>Ticket de evaluación: 700 € (investigado (dentro del tramo typeform), tramo &quot;Entre 500-1.000€&quot;) · Inversión en publicidad asumida: 1.000 €/mes (el formulario solo pregunta si dispone de esa cantidad) · Capacidad de atender videollamadas: sin límite (no se pregunta) · Mercado: España (no se pregunta) · Sin datos propios de leads, citas ni asistencia: 100 % benchmarks investigados para el subtipo de servicio · Sin coste actual por cita: techo de referencia 150 €/show</td></tr><tr><th>Modelo</th><td>v2.5 · 15/10/2026</td></tr></table>
+      </div>
+      <div class="pie">Calculadora PPS · modelo v2.5 · 15/10/2026</div>
+    </section>
+
+    <script type="application/json" id="idco-pps-data">{"model_version": "2.5", "nombre_lead": "Andrea Franco Rodriguez", "industria": "Estética", "servicio": "Tratamientos faciales y corporales", "semaforo": "AMARILLO", "confianza": "MEDIA", "presupuesto_ads": 1000.0, "precio_recomendado": 50.0, "shows_mes_cons": 20.7, "escenarios": {"conservador": {"cpl": 9.2, "lead_agenda": 0.23, "agenda_show": 0.83, "coste_ads_show": 48.31, "shows_mes": 20.7, "leads_mes": 108.7, "limitado_capacidad": false}, "base": {"cpl": 8.0, "lead_agenda": 0.23, "agenda_show": 0.9, "coste_ads_show": 38.65, "shows_mes": 25.88, "leads_mes": 125.0, "limitado_capacidad": false}, "favorable": {"cpl": 7.2, "lead_agenda": 0.23, "agenda_show": 0.95, "coste_ads_show": 33.13, "shows_mes": 30.19, "leads_mes": 138.89, "limitado_capacidad": false}}, "garantia_shows_mes": 20.0, "garantia_coste_show": 38.65, "garantia_suelo_aplicado": false, "tipo_informe": "PRELIMINAR", "supuestos": ["Ticket de evaluación: 700 € (investigado (dentro del tramo typeform), tramo \"Entre 500-1.000€\")", "Inversión en publicidad asumida: 1.000 €/mes (el formulario solo pregunta si dispone de esa cantidad)", "Capacidad de atender videollamadas: sin límite (no se pregunta)", "Mercado: España (no se pregunta)", "Sin datos propios de leads, citas ni asistencia: 100 % benchmarks investigados para el subtipo de servicio", "Sin coste actual por cita: techo de referencia 150 €/show"], "descalificado": false, "motivo_descalificacion": "", "ticket_tramo": "Entre 500-1.000€", "ticket_min": 500.0, "rentabilidad": {"ticket_evaluacion": 700.0, "ticket_origen": "INVESTIGADO (dentro del tramo typeform)", "ticket_tramo": "Entre 500-1.000€", "ticket_investigado": 700.0, "ticket_fuentes": "https://elecaclinic.com/radiofrecuencia-facial/, https://hermeswellness.es/producto/bono-10-sesiones-cavitacion/, https://drelenaberezo.com/precios", "cierre_pct": 20, "shows_cons": 25.88, "escenario": "base", "ingreso_estimado_mes": 3622.5, "coste_cliente_mes": 2293.75, "ratio": 1.58, "ratio_min": 1.3, "ratio_verde": 2.0, "precio_max_rentable": 69.04, "precio_verde": 31.35, "ticket_min_rentable": 576.21, "ticket_min_verde": 886.47}, "definicion_show": "Videollamada o llamada de consulta inicial (15–20 min) reservada online a la que la persona asiste", "benchmark_incompleto": false}</script>
+    <script>
+      function imprimir(seccion) {
+        const titulo = document.title;
+        const nombres = ;
+        document.body.classList.remove('solo-comercial', 'solo-cliente', 'solo-analisis');
+        if (seccion) document.body.classList.add('solo-' + seccion);
+        const an = document.getElementById('analisis'); const estabaPlegado = an.classList.contains('plegado'); an.classList.remove('plegado');
+        document.title = nombres[seccion] + ' IDCO - Andrea Franco Rodriguez';
+        window.print();
+        setTimeout(() => { document.body.classList.remove('solo-comercial', 'solo-cliente', 'solo-analisis'); if (estabaPlegado) an.classList.add('plegado'); document.title = titulo; }, 500);
+      }
+      function toggleAnalisis(abrir) {
+        const an = document.getElementById('analisis');
+        const plegar = abrir === true ? false : !an.classList.contains('plegado');
+        an.classList.toggle('plegado', plegar);
+        document.getElementById('btn-analisis').textContent = plegar ? 'Mostrar análisis' : 'Ocultar análisis';
+        if (!plegar) an.scrollIntoView();
+      }
+    </script>
+    </body>
+    </html>
