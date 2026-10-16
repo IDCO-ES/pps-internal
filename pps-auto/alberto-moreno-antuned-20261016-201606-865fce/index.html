@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Preliminar · Alberto Moreno Antuned · IDCO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root { --negro:#0A0A0A; --rojo:#DD1927; --gris:#F2F2F2; --texto:#1A1A1A; --suave:#6B6B6B; --sem:#DD1927; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#E9E9E9; font-family:'DM Sans',Arial,sans-serif; color:var(--texto); line-height:1.55; }
+  .nav { position:sticky; top:0; z-index:10; background:var(--negro); padding:10px 24px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+  .nav a { color:#BDBDBD; text-decoration:none; font-weight:700; font-size:14px; padding:8px 12px; border-radius:6px; }
+  .nav a:hover { color:#fff; background:#222; }
+  .nav .sp { flex:1; }
+  .btn { font-family:inherit; font-weight:700; font-size:14px; border:0; border-radius:6px; padding:10px 16px; cursor:pointer; background:#fff; color:var(--negro); }
+  .btn.rojo { background:var(--rojo); color:#fff; }
+  .btn.sec { background:var(--gris); color:var(--negro); font-size:13px; padding:8px 12px; }
+  .hoja { max-width:860px; margin:28px auto; background:#fff; box-shadow:0 2px 14px rgba(0,0,0,.08); }
+  .cabecera { background:var(--negro); color:#fff; padding:28px 40px; display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; }
+  .cabecera .btn { margin-top:6px; }
+  .marca { font-family:'Bebas Neue',sans-serif; font-size:30px; letter-spacing:4px; }
+  .etiqueta { display:inline-block; background:var(--rojo); color:#fff; font-weight:700; font-size:12px; letter-spacing:1.5px; padding:4px 10px; margin-top:10px; }
+  .etiqueta.gris { background:#444; }
+  h1 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:40px; letter-spacing:1px; margin:10px 0 4px; line-height:1.1; }
+  .meta { color:#BDBDBD; font-size:14px; }
+  .cuerpo { padding:28px 40px 36px; }
+  h2 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:26px; letter-spacing:1px; margin:26px 0 8px; }
+  h2:first-child { margin-top:0; }
+  table { width:100%; border-collapse:collapse; margin:8px 0 4px; font-size:15px; }
+  th, td { text-align:left; padding:9px 12px; border-bottom:1px solid #E5E5E5; vertical-align:top; }
+  th { width:46%; font-weight:500; color:var(--suave); }
+  td { font-weight:700; }
+  .semaforo { display:flex; align-items:center; gap:14px; padding:14px 18px; background:var(--gris); margin-bottom:14px; }
+  .punto { width:18px; height:18px; border-radius:50%; background:var(--sem); flex:none; }
+  .semaforo strong { font-size:18px; }
+  .kpis { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:0 0 8px; }
+  .kpi { background:var(--gris); padding:14px; border-top:3px solid var(--sem); }
+  .kpi .v { font-family:'Bebas Neue',sans-serif; font-size:30px; line-height:1; }
+  .kpi .l { color:var(--suave); font-size:12px; margin-top:4px; }
+  .aviso { border-left:4px solid #E0A800; background:#FFF8E1; padding:10px 14px; margin:12px 0; font-size:14px; }
+  .aviso.rojo { border-left-color:var(--rojo); background:#FDECEC; }
+  .aviso ul { margin:4px 0 0; }
+  .tabla-cliente td { font-size:17px; }
+  .calculo { margin:14px 0; border:1px solid #E5E5E5; border-radius:6px; padding:8px 12px; }
+  .calculo summary { cursor:pointer; font-weight:700; }
+  .nota { font-weight:400; color:var(--suave); font-size:13px; }
+  #analisis.plegado .cuerpo, #analisis.plegado .pie { display:none; }
+  #analisis.plegado .cabecera { padding:18px 40px; }
+  #analisis.plegado h1 { font-size:26px; margin:4px 0 0; }
+  .acciones { display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+  ul { padding-left:20px; margin:6px 0; }
+  p { margin:6px 0; }
+  .pie { color:var(--suave); font-size:12px; padding:0 40px 24px; }
+  @media (max-width:640px) { .cabecera, .cuerpo { padding:22px; } h1 { font-size:32px; } th { width:52%; } .kpis { grid-template-columns:repeat(2, 1fr); } }
+  @media print {
+    @page { size:A4; margin:12mm; }
+    body { background:#fff; }
+    .nav, .cabecera .btn, .abrir { display:none; }
+    .hoja { box-shadow:none; margin:0; max-width:none; page-break-before:always; }
+    #comercial { page-break-before:auto; }
+    .hoja, .cabecera, .etiqueta, .semaforo, .punto, .aviso, .kpi { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    #analisis.plegado .cuerpo, #analisis.plegado .pie { display:block; }
+    body.solo-comercial .hoja:not(#comercial), body.solo-cliente .hoja:not(#cliente), body.solo-analisis .hoja:not(#analisis) { display:none; }
+    body.solo-comercial #comercial, body.solo-cliente #cliente, body.solo-analisis #analisis { page-break-before:auto; }
+  }
+</style>
+</head>
+<body>
+<div class="nav">
+  <a href="#comercial">Comercial</a><a href="#cliente">Propuesta cliente</a><a href="#analisis" onclick="toggleAnalisis(true)">Análisis interno</a>
+  <span class="sp"></span>
+  <button class="btn" onclick="imprimir('')">Descargar todo (PDF)</button>
+</div>
+
+<section class="hoja" id="comercial">
+  <div class="cabecera">
+    <div>
+      <div class="marca">IDCO</div>
+      <span class="etiqueta">EVALUACIÓN PRELIMINAR PRE-REUNIÓN · USO INTERNO</span>
+      <h1>Alberto Moreno Antuned</h1>
+      <div class="meta">Tatuajes y formación · Estudio de tatuajes (tatuajes de diseño/artista) y academia de formación en tatuaje; principal: tatuajes personalizados · 16/10/2026</div>
+    </div>
+    <button class="btn" onclick="imprimir('comercial')">Descargar sección (PDF)</button>
+  </div>
+  <div class="cuerpo">
+    <div class="semaforo"><span class="punto"></span><div><strong>No encaja pay-per-show (preliminar)</strong><br><span>No es rentable para el cliente: para que gane 1,3x IDCO tendría que cobrar 46 €/show o menos, por debajo del mínimo (50 €). Necesita ticket ≥ 626 €, más inversión o promocionar un servicio de más ticket</span></div></div>
+    <div class="kpis">
+      <div class="kpi"><div class="v">—</div><div class="l">Precio de apertura por cita</div></div>
+      <div class="kpi"><div class="v">—</div><div class="l">Rango de negociación</div></div>
+      <div class="kpi"><div class="v">17–21</div><div class="l">Videollamadas presentadas al mes</div></div>
+      <div class="kpi"><div class="v">17</div><div class="l">Citas garantizables al mes</div></div>
+    </div>
+    <div class="aviso"><strong>Evaluación preliminar automática</strong> con los datos del formulario corto, previa a la reunión. Las cifras son orientativas: el análisis detallado se hace después con el formulario completo.<br><strong>Supuestos:</strong><ul><li>Ticket de evaluación: 600 € (investigado (dentro del tramo typeform), tramo &quot;Entre 500-1.000€&quot;)</li><li>Inversión en publicidad asumida: 1.000 €/mes (el formulario solo pregunta si dispone de esa cantidad)</li><li>Capacidad de atender videollamadas: sin límite (no se pregunta)</li><li>Mercado: España (no se pregunta)</li><li>Sin datos propios de leads, citas ni asistencia: 100 % benchmarks investigados para el subtipo de servicio</li><li>Sin coste actual por cita: techo de referencia 150 €/show</li></ul></div>
+    <h2>Resumen</h2><p>Evaluación preliminar (pre-reunión). Resultado: No encaja pay-per-show (preliminar). Con los supuestos actuales el perfil no encaja, porque la inversión asumida de 1.000 €/mes (el formulario solo pregunta si dispone de esa cantidad) y el ticket de evaluación de 600 € (investigado, dentro del tramo «Entre 500-1.000€») no alcanzan el ratio mínimo de 1,3x. Con 21 citas y un ticket de 600 €, el cliente generaría 2.587,50 €/mes frente a 2.078,12 € de coste: ratio 1,25.</p>
+    <h2>Datos del formulario</h2><table><tr><th>Sector</th><td>Estudio de tatuajes y academia</td></tr><tr><th>¿Ya vende servicios?</th><td>Si</td></tr><tr><th>Qué vende</th><td>Hago tatuajes y formo a gente en una academia que tengo en el mismo local en la planta superior, divido el estudio por planta baja estudio de tatuajes y planta superior en academia</td></tr><tr><th>Ticket medio</th><td>Entre 500-1.000€</td></tr><tr><th>Captación actual</th><td>Boca a boca</td></tr><tr><th>Instagram / web</th><td>@wilzy.art / @crybabytattoobcn / @crybabytattooacademy</td></tr><tr><th>¿Dispone de 1.000 €/mes para ads?</th><td>Si</td></tr><tr><th>Email</th><td>wilzy.art@gmail.com</td></tr><tr><th>Origen (UTM)</th><td>source: ig, medium: paid, campaign: 120222164487800339</td></tr></table>
+    <h2>Números para negociar</h2><table><tr><th>Precio de apertura</th><td>—</td></tr><tr><th>No bajar de</th><td>50 €/show</td></tr><tr><th>Techo</th><td>45 €/show</td></tr><tr><th>Inversión en ads del cliente</th><td>1.000 €/mes</td></tr><tr><th>Citas presentadas al mes (conservador / base)</th><td>17 / 21</td></tr><tr><th>Qué cuenta como cita</th><td>Videollamada o llamada de consulta inicial (15–20 min) reservada online a la que la persona asiste</td></tr><tr><th>Coste total por cita para el cliente (escenario base)</th><td>96,38 €</td></tr><tr><th>Citas presentadas garantizables al mes</th><td><strong>17</strong> <span class='nota'>(coste garantía 46,38 €/show)</span></td></tr><tr><th>Coste por cita / ticket mínimo del tramo</th><td>16,1 % de 600 €</td></tr></table>
+    <h2>Rentabilidad para el cliente</h2><table><tr><th>Ticket usado</th><td>600 € <span class='nota'>(investigado (dentro del tramo typeform))</span></td></tr><tr><th>Cierre asumido videollamada → venta</th><td>20 %</td></tr><tr><th>Ingreso estimado del cliente al mes (escenario base)</th><td>2.588 € = 21 citas × 20 % × 600 €</td></tr><tr><th>Coste total del cliente al mes</th><td>2.078 € = ads + citas × precio IDCO</td></tr><tr><th>Ratio ingreso / coste</th><td><strong>1,25x</strong> <span class='nota'>(objetivo ≥ 2,0x; mínimo 1,3x)</span></td></tr><tr><th>Precio máximo para que le salga rentable</th><td>46 €/show <span class='nota'>(VERDE hasta 14 €/show)</span></td></tr><tr><th>Ticket mínimo para VERDE con este precio</th><td>964 €</td></tr></table>
+    <h2>Cómo negociar</h2><p>No proponer precio: con los datos actuales no hay precio que cuadre. El coste de 2.078,12 € se calcula con 50 € por cita (precio mínimo de IDCO), y el precio máximo rentable para el cliente es 45,93 €, por debajo de ese mínimo. Precio de apertura: no aplica. Límite inferior de IDCO: 50 €. Techo para el cliente: 45,93 €. Para reabrirlo hay que mover el ticket o la inversión: el ticket mínimo para ratio 1,3x es 626,45 € y el ticket para VERDE (ratio 2,0x) es 963,77 €. Bajar el precio no basta: el precio máximo para VERDE es 13,62 €, por debajo del mínimo de IDCO. Qué confirmar en la reunión: (1) ticket real del servicio a promocionar, frente al umbral de 626,45 €; (2) inversión real en publicidad (asumimos 1.000 €/mes); (3) si ya vende y cómo cierra la videollamada (asumimos un 20 %); (4) capacidad de atender videollamadas (no se preguntó); (5) coste actual por cita si ya hace publicidad (no hay dato). Si el ticket real sube o puede promocionar un servicio de más ticket, se recalcula. Cierre: periodo inicial de 3 meses en pay-per-show y revisión del precio por cita con datos reales.</p>
+    <h2>Objeciones probables</h2><p>1. «No tengo 1.000 € al mes para publicidad»: la cuenta parte de esa inversión. Confirmar cuánto puede invertir de verdad; con otra cifra hay que recalcular el ratio antes de hablar de precio. 2. «Mi ticket no llega a 600 €» o «no todos mis clientes pagan eso»: el ticket decide la rentabilidad. Con un cierre del 20 %, el ticket mínimo para ratio 1,3x es 626,45 €. Pedir qué servicio concreto se promocionaría y cuál es su ticket real. 3. «¿Cuánto me cuesta cada cita presentada?»: el coste total por cita sería de 96,38 € (46,38 € en publicidad y 50 € a IDCO), y solo se paga por la cita a la que asiste la persona. Esa cifra se compara con el ticket: supone un 16,1 % de los 600 € supuestos.</p>
+    <h2>Riesgos</h2><p>Rentabilidad del cliente: ratio 1,25 (ingreso 2.587,50 €/mes frente a coste 2.078,12 €), por debajo del 1,3x mínimo. El motivo es que el precio máximo rentable (45,93 €) queda por debajo del mínimo de IDCO (50 €). Supuesto de cierre: 20 % de videollamadas que terminan en venta (investigado, no confirmado). Escenario conservador como referencia prudente: 17 citas al mes, 107,97 € de coste total por cita y 862,50 € de facturación de IDCO; con esos datos el ratio sería todavía menor. El ingreso se calcula sobre 21,56 citas sin redondear. Confianza MEDIA: no hay datos propios de leads, citas ni asistencia; todo son benchmarks. CPL: el calculado por componentes (5,28 €) está por debajo de lo que IDCO ve en campañas reales, así que se usa el suelo de 8,00 €. Ticket de 600 € investigado (tramo), no confirmado. Sin coste actual por cita (techo de referencia 150 €). Garantía orientativa de 17 citas presentadas al mes (se formaliza en el anexo de garantía); no conviene ofrecerla mientras el ratio no cuadre. Madurez no evaluada (formulario corto). Mercado España y capacidad de videollamadas sin límite: supuestos no preguntados.</p>
+    <h2>Siguiente paso</h2><p>Reunión de descubrimiento; después, formulario PPS completo. Objetivo de la reunión: confirmar el ticket real del servicio a promocionar (umbral 626,45 € para ratio 1,3x), la inversión mensual disponible (asumida 1.000 €/mes), el cierre de las videollamadas (asumido 20 %), la capacidad de videollamadas y el coste actual por cita si hace publicidad. No enviar propuesta de precio hasta confirmar esos datos y recalcular.</p>
+  </div>
+  <div class="pie">Calculadora PPS · modelo v2.5 · 16/10/2026</div>
+</section>
+
+<section class="hoja" id="cliente">
+  <div class="cabecera">
+    <div>
+      <div class="marca">IDCO</div>
+      <span class="etiqueta">PROPUESTA ORIENTATIVA</span>
+      <h1>Pay-per-show: pendiente de validar los datos</h1>
+      <div class="meta">Preparada para Alberto Moreno Antuned · 16/10/2026</div>
+    </div>
+    <button class="btn rojo" onclick="imprimir('cliente')">Descargar propuesta (PDF)</button>
+  </div>
+  <div class="cuerpo">
+    <div class="aviso">Cifras orientativas calculadas con benchmarks del sector antes de la reunión; se concretan con tus datos en la propuesta definitiva.</div>
+    <h2>Tu situación actual</h2><p>Tienes un estudio de tatuajes en la planta baja y una academia de formación en la planta superior, en el mismo local. Captas a tus clientes sobre todo de boca a boca y tienes presencia en Instagram. Quieres que llegue más gente interesada en tus tatuajes y en tu academia, y que cada persona que acude a una consulta te salga a un coste razonable.</p>
+    <h2>Nuestra propuesta</h2><p>El pay-per-show consiste en que inviertes en publicidad, nosotros gestionamos las campañas de Meta Ads, las creatividades y el seguimiento de los contactos hasta que asisten a la videollamada de consulta, y pagas solo por cada cita presentada. Con los datos que tenemos ahora (un ticket en torno a 600 €, la inversión y el servicio tal como están), este modelo no te saldría rentable. Para reabrir el análisis habría que confirmar el ticket real del servicio que quieres promocionar y la inversión mensual que podrías dedicar a publicidad.</p>
+    
+    <h2>Próximos pasos</h2><p>1. Reunirnos para validar el ticket real del servicio que quieres promocionar. 2. Revisar cuánto podrías invertir al mes en publicidad. Con esos datos volvemos a calcular la propuesta y te la enviamos.</p>
+  </div>
+  <div class="pie">IDCO · Instituto de Crecimiento Orgánico</div>
+</section>
+
+<section class="hoja" id="analisis">
+  <div class="cabecera">
+    <div>
+      <div class="marca">IDCO</div>
+      <span class="etiqueta gris">ANÁLISIS INTERNO</span>
+      <h1>Cálculo y benchmarks</h1>
+    </div>
+    <div class="acciones">
+      <button class="btn" id="btn-analisis" onclick="toggleAnalisis()">Ocultar análisis</button>
+      <button class="btn" onclick="imprimir('analisis')">Descargar análisis (PDF)</button>
+    </div>
+  </div>
+  <div class="cuerpo">
+    <h2>Benchmarks y cálculo del coste por show</h2><table><tr><th>CPM (coste por mil impresiones, mercado objetivo)</th><td>7,60 €<br><span class='nota'><a href="https://www.superads.ai/facebook-ads-costs/cpm-cost-per-mille/spain" target="_blank">fuente 1</a></span></td></tr><tr><th>CTR (clics / impresiones)</th><td>1,80 %<br><span class='nota'><a href="https://www.superads.ai/facebook-ads-costs/ctr-click-through-rate/spain" target="_blank">fuente 1</a></span></td></tr><tr><th>Conversión de la página de reserva</th><td>8,0 %<br><span class='nota'><a href="https://schedulingkit.com/statistics/booking-conversion-rate-statistics" target="_blank">fuente 1</a> · <a href="https://lunacal.ai/blogs/calendar-scheduling-benchmarks-report" target="_blank">fuente 2</a></span></td></tr><tr><th>CPL calculado = CPM / 1000 / (CTR × conversión)</th><td>5,28 €</td></tr><tr><th>CPL publicado de contraste</th><td>Sin dato</td></tr><tr><th>CPL usado</th><td><strong>8,00 €</strong> <span class='nota'>(calculado por componentes)</span></td></tr><tr><th>Leads que reservan la primera cita</th><td>25 %<br><span class='nota'><a href="https://www.stackmatix.com/blog/meta-ads-tattoo-studios-guide" target="_blank">fuente 1</a></span></td></tr><tr><th>Asistencia de leads fríos</th><td>69 %<br><span class='nota'><a href="https://lunacal.ai/blogs/calendar-scheduling-benchmarks-report" target="_blank">fuente 1</a> · <a href="https://schedulingkit.com/blog/average-no-show-rates-by-industry" target="_blank">fuente 2</a></span></td></tr><tr><th>Coste en ads por show (base)</th><td>46,38 € = CPL / (reserva × asistencia)</td></tr><tr><th>Escenario conservador</th><td>57,97 € (CPL × 1,15 y asistencia × 0,92)</td></tr><tr><th>Garantía de citas</th><td>17 al mes = inversión ÷ max(coste por show base, suelo 35 €) × 0,8</td></tr></table><div class="aviso">CPL por componentes (5,28 €) por debajo de lo que IDCO ve en campañas reales: se usa el suelo de 8,00 €</div>
+    <h2>Economía y fiabilidad</h2><table><tr><th>Facturación IDCO (conservador / base)</th><td>862 € / 1.078 €</td></tr><tr><th>Coste en ads por show (base / conservador)</th><td>46,38 € / 57,97 €</td></tr><tr><th>Confianza del cálculo</th><td>MEDIA</td></tr><tr><th>Madurez del cliente</th><td>No evaluada (formulario corto) (—/6)</td></tr><tr><th>Origen de las variables</th><td>cpl: BENCHMARK, lead_agenda: BENCHMARK, agenda_show: BENCHMARK</td></tr><tr><th>Motivos del semáforo</th><td>No es rentable para el cliente: para que gane 1,3x IDCO tendría que cobrar 46 €/show o menos, por debajo del mínimo (50 €). Necesita ticket ≥ 626 €, más inversión o promocionar un servicio de más ticket</td></tr><tr><th>Supuestos del informe preliminar</th><td>Ticket de evaluación: 600 € (investigado (dentro del tramo typeform), tramo &quot;Entre 500-1.000€&quot;) · Inversión en publicidad asumida: 1.000 €/mes (el formulario solo pregunta si dispone de esa cantidad) · Capacidad de atender videollamadas: sin límite (no se pregunta) · Mercado: España (no se pregunta) · Sin datos propios de leads, citas ni asistencia: 100 % benchmarks investigados para el subtipo de servicio · Sin coste actual por cita: techo de referencia 150 €/show</td></tr><tr><th>Modelo</th><td>v2.5 · 16/10/2026</td></tr></table>
+  </div>
+  <div class="pie">Calculadora PPS · modelo v2.5 · 16/10/2026</div>
+</section>
+
+<script type="application/json" id="idco-pps-data">{"model_version": "2.5", "nombre_lead": "Alberto Moreno Antuned", "industria": "Tatuajes y formación", "servicio": "Estudio de tatuajes (tatuajes de diseño/artista) y academia de formación en tatuaje; principal: tatuajes personalizados", "semaforo": "ROJO", "confianza": "MEDIA", "presupuesto_ads": 1000.0, "precio_recomendado": null, "shows_mes_cons": 17.25, "escenarios": {"conservador": {"cpl": 9.2, "lead_agenda": 0.25, "agenda_show": 0.63, "coste_ads_show": 57.97, "shows_mes": 17.25, "leads_mes": 108.7, "limitado_capacidad": false}, "base": {"cpl": 8.0, "lead_agenda": 0.25, "agenda_show": 0.69, "coste_ads_show": 46.38, "shows_mes": 21.56, "leads_mes": 125.0, "limitado_capacidad": false}, "favorable": {"cpl": 7.2, "lead_agenda": 0.25, "agenda_show": 0.72, "coste_ads_show": 39.75, "shows_mes": 25.16, "leads_mes": 138.89, "limitado_capacidad": false}}, "garantia_shows_mes": 17.0, "garantia_coste_show": 46.38, "garantia_suelo_aplicado": false, "tipo_informe": "PRELIMINAR", "supuestos": ["Ticket de evaluación: 600 € (investigado (dentro del tramo typeform), tramo \"Entre 500-1.000€\")", "Inversión en publicidad asumida: 1.000 €/mes (el formulario solo pregunta si dispone de esa cantidad)", "Capacidad de atender videollamadas: sin límite (no se pregunta)", "Mercado: España (no se pregunta)", "Sin datos propios de leads, citas ni asistencia: 100 % benchmarks investigados para el subtipo de servicio", "Sin coste actual por cita: techo de referencia 150 €/show"], "descalificado": false, "motivo_descalificacion": "", "ticket_tramo": "Entre 500-1.000€", "ticket_min": 500.0, "rentabilidad": {"ticket_evaluacion": 600.0, "ticket_origen": "INVESTIGADO (dentro del tramo typeform)", "ticket_tramo": "Entre 500-1.000€", "ticket_investigado": 600.0, "ticket_fuentes": "https://www.primor.eu/blog/?p=101080, https://emprendedores.es/startups/startup-tattoox", "cierre_pct": 20, "shows_cons": 21.56, "escenario": "base", "ingreso_estimado_mes": 2587.5, "coste_cliente_mes": 2078.12, "ratio": 1.25, "ratio_min": 1.3, "ratio_verde": 2.0, "precio_max_rentable": 45.93, "precio_verde": 13.62, "ticket_min_rentable": 626.45, "ticket_min_verde": 963.77}, "definicion_show": "Videollamada o llamada de consulta inicial (15–20 min) reservada online a la que la persona asiste", "benchmark_incompleto": false}</script>
+<script>
+  function imprimir(seccion) {
+    const titulo = document.title;
+    const nombres = {'': 'Informe completo', 'comercial': 'Comercial', 'cliente': 'Propuesta', 'analisis': 'Análisis interno'};
+    document.body.classList.remove('solo-comercial', 'solo-cliente', 'solo-analisis');
+    if (seccion) document.body.classList.add('solo-' + seccion);
+    const an = document.getElementById('analisis'); const estabaPlegado = an.classList.contains('plegado'); an.classList.remove('plegado');
+    document.title = nombres[seccion] + ' IDCO - Alberto Moreno Antuned';
+    window.print();
+    setTimeout(() => { document.body.classList.remove('solo-comercial', 'solo-cliente', 'solo-analisis'); if (estabaPlegado) an.classList.add('plegado'); document.title = titulo; }, 500);
+  }
+  function toggleAnalisis(abrir) {
+    const an = document.getElementById('analisis');
+    const plegar = abrir === true ? false : !an.classList.contains('plegado');
+    an.classList.toggle('plegado', plegar);
+    document.getElementById('btn-analisis').textContent = plegar ? 'Mostrar análisis' : 'Ocultar análisis';
+    if (!plegar) an.scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
+</script>
+</body>
+</html>
