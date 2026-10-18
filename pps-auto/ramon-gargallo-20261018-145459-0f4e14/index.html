@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Preliminar · Ramon Gargallo · IDCO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root { --negro:#0A0A0A; --rojo:#DD1927; --gris:#F2F2F2; --texto:#1A1A1A; --suave:#6B6B6B; --sem:#DD1927; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#E9E9E9; font-family:'DM Sans',Arial,sans-serif; color:var(--texto); line-height:1.55; }
+  .nav { position:sticky; top:0; z-index:10; background:var(--negro); padding:10px 24px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+  .nav a { color:#BDBDBD; text-decoration:none; font-weight:700; font-size:14px; padding:8px 12px; border-radius:6px; }
+  .nav a:hover { color:#fff; background:#222; }
+  .nav .sp { flex:1; }
+  .btn { font-family:inherit; font-weight:700; font-size:14px; border:0; border-radius:6px; padding:10px 16px; cursor:pointer; background:#fff; color:var(--negro); }
+  .btn.rojo { background:var(--rojo); color:#fff; }
+  .btn.sec { background:var(--gris); color:var(--negro); font-size:13px; padding:8px 12px; }
+  .hoja { max-width:860px; margin:28px auto; background:#fff; box-shadow:0 2px 14px rgba(0,0,0,.08); }
+  .cabecera { background:var(--negro); color:#fff; padding:28px 40px; display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; }
+  .cabecera .btn { margin-top:6px; }
+  .marca { font-family:'Bebas Neue',sans-serif; font-size:30px; letter-spacing:4px; }
+  .etiqueta { display:inline-block; background:var(--rojo); color:#fff; font-weight:700; font-size:12px; letter-spacing:1.5px; padding:4px 10px; margin-top:10px; }
+  .etiqueta.gris { background:#444; }
+  h1 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:40px; letter-spacing:1px; margin:10px 0 4px; line-height:1.1; }
+  .meta { color:#BDBDBD; font-size:14px; }
+  .cuerpo { padding:28px 40px 36px; }
+  h2 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:26px; letter-spacing:1px; margin:26px 0 8px; }
+  h2:first-child { margin-top:0; }
+  table { width:100%; border-collapse:collapse; margin:8px 0 4px; font-size:15px; }
+  th, td { text-align:left; padding:9px 12px; border-bottom:1px solid #E5E5E5; vertical-align:top; }
+  th { width:46%; font-weight:500; color:var(--suave); }
+  td { font-weight:700; }
+  .semaforo { display:flex; align-items:center; gap:14px; padding:14px 18px; background:var(--gris); margin-bottom:14px; }
+  .punto { width:18px; height:18px; border-radius:50%; background:var(--sem); flex:none; }
+  .semaforo strong { font-size:18px; }
+  .kpis { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:0 0 8px; }
+  .kpi { background:var(--gris); padding:14px; border-top:3px solid var(--sem); }
+  .kpi .v { font-family:'Bebas Neue',sans-serif; font-size:30px; line-height:1; }
+  .kpi .l { color:var(--suave); font-size:12px; margin-top:4px; }
+  .aviso { border-left:4px solid #E0A800; background:#FFF8E1; padding:10px 14px; margin:12px 0; font-size:14px; }
+  .aviso.rojo { border-left-color:var(--rojo); background:#FDECEC; }
+  .aviso ul { margin:4px 0 0; }
+  .tabla-cliente td { font-size:17px; }
+  .calculo { margin:14px 0; border:1px solid #E5E5E5; border-radius:6px; padding:8px 12px; }
+  .calculo summary { cursor:pointer; font-weight:700; }
+  .nota { font-weight:400; color:var(--suave); font-size:13px; }
+  #analisis.plegado .cuerpo, #analisis.plegado .pie { display:none; }
+  #analisis.plegado .cabecera { padding:18px 40px; }
+  #analisis.plegado h1 { font-size:26px; margin:4px 0 0; }
+  .acciones { display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+  ul { padding-left:20px; margin:6px 0; }
+  p { margin:6px 0; }
+  .pie { color:var(--suave); font-size:12px; padding:0 40px 24px; }
+  @media (max-width:640px) { .cabecera, .cuerpo { padding:22px; } h1 { font-size:32px; } th { width:52%; } .kpis { grid-template-columns:repeat(2, 1fr); } }
+  @media print {
+    @page { size:A4; margin:12mm; }
+    body { background:#fff; }
+    .nav, .cabecera .btn, .abrir { display:none; }
+    .hoja { box-shadow:none; margin:0; max-width:none; page-break-before:always; }
+    #comercial { page-break-before:auto; }
+    .hoja, .cabecera, .etiqueta, .semaforo, .punto, .aviso, .kpi { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    #analisis.plegado .cuerpo, #analisis.plegado .pie { display:block; }
+    body.solo-comercial .hoja:not(#comercial), body.solo-cliente .hoja:not(#cliente), body.solo-analisis .hoja:not(#analisis) { display:none; }
+    body.solo-comercial #comercial, body.solo-cliente #cliente, body.solo-analisis #analisis { page-break-before:auto; }
+  }
+</style>
+</head>
+<body>
+<div class="nav">
+  <a href="#comercial">Comercial</a><a href="#cliente">Propuesta cliente</a><a href="#analisis" onclick="toggleAnalisis(true)">Análisis interno</a>
+  <span class="sp"></span>
+  <button class="btn" onclick="imprimir('')">Descargar todo (PDF)</button>
+</div>
+
+<section class="hoja" id="comercial">
+  <div class="cabecera">
+    <div>
+      <div class="marca">IDCO</div>
+      <span class="etiqueta">EVALUACIÓN PRELIMINAR PRE-REUNIÓN · USO INTERNO</span>
+      <h1>Ramon Gargallo</h1>
+      <div class="meta">Publicidad en el lugar de venta (PLV) para belleza · Diseño y fabricación de PLV (expositores y displays) para el sector beauty · 18/10/2026</div>
+    </div>
+    <button class="btn" onclick="imprimir('comercial')">Descargar sección (PDF)</button>
+  </div>
+  <div class="cuerpo">
+    <div class="semaforo"><span class="punto"></span><div><strong>No encaja pay-per-show (preliminar)</strong><br><span>El precio mínimo que necesita IDCO (160 €/show) supera el techo de referencia</span></div></div>
+    <div class="kpis">
+      <div class="kpi"><div class="v">—</div><div class="l">Precio de apertura por cita</div></div>
+      <div class="kpi"><div class="v">—</div><div class="l">Rango de negociación</div></div>
+      <div class="kpi"><div class="v">5–6</div><div class="l">Videollamadas presentadas al mes</div></div>
+      <div class="kpi"><div class="v">5</div><div class="l">Citas garantizables al mes</div></div>
+    </div>
+    <div class="aviso"><strong>Evaluación preliminar automática</strong> con los datos del formulario corto, previa a la reunión. Las cifras son orientativas: el análisis detallado se hace después con el formulario completo.<br><strong>Supuestos:</strong><ul><li>Ticket de evaluación: 5.000 € (investigado (dentro del tramo typeform), tramo &quot;+5.000€&quot;)</li><li>Inversión en publicidad asumida: 1.000 €/mes (el formulario solo pregunta si dispone de esa cantidad)</li><li>Capacidad de atender videollamadas: sin límite (no se pregunta)</li><li>Mercado: España (no se pregunta)</li><li>Sin datos propios de leads, citas ni asistencia: 100 % benchmarks investigados para el subtipo de servicio</li><li>Sin coste actual por cita: techo de referencia 150 €/show</li></ul></div>
+    <h2>Resumen</h2><p>Evaluación preliminar (pre-reunión). El perfil no encaja: el precio mínimo de IDCO supera el techo de referencia. Con 6 citas presentadas/mes y un ticket de 5.000 €, el cliente generaría 6.330,79 €/mes frente a 2.012,93 € de coste: ratio 3,15. Supuestos clave: inversión asumida de 1.000 €/mes y ticket investigado.</p>
+    <h2>Datos del formulario</h2><table><tr><th>Sector</th><td>Diseñamos y fabricamos PLV para el sector beauty</td></tr><tr><th>¿Ya vende servicios?</th><td>Si</td></tr><tr><th>Qué vende</th><td>Diseño y fabricación de plv para el sector beauty</td></tr><tr><th>Ticket medio</th><td>+5.000€</td></tr><tr><th>Captación actual</th><td>Otro</td></tr><tr><th>Instagram / web</th><td>@vpvsl www.vpvsl.com</td></tr><tr><th>¿Dispone de 1.000 €/mes para ads?</th><td>Si</td></tr><tr><th>Email</th><td>rgargallo@vpvsl.com</td></tr><tr><th>Origen (UTM)</th><td>source: ig, medium: paid, campaign: 120222164487800339</td></tr></table>
+    <h2>Números para negociar</h2><table><tr><th>Precio de apertura</th><td>—</td></tr><tr><th>No bajar de</th><td>160 €/show</td></tr><tr><th>Techo</th><td>150 €/show</td></tr><tr><th>Inversión en ads del cliente</th><td>1.000 €/mes</td></tr><tr><th>Citas presentadas al mes (conservador / base)</th><td>5 / 6</td></tr><tr><th>Qué cuenta como cita</th><td>Videollamada o llamada de consulta inicial (15–20 min) reservada online a la que la persona asiste</td></tr><tr><th>Coste total por cita para el cliente (escenario base)</th><td>317,96 €</td></tr><tr><th>Citas presentadas garantizables al mes</th><td><strong>5</strong> <span class='nota'>(coste garantía 157,96 €/show)</span></td></tr><tr><th>Coste por cita / ticket mínimo del tramo</th><td>6,4 % de 5.000 €</td></tr></table>
+    <h2>Rentabilidad para el cliente</h2><table><tr><th>Ticket usado</th><td>5.000 € <span class='nota'>(investigado (dentro del tramo typeform))</span></td></tr><tr><th>Cierre asumido videollamada → venta</th><td>20 %</td></tr><tr><th>Ingreso estimado del cliente al mes (escenario base)</th><td>6.331 € = 6 citas × 20 % × 5.000 €</td></tr><tr><th>Coste total del cliente al mes</th><td>2.013 € = ads + citas × precio IDCO</td></tr><tr><th>Ratio ingreso / coste</th><td><strong>3,15x</strong> <span class='nota'>(≥ 2,0x: encaja)</span></td></tr><tr><th>Precio máximo para que le salga rentable</th><td>611 €/show <span class='nota'>(VERDE hasta 342 €/show)</span></td></tr><tr><th>Ticket mínimo para VERDE con este precio</th><td>3.180 €</td></tr></table>
+    <h2>Cómo negociar</h2><p>Precio de apertura: ninguno, el precio recomendado está vacío. Límite inferior IDCO: 160 €/show. Techo de referencia: 150 €/show. Con estos límites no hay precio que los cumpla a la vez. Confirmar el coste actual por cita: si supera 160 €/show, el techo sube y el rango se reabre; entonces la apertura se sitúa cerca de 160 €/show, sin bajar de ese límite. Confirmar el ticket real: si baja de 2.066,73 €, la rentabilidad no llega a 1,3x. Fijar un tope mensual de shows facturables. Cierre: periodo inicial de 3 meses en pay-per-show y revisión del precio por cita con datos reales.</p>
+    <h2>Objeciones probables</h2><ul><li>«Ya pago por lead y no sé cuánto me cuesta cada cita.» Respuesta: confirmamos juntos el coste actual por cita; el precio por cita se fija con esos datos y se revisa con datos reales durante el periodo inicial de 3 meses.</li><li>«¿Cuánto me costaría cada cita?» Respuesta: el precio se fija al confirmar el coste actual y el ticket reales; solo pagas por videollamadas de consulta a las que asiste la persona.</li><li>«No quiero pagar si no vendo.» Respuesta: pagas solo por cita presentada, no por lead; fijamos un tope mensual de shows facturables y revisamos el precio con datos reales tras el periodo inicial.</li></ul>
+    <h2>Riesgos</h2><ul><li>Precio mínimo de IDCO (160 €/show) por encima del techo de referencia (150 €/show), sin coste actual por cita para contrastar.</li><li>Cierre asumido del 20 %: si la videollamada cierra menos, el ingreso baja.</li><li>Escenario conservador: 5 citas presentadas/mes y 357,45 € de coste total por cita.</li><li>Benchmarks recortados: videollamada a 20 € (investigado 15 €) y asistencia al 55 % (investigado 50 %). Sin datos propios; confianza MEDIA.</li><li>Ticket de 5.000 € investigado y no confirmado; el coste total por cita (317,96 €) equivale al 6,4 % de ese ticket.</li><li>Inversión de 1.000 €/mes sin verificar; el formulario solo preguntó si el cliente dispone de esa cantidad.</li></ul>
+    <h2>Siguiente paso</h2><p>Reunión de descubrimiento; después, formulario PPS completo</p><p>Confirmar en la reunión el coste actual por cita y el ticket real; el rango solo se reabre si el coste supera 160 €/show.</p>
+  </div>
+  <div class="pie">Calculadora PPS · modelo v2.5 · 18/10/2026</div>
+</section>
+
+<section class="hoja" id="cliente">
+  <div class="cabecera">
+    <div>
+      <div class="marca">IDCO</div>
+      <span class="etiqueta">PROPUESTA ORIENTATIVA</span>
+      <h1>Pay-per-show: pendiente de validar los datos</h1>
+      <div class="meta">Preparada para Ramon Gargallo · 18/10/2026</div>
+    </div>
+    <button class="btn rojo" onclick="imprimir('cliente')">Descargar propuesta (PDF)</button>
+  </div>
+  <div class="cuerpo">
+    <div class="aviso">Cifras orientativas calculadas con benchmarks del sector antes de la reunión; se concretan con tus datos en la propuesta definitiva.</div>
+    <h2>Tu situación actual</h2><p>Vendes diseño y fabricación de PLV para el sector beauty. Para valorar el modelo necesitamos tu punto de partida real: ticket medio y, si lo tienes, el coste por cita presentada actual.</p>
+    <h2>Nuestra propuesta</h2><p>Con los datos que tenemos hoy, el pay-per-show no te encajaría: el precio por cita que necesita nuestro modelo queda por encima de lo que te compensa frente a tu situación actual. Ese equilibrio depende de tres datos: tu ticket medio real, la inversión que puedes destinar a publicidad y el coste por cita que tienes hoy. Si al confirmarlos el modelo encaja, la propuesta sería pagar solo por cada videollamada de consulta a la que asiste la persona. Nosotros gestionamos las campañas de Meta Ads, las creatividades y el seguimiento de los contactos hasta esa cita.</p>
+    
+    <h2>Próximos pasos</h2><ul><li>Confirmar en la reunión tu ticket medio real del servicio que quieres promocionar.</li><li>Confirmar la inversión mensual que podrías destinar a publicidad.</li><li>Compartir el coste por cita presentada que tienes hoy, si haces publicidad.</li></ul>
+  </div>
+  <div class="pie">IDCO · Instituto de Crecimiento Orgánico</div>
+</section>
+
+<section class="hoja" id="analisis">
+  <div class="cabecera">
+    <div>
+      <div class="marca">IDCO</div>
+      <span class="etiqueta gris">ANÁLISIS INTERNO</span>
+      <h1>Cálculo y benchmarks</h1>
+    </div>
+    <div class="acciones">
+      <button class="btn" id="btn-analisis" onclick="toggleAnalisis()">Ocultar análisis</button>
+      <button class="btn" onclick="imprimir('analisis')">Descargar análisis (PDF)</button>
+    </div>
+  </div>
+  <div class="cuerpo">
+    <h2>Benchmarks y cálculo del coste por show</h2><table><tr><th>CPM (coste por mil impresiones, mercado objetivo)</th><td>7,60 €<br><span class='nota'><a href="https://www.superads.ai/facebook-ads-costs/cpm-cost-per-mille/spain" target="_blank">fuente 1</a> · <a href="https://www.superads.ai/facebook-ads-costs/cpm-cost-per-mille/wellness-holistic-health/spain" target="_blank">fuente 2</a></span></td></tr><tr><th>CTR (clics / impresiones)</th><td>1,62 %<br><span class='nota'><a href="https://www.superads.ai/facebook-ads-costs/ctr-click-through-rate/spain" target="_blank">fuente 1</a></span></td></tr><tr><th>Conversión de la página de reserva</th><td>2,7 %<br><span class='nota'><a href="https://predictableprofits.com/b2b-cro-benchmarks-by-industry-2025/" target="_blank">fuente 1</a> · <a href="https://morningtrain.dk/en/average-conversion-rate-on-b2b-websites/" target="_blank">fuente 2</a></span></td></tr><tr><th>CPL calculado = CPM / 1000 / (CTR × conversión)</th><td>17,38 €</td></tr><tr><th>CPL publicado de contraste</th><td>Sin dato</td></tr><tr><th>CPL usado</th><td><strong>17,38 €</strong> <span class='nota'>(calculado por componentes)</span></td></tr><tr><th>Leads que reservan la primera cita</th><td>20 % <span class='nota'>(investigado: 15, recortado al rango plausible)</span><br><span class='nota'><a href="https://redefineweb.com/blog/meta-ads-lead-generation-dentists/" target="_blank">fuente 1</a> · <a href="https://withsurface.com/blog/b2b-lead-conversion-benchmarks-for-2025" target="_blank">fuente 2</a></span></td></tr><tr><th>Asistencia de leads fríos</th><td>55 % <span class='nota'>(investigado: 50, recortado al rango plausible)</span><br><span class='nota'><a href="https://www.growthspreeofficial.com/blogs/b2b-saas-demo-show-up-rate-no-show-recovery-benchmarks-2026-by-channel-acv-reminder-cadence" target="_blank">fuente 1</a> · <a href="https://calendly.com/blog/reduce-no-show-rates-sales" target="_blank">fuente 2</a></span></td></tr><tr><th>Coste en ads por show (base)</th><td>157,96 € = CPL / (reserva × asistencia)</td></tr><tr><th>Escenario conservador</th><td>197,45 € (CPL × 1,15 y asistencia × 0,92)</td></tr><tr><th>Garantía de citas</th><td>5 al mes = inversión ÷ max(coste por show base, suelo 35 €) × 0,8</td></tr></table><div class="aviso">Lead a videollamada: la investigación dio 15,00 y se ha recortado a 20,00 (rango plausible 20,0–50,0) | Asistencia a la videollamada: la investigación dio 50,00 y se ha recortado a 55,00 (rango plausible 55,0–90,0)</div>
+    <h2>Economía y fiabilidad</h2><table><tr><th>Facturación IDCO (conservador / base)</th><td>810 € / 1.013 €</td></tr><tr><th>Coste en ads por show (base / conservador)</th><td>157,96 € / 197,45 €</td></tr><tr><th>Confianza del cálculo</th><td>MEDIA</td></tr><tr><th>Madurez del cliente</th><td>No evaluada (formulario corto) (—/6)</td></tr><tr><th>Origen de las variables</th><td>cpl: BENCHMARK, lead_agenda: BENCHMARK, agenda_show: BENCHMARK</td></tr><tr><th>Motivos del semáforo</th><td>El precio mínimo que necesita IDCO (160 €/show) supera el techo de referencia</td></tr><tr><th>Supuestos del informe preliminar</th><td>Ticket de evaluación: 5.000 € (investigado (dentro del tramo typeform), tramo &quot;+5.000€&quot;) · Inversión en publicidad asumida: 1.000 €/mes (el formulario solo pregunta si dispone de esa cantidad) · Capacidad de atender videollamadas: sin límite (no se pregunta) · Mercado: España (no se pregunta) · Sin datos propios de leads, citas ni asistencia: 100 % benchmarks investigados para el subtipo de servicio · Sin coste actual por cita: techo de referencia 150 €/show</td></tr><tr><th>Modelo</th><td>v2.5 · 18/10/2026</td></tr></table>
+  </div>
+  <div class="pie">Calculadora PPS · modelo v2.5 · 18/10/2026</div>
+</section>
+
+<script type="application/json" id="idco-pps-data">{"model_version": "2.5", "nombre_lead": "Ramon Gargallo", "industria": "Publicidad en el lugar de venta (PLV) para belleza", "servicio": "Diseño y fabricación de PLV (expositores y displays) para el sector beauty", "semaforo": "ROJO", "confianza": "MEDIA", "presupuesto_ads": 1000.0, "precio_recomendado": null, "shows_mes_cons": 5.06, "escenarios": {"conservador": {"cpl": 19.98, "lead_agenda": 0.2, "agenda_show": 0.51, "coste_ads_show": 197.45, "shows_mes": 5.06, "leads_mes": 50.05, "limitado_capacidad": false}, "base": {"cpl": 17.38, "lead_agenda": 0.2, "agenda_show": 0.55, "coste_ads_show": 157.96, "shows_mes": 6.33, "leads_mes": 57.55, "limitado_capacidad": false}, "favorable": {"cpl": 15.64, "lead_agenda": 0.2, "agenda_show": 0.58, "coste_ads_show": 135.39, "shows_mes": 7.39, "leads_mes": 63.95, "limitado_capacidad": false}}, "garantia_shows_mes": 5.0, "garantia_coste_show": 157.96, "garantia_suelo_aplicado": false, "tipo_informe": "PRELIMINAR", "supuestos": ["Ticket de evaluación: 5.000 € (investigado (dentro del tramo typeform), tramo \"+5.000€\")", "Inversión en publicidad asumida: 1.000 €/mes (el formulario solo pregunta si dispone de esa cantidad)", "Capacidad de atender videollamadas: sin límite (no se pregunta)", "Mercado: España (no se pregunta)", "Sin datos propios de leads, citas ni asistencia: 100 % benchmarks investigados para el subtipo de servicio", "Sin coste actual por cita: techo de referencia 150 €/show"], "descalificado": false, "motivo_descalificacion": "", "ticket_tramo": "+5.000€", "ticket_min": 5000.0, "rentabilidad": {"ticket_evaluacion": 5000.0, "ticket_origen": "INVESTIGADO (dentro del tramo typeform)", "ticket_tramo": "+5.000€", "ticket_investigado": 5000.0, "ticket_fuentes": "Ticket medio declarado en el formulario (+5.000€); web del cliente: https://www.vpvsl.com", "cierre_pct": 20, "shows_cons": 6.33, "escenario": "base", "ingreso_estimado_mes": 6330.79, "coste_cliente_mes": 2012.93, "ratio": 3.15, "ratio_min": 1.3, "ratio_verde": 2.0, "precio_max_rentable": 611.27, "precio_verde": 342.04, "ticket_min_rentable": 2066.73, "ticket_min_verde": 3179.58}, "definicion_show": "Videollamada o llamada de consulta inicial (15–20 min) reservada online a la que la persona asiste", "benchmark_incompleto": false}</script>
+<script>
+  function imprimir(seccion) {
+    const titulo = document.title;
+    const nombres = {'': 'Informe completo', 'comercial': 'Comercial', 'cliente': 'Propuesta', 'analisis': 'Análisis interno'};
+    document.body.classList.remove('solo-comercial', 'solo-cliente', 'solo-analisis');
+    if (seccion) document.body.classList.add('solo-' + seccion);
+    const an = document.getElementById('analisis'); const estabaPlegado = an.classList.contains('plegado'); an.classList.remove('plegado');
+    document.title = nombres[seccion] + ' IDCO - Ramon Gargallo';
+    window.print();
+    setTimeout(() => { document.body.classList.remove('solo-comercial', 'solo-cliente', 'solo-analisis'); if (estabaPlegado) an.classList.add('plegado'); document.title = titulo; }, 500);
+  }
+  function toggleAnalisis(abrir) {
+    const an = document.getElementById('analisis');
+    const plegar = abrir === true ? false : !an.classList.contains('plegado');
+    an.classList.toggle('plegado', plegar);
+    document.getElementById('btn-analisis').textContent = plegar ? 'Mostrar análisis' : 'Ocultar análisis';
+    if (!plegar) an.scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
+</script>
+</body>
+</html>
