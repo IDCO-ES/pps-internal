@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>PPS · Cristina · IDCO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root { --negro:#0A0A0A; --rojo:#DD1927; --gris:#F2F2F2; --texto:#1A1A1A; --suave:#6B6B6B; --sem:#1E8E3E; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#E9E9E9; font-family:'DM Sans',Arial,sans-serif; color:var(--texto); line-height:1.55; }
+  .nav { position:sticky; top:0; z-index:10; background:var(--negro); padding:10px 24px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+  .nav a { color:#BDBDBD; text-decoration:none; font-weight:700; font-size:14px; padding:8px 12px; border-radius:6px; }
+  .nav a:hover { color:#fff; background:#222; }
+  .nav .sp { flex:1; }
+  .btn { font-family:inherit; font-weight:700; font-size:14px; border:0; border-radius:6px; padding:10px 16px; cursor:pointer; background:#fff; color:var(--negro); }
+  .btn.rojo { background:var(--rojo); color:#fff; }
+  .btn.sec { background:var(--gris); color:var(--negro); font-size:13px; padding:8px 12px; }
+  .hoja { max-width:860px; margin:28px auto; background:#fff; box-shadow:0 2px 14px rgba(0,0,0,.08); }
+  .cabecera { background:var(--negro); color:#fff; padding:28px 40px; display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; }
+  .cabecera .btn { margin-top:6px; }
+  .marca { font-family:'Bebas Neue',sans-serif; font-size:30px; letter-spacing:4px; }
+  .etiqueta { display:inline-block; background:var(--rojo); color:#fff; font-weight:700; font-size:12px; letter-spacing:1.5px; padding:4px 10px; margin-top:10px; }
+  .etiqueta.gris { background:#444; }
+  h1 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:40px; letter-spacing:1px; margin:10px 0 4px; line-height:1.1; }
+  .meta { color:#BDBDBD; font-size:14px; }
+  .cuerpo { padding:28px 40px 36px; }
+  h2 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:26px; letter-spacing:1px; margin:26px 0 8px; }
+  h2:first-child { margin-top:0; }
+  table { width:100%; border-collapse:collapse; margin:8px 0 4px; font-size:15px; }
+  th, td { text-align:left; padding:9px 12px; border-bottom:1px solid #E5E5E5; vertical-align:top; }
+  th { width:46%; font-weight:500; color:var(--suave); }
+  td { font-weight:700; }
+  .semaforo { display:flex; align-items:center; gap:14px; padding:14px 18px; background:var(--gris); margin-bottom:14px; }
+  .punto { width:18px; height:18px; border-radius:50%; background:var(--sem); flex:none; }
+  .semaforo strong { font-size:18px; }
+  .kpis { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:0 0 8px; }
+  .kpi { background:var(--gris); padding:14px; border-top:3px solid var(--sem); }
+  .kpi .v { font-family:'Bebas Neue',sans-serif; font-size:30px; line-height:1; }
+  .kpi .l { color:var(--suave); font-size:12px; margin-top:4px; }
+  .aviso { border-left:4px solid #E0A800; background:#FFF8E1; padding:10px 14px; margin:12px 0; font-size:14px; }
+  .aviso.rojo { border-left-color:var(--rojo); background:#FDECEC; }
+  .aviso ul { margin:4px 0 0; }
+  .tabla-cliente td { font-size:17px; }
+  .calculo { margin:14px 0; border:1px solid #E5E5E5; border-radius:6px; padding:8px 12px; }
+  .calculo summary { cursor:pointer; font-weight:700; }
+  .nota { font-weight:400; color:var(--suave); font-size:13px; }
+  #analisis.plegado .cuerpo, #analisis.plegado .pie { display:none; }
+  #analisis.plegado .cabecera { padding:18px 40px; }
+  #analisis.plegado h1 { font-size:26px; margin:4px 0 0; }
+  .acciones { display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+  ul { padding-left:20px; margin:6px 0; }
+  p { margin:6px 0; }
+  .pie { color:var(--suave); font-size:12px; padding:0 40px 24px; }
+  @media (max-width:640px) { .cabecera, .cuerpo { padding:22px; } h1 { font-size:32px; } th { width:52%; } .kpis { grid-template-columns:repeat(2, 1fr); } }
+  @media print {
+    @page { size:A4; margin:12mm; }
+    body { background:#fff; }
+    .nav, .cabecera .btn, .abrir { display:none; }
+    .hoja { box-shadow:none; margin:0; max-width:none; page-break-before:always; }
+    #comercial { page-break-before:auto; }
+    .hoja, .cabecera, .etiqueta, .semaforo, .punto, .aviso, .kpi { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    #analisis.plegado .cuerpo, #analisis.plegado .pie { display:block; }
+    body.solo-comercial .hoja:not(#comercial), body.solo-cliente .hoja:not(#cliente), body.solo-analisis .hoja:not(#analisis) { display:none; }
+    body.solo-comercial #comercial, body.solo-cliente #cliente, body.solo-analisis #analisis { page-break-before:auto; }
+  }
+</style>
+</head>
+<body>
+<div class="nav">
+  <a href="#comercial">Comercial</a><a href="#cliente">Propuesta cliente</a><a href="#analisis" onclick="toggleAnalisis(true)">Análisis interno</a>
+  <span class="sp"></span>
+  <button class="btn" onclick="imprimir('')">Descargar todo (PDF)</button>
+</div>
+
+<section class="hoja" id="comercial">
+  <div class="cabecera">
+    <div>
+      <div class="marca">IDCO</div>
+      <span class="etiqueta">COMERCIAL · USO INTERNO</span>
+      <h1>Cristina</h1>
+      <div class="meta">Inteligencia artificial · Agentes de inteligencia artificial (agentes IA / chatbots con IA a medida para empresas, p. ej. WhatsApp y web), vendidos tras una videollamada de consulta inicial · 20/10/2026</div>
+    </div>
+    <button class="btn" onclick="imprimir('comercial')">Descargar sección (PDF)</button>
+  </div>
+  <div class="cuerpo">
+    <div class="semaforo"><span class="punto"></span><div><strong>Encaja pay-per-show</strong><br><span>Sin advertencias</span></div></div>
+    <div class="kpis">
+      <div class="kpi"><div class="v">65 €</div><div class="l">Precio de apertura por cita</div></div>
+      <div class="kpi"><div class="v">55–150 €</div><div class="l">Rango de negociación</div></div>
+      <div class="kpi"><div class="v">15–18</div><div class="l">Videollamadas presentadas al mes</div></div>
+      <div class="kpi"><div class="v">15</div><div class="l">Citas garantizables al mes</div></div>
+    </div>
+    
+    <h2>Resumen</h2><p>Encaja pay-per-show. Con 18 citas presentadas al mes y un ticket estimado de 3.000 €, el cliente generaría 11.250 € al mes frente a 2.218,75 € de coste: ratio 5,07.</p>
+    
+    <h2>Números para negociar</h2><table><tr><th>Precio de apertura</th><td>65 €/show</td></tr><tr><th>No bajar de</th><td>55 €/show</td></tr><tr><th>Techo</th><td>150 €/show</td></tr><tr><th>Inversión en ads del cliente</th><td>1.000 €/mes</td></tr><tr><th>Citas presentadas al mes (conservador / base)</th><td>15 / 18</td></tr><tr><th>Qué cuenta como cita</th><td>Videollamada o llamada de consulta inicial (15–20 min) reservada online a la que la persona asiste</td></tr><tr><th>Coste total por cita para el cliente (escenario base)</th><td>118,33 €</td></tr><tr><th>Citas presentadas garantizables al mes</th><td><strong>15</strong> <span class='nota'>(coste garantía 53,33 €/show)</span></td></tr><tr><th>Coste por cita / ticket mencionado</th><td>3,9 % de 3.000 €</td></tr></table>
+    <h2>Rentabilidad para el cliente</h2><table><tr><th>Ticket usado</th><td>3.000 € <span class='nota'>(investigado (dentro del tramo notas))</span></td></tr><tr><th>Cierre asumido videollamada → venta</th><td>20 %</td></tr><tr><th>Ingreso estimado del cliente al mes (escenario base)</th><td>11.250 € = 18 citas × 20 % × 3.000 €</td></tr><tr><th>Coste total del cliente al mes</th><td>2.219 € = ads + citas × precio IDCO</td></tr><tr><th>Ratio ingreso / coste</th><td><strong>5,07x</strong> <span class='nota'>(≥ 2,0x: encaja)</span></td></tr><tr><th>Precio máximo para que le salga rentable</th><td>408 €/show <span class='nota'>(VERDE hasta 247 €/show)</span></td></tr><tr><th>Ticket mínimo para VERDE con este precio</th><td>1.183 €</td></tr></table>
+    <h2>Cómo negociar</h2><p>Precio de apertura: 65 € por cita presentada. Límite inferior: 55 €, no se baja de ahí. Techo: 150 €. Con el ratio por encima de 2,0, la palanca no es el precio sino confirmar el ticket de Cristina: por encima de 1.183,33 € el encaje se mantiene. Usa estas palancas: mover el precio dentro del rango 55–150 €, fijar un tope mensual de citas presentadas facturables y ofrecer una garantía orientativa de 15 citas presentadas al mes (se formaliza en el anexo de garantía). Cierra con: periodo inicial de 3 meses en pay-per-show y revisión del precio por cita con datos reales.</p>
+    <h2>Objeciones probables</h2><ul><li>«No tengo 1.000 € al mes para publicidad sin resultados previos.» Respuesta: el presupuesto de ads es la inversión propuesta para trabajar con IDCO, no un gasto que hoy ya tenga. El periodo inicial de 3 meses en pay-per-show permite validar con datos reales.</li><li>«¿Y si la gente no asiste a la videollamada?» Respuesta: solo se paga por cada cita presentada, es decir, a la que la persona asiste. La garantía orientativa de 15 citas presentadas al mes (se formaliza en el anexo de garantía) sirve de referencia de volumen.</li><li>«¿De verdad mi ticket es de 3.000 €?» Respuesta: pedir la cifra real de venta de un agente de IA. La cuenta sigue encajando con un ticket por encima de 1.183,33 €, y el de 3.000 € es investigado dentro del tramo 1.000–5.000 €.</li></ul>
+    <h2>Riesgos</h2><ul><li>Rentabilidad del cliente: 11.250 € de ingreso estimado frente a 2.218,75 € de coste mensual.</li><li>Supuesto de cierre del 20 % de videollamadas presentadas que pasan a venta; si baja, el ingreso baja en la misma proporción.</li><li>Ticket no confirmado: 3.000 € es investigado dentro del tramo 1.000–5.000 €. Sin confirmarlo, el cálculo puede cambiar.</li><li>Escenario conservador: 15 citas al mes y 131,67 € de coste total por cita, frente a 118,33 € en la propuesta.</li><li>Confianza MEDIA: el CPL aplicado es el suelo real de 8,00 €, porque el cálculo por componentes (7,94 €) queda por debajo de lo que IDCO ve en campañas reales.</li><li>Menos de 6 meses de experiencia en ads y captación sin dato: vigilar la calidad de los contactos en las primeras semanas.</li></ul>
+    <h2>Siguiente paso</h2><p>Confirmar en la próxima llamada el ticket real medio de venta de los agentes de IA; debe superar 1.183,33 € para mantener el encaje.</p>
+  </div>
+  <div class="pie">Calculadora PPS · modelo v2.5 · 20/10/2026</div>
+</section>
+
+<section class="hoja" id="cliente">
+  <div class="cabecera">
+    <div>
+      <div class="marca">IDCO</div>
+      <span class="etiqueta">PROPUESTA</span>
+      <h1>Pay-per-show: pagas solo por cada videollamada de consulta presentada</h1>
+      <div class="meta">Preparada para Cristina · 20/10/2026</div>
+    </div>
+    <button class="btn rojo" onclick="imprimir('cliente')">Descargar propuesta (PDF)</button>
+  </div>
+  <div class="cuerpo">
+    
+    <h2>Tu situación actual</h2><p>El formulario no indica cómo consigues clientes hoy. Actualmente no inviertes en publicidad para captar empresas interesadas en agentes de IA.</p>
+    <h2>Nuestra propuesta</h2><p>Te proponemos pay-per-show: pagas solo por cada videollamada de consulta reservada online a la que la persona asiste. Nosotros gestionamos tus campañas de Meta Ads, las creatividades de los anuncios y el seguimiento de los contactos hasta que asisten a la cita. Con un ticket en torno a 3.000 €, la cuenta está pensada para que te salga rentable; confírmanos ese dato. Arrancaríamos con un periodo inicial de 3 meses en pay-per-show y revisión del precio por cita con datos reales.</p>
+    <h2>Inversión y resultados esperados</h2>
+    <table class="tabla-cliente">
+      <tr><th>Inversión mensual en publicidad</th><td>1.000 €</td></tr>
+      <tr><th>Precio por cita presentada</th><td>65 €</td></tr>
+      <tr><th>Videollamadas de consulta presentadas al mes</th><td>18 como punto de partida</td></tr>
+      <tr><th>Qué cuenta como cita</th><td>Videollamada o llamada de consulta inicial (15–20 min) reservada online a la que la persona asiste</td></tr>
+      <tr><th>Cuándo pagas a IDCO</th><td>Solo por cada videollamada de consulta a la que la persona asiste</td></tr>
+    </table>
+    <h2>Próximos pasos</h2><ul><li>Confirmar el ticket medio real de venta de tus agentes de IA.</li><li>Revisar el alcance: campañas de Meta Ads, creatividades y seguimiento de contactos hasta la videollamada.</li><li>Acordar el arranque del periodo inicial de 3 meses en pay-per-show y revisión del precio por cita con datos reales.</li></ul>
+  </div>
+  <div class="pie">IDCO · Instituto de Crecimiento Orgánico</div>
+</section>
+
+<section class="hoja" id="analisis">
+  <div class="cabecera">
+    <div>
+      <div class="marca">IDCO</div>
+      <span class="etiqueta gris">ANÁLISIS INTERNO</span>
+      <h1>Cálculo y benchmarks</h1>
+    </div>
+    <div class="acciones">
+      <button class="btn" id="btn-analisis" onclick="toggleAnalisis()">Ocultar análisis</button>
+      <button class="btn" onclick="imprimir('analisis')">Descargar análisis (PDF)</button>
+    </div>
+  </div>
+  <div class="cuerpo">
+    <h2>Benchmarks y cálculo del coste por show</h2><table><tr><th>CPM (coste por mil impresiones, mercado objetivo)</th><td>5,43 €<br><span class='nota'><a href="https://www.superads.ai/facebook-ads-costs/cpm-cost-per-mille/spain" target="_blank">fuente 1</a> · <a href="https://www.superads.ai/facebook-ads-costs/cpm-cost-per-mille/wellness-holistic-health/spain" target="_blank">fuente 2</a></span></td></tr><tr><th>CTR (clics / impresiones)</th><td>1,80 %<br><span class='nota'><a href="https://www.superads.ai/facebook-ads-costs/ctr-click-through-rate/spain" target="_blank">fuente 1</a></span></td></tr><tr><th>Conversión de la página de reserva</th><td>3,8 %<br><span class='nota'><a href="https://dupple.com/learn/what-is-a-landing-page-conversion" target="_blank">fuente 1</a> · <a href="https://www.saashero.net/content/landing-page-conversion-rate-benchmarks/" target="_blank">fuente 2</a></span></td></tr><tr><th>CPL calculado = CPM / 1000 / (CTR × conversión)</th><td>7,94 €</td></tr><tr><th>CPL publicado de contraste</th><td>Sin dato</td></tr><tr><th>CPL usado</th><td><strong>8,00 €</strong> <span class='nota'>(calculado por componentes)</span></td></tr><tr><th>Leads que reservan la primera cita</th><td>25 %<br><span class='nota'><a href="https://schedulingkit.com/es/booking-page/consultants" target="_blank">fuente 1</a></span></td></tr><tr><th>Asistencia de leads fríos</th><td>60 %<br><span class='nota'><a href="https://segmetrics.io/wp-content/uploads/Playbook-Sales-Call-Show-Rate.pdf" target="_blank">fuente 1</a> · <a href="https://hyros.com/updates/power-features/track-no-show-calls/" target="_blank">fuente 2</a> · <a href="https://www.cometly.com/academy/no-show-rate-by-source.md" target="_blank">fuente 3</a></span></td></tr><tr><th>Coste en ads por show (base)</th><td>53,33 € = CPL / (reserva × asistencia)</td></tr><tr><th>Escenario conservador</th><td>66,67 € (CPL × 1,15 y asistencia × 0,92)</td></tr><tr><th>Garantía de citas</th><td>15 al mes = inversión ÷ max(coste por show base, suelo 35 €) × 0,8</td></tr></table><div class="aviso">CPL por componentes (7,94 €) por debajo de lo que IDCO ve en campañas reales: se usa el suelo de 8,00 €</div>
+    <h2>Economía y fiabilidad</h2><table><tr><th>Facturación IDCO (conservador / base)</th><td>975 € / 1.219 €</td></tr><tr><th>Coste en ads por show (base / conservador)</th><td>53,33 € / 66,67 €</td></tr><tr><th>Confianza del cálculo</th><td>MEDIA</td></tr><tr><th>Madurez del cliente</th><td>MEDIA (4/6)</td></tr><tr><th>Origen de las variables</th><td>cpl: BENCHMARK, lead_agenda: BENCHMARK, agenda_show: BENCHMARK</td></tr><tr><th>Motivos del semáforo</th><td>Sin advertencias</td></tr><tr><th>Modelo</th><td>v2.5 · 20/10/2026</td></tr></table>
+  </div>
+  <div class="pie">Calculadora PPS · modelo v2.5 · 20/10/2026</div>
+</section>
+
+<script type="application/json" id="idco-pps-data">{"model_version": "2.5", "nombre_lead": "Cristina", "industria": "Inteligencia artificial", "servicio": "Agentes de inteligencia artificial (agentes IA / chatbots con IA a medida para empresas, p. ej. WhatsApp y web), vendidos tras una videollamada de consulta inicial", "semaforo": "VERDE", "confianza": "MEDIA", "presupuesto_ads": 1000.0, "precio_recomendado": 65.0, "shows_mes_cons": 15.0, "escenarios": {"conservador": {"cpl": 9.2, "lead_agenda": 0.25, "agenda_show": 0.55, "coste_ads_show": 66.67, "shows_mes": 15.0, "leads_mes": 108.7, "limitado_capacidad": false}, "base": {"cpl": 8.0, "lead_agenda": 0.25, "agenda_show": 0.6, "coste_ads_show": 53.33, "shows_mes": 18.75, "leads_mes": 125.0, "limitado_capacidad": false}, "favorable": {"cpl": 7.2, "lead_agenda": 0.25, "agenda_show": 0.63, "coste_ads_show": 45.71, "shows_mes": 21.88, "leads_mes": 138.89, "limitado_capacidad": false}}, "garantia_shows_mes": 15.0, "garantia_coste_show": 53.33, "garantia_suelo_aplicado": false, "tipo_informe": "COMPLETO", "supuestos": [], "descalificado": false, "motivo_descalificacion": "", "ticket_tramo": "", "ticket_min": 1000.0, "rentabilidad": {"ticket_evaluacion": 3000.0, "ticket_origen": "INVESTIGADO (dentro del tramo notas)", "ticket_tramo": "1000 y 5000", "ticket_investigado": 3000.0, "ticket_fuentes": "Notas de la llamada del formulario (1.000-5.000 €); contraste de mercado: https://www.upliora.es/blog/precio-chatbot-ia-web-whatsapp-empresa-2026, https://www.javadex.es/blog/agentes-ia-para-empresas-espana-casos-precios-2026", "cierre_pct": 20, "shows_cons": 18.75, "escenario": "base", "ingreso_estimado_mes": 11250.0, "coste_cliente_mes": 2218.75, "ratio": 5.07, "ratio_min": 1.3, "ratio_verde": 2.0, "precio_max_rentable": 408.21, "precio_verde": 246.67, "ticket_min_rentable": 769.17, "ticket_min_verde": 1183.33}, "definicion_show": "Videollamada o llamada de consulta inicial (15–20 min) reservada online a la que la persona asiste", "benchmark_incompleto": false}</script>
+<script>
+  function imprimir(seccion) {
+    const titulo = document.title;
+    const nombres = {'': 'Informe completo', 'comercial': 'Comercial', 'cliente': 'Propuesta', 'analisis': 'Análisis interno'};
+    document.body.classList.remove('solo-comercial', 'solo-cliente', 'solo-analisis');
+    if (seccion) document.body.classList.add('solo-' + seccion);
+    const an = document.getElementById('analisis'); const estabaPlegado = an.classList.contains('plegado'); an.classList.remove('plegado');
+    document.title = nombres[seccion] + ' IDCO - Cristina';
+    window.print();
+    setTimeout(() => { document.body.classList.remove('solo-comercial', 'solo-cliente', 'solo-analisis'); if (estabaPlegado) an.classList.add('plegado'); document.title = titulo; }, 500);
+  }
+  function toggleAnalisis(abrir) {
+    const an = document.getElementById('analisis');
+    const plegar = abrir === true ? false : !an.classList.contains('plegado');
+    an.classList.toggle('plegado', plegar);
+    document.getElementById('btn-analisis').textContent = plegar ? 'Mostrar análisis' : 'Ocultar análisis';
+    if (!plegar) an.scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
+</script>
+</body>
+</html>
