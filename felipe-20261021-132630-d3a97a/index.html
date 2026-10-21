@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>PPS · Felipe · IDCO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root { --negro:#0A0A0A; --rojo:#DD1927; --gris:#F2F2F2; --texto:#1A1A1A; --suave:#6B6B6B; --sem:#E0A800; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#E9E9E9; font-family:'DM Sans',Arial,sans-serif; color:var(--texto); line-height:1.55; }
+  .nav { position:sticky; top:0; z-index:10; background:var(--negro); padding:10px 24px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+  .nav a { color:#BDBDBD; text-decoration:none; font-weight:700; font-size:14px; padding:8px 12px; border-radius:6px; }
+  .nav a:hover { color:#fff; background:#222; }
+  .nav .sp { flex:1; }
+  .btn { font-family:inherit; font-weight:700; font-size:14px; border:0; border-radius:6px; padding:10px 16px; cursor:pointer; background:#fff; color:var(--negro); }
+  .btn.rojo { background:var(--rojo); color:#fff; }
+  .btn.sec { background:var(--gris); color:var(--negro); font-size:13px; padding:8px 12px; }
+  .hoja { max-width:860px; margin:28px auto; background:#fff; box-shadow:0 2px 14px rgba(0,0,0,.08); }
+  .cabecera { background:var(--negro); color:#fff; padding:28px 40px; display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; }
+  .cabecera .btn { margin-top:6px; }
+  .marca { font-family:'Bebas Neue',sans-serif; font-size:30px; letter-spacing:4px; }
+  .etiqueta { display:inline-block; background:var(--rojo); color:#fff; font-weight:700; font-size:12px; letter-spacing:1.5px; padding:4px 10px; margin-top:10px; }
+  .etiqueta.gris { background:#444; }
+  h1 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:40px; letter-spacing:1px; margin:10px 0 4px; line-height:1.1; }
+  .meta { color:#BDBDBD; font-size:14px; }
+  .cuerpo { padding:28px 40px 36px; }
+  h2 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:26px; letter-spacing:1px; margin:26px 0 8px; }
+  h2:first-child { margin-top:0; }
+  table { width:100%; border-collapse:collapse; margin:8px 0 4px; font-size:15px; }
+  th, td { text-align:left; padding:9px 12px; border-bottom:1px solid #E5E5E5; vertical-align:top; }
+  th { width:46%; font-weight:500; color:var(--suave); }
+  td { font-weight:700; }
+  .semaforo { display:flex; align-items:center; gap:14px; padding:14px 18px; background:var(--gris); margin-bottom:14px; }
+  .punto { width:18px; height:18px; border-radius:50%; background:var(--sem); flex:none; }
+  .semaforo strong { font-size:18px; }
+  .kpis { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:0 0 8px; }
+  .kpi { background:var(--gris); padding:14px; border-top:3px solid var(--sem); }
+  .kpi .v { font-family:'Bebas Neue',sans-serif; font-size:30px; line-height:1; }
+  .kpi .l { color:var(--suave); font-size:12px; margin-top:4px; }
+  .aviso { border-left:4px solid #E0A800; background:#FFF8E1; padding:10px 14px; margin:12px 0; font-size:14px; }
+  .aviso.rojo { border-left-color:var(--rojo); background:#FDECEC; }
+  .aviso ul { margin:4px 0 0; }
+  .tabla-cliente td { font-size:17px; }
+  .calculo { margin:14px 0; border:1px solid #E5E5E5; border-radius:6px; padding:8px 12px; }
+  .calculo summary { cursor:pointer; font-weight:700; }
+  .nota { font-weight:400; color:var(--suave); font-size:13px; }
+  #analisis.plegado .cuerpo, #analisis.plegado .pie { display:none; }
+  #analisis.plegado .cabecera { padding:18px 40px; }
+  #analisis.plegado h1 { font-size:26px; margin:4px 0 0; }
+  .acciones { display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+  ul { padding-left:20px; margin:6px 0; }
+  p { margin:6px 0; }
+  .pie { color:var(--suave); font-size:12px; padding:0 40px 24px; }
+  @media (max-width:640px) { .cabecera, .cuerpo { padding:22px; } h1 { font-size:32px; } th { width:52%; } .kpis { grid-template-columns:repeat(2, 1fr); } }
+  @media print {
+    @page { size:A4; margin:12mm; }
+    body { background:#fff; }
+    .nav, .cabecera .btn, .abrir { display:none; }
+    .hoja { box-shadow:none; margin:0; max-width:none; page-break-before:always; }
+    #comercial { page-break-before:auto; }
+    .hoja, .cabecera, .etiqueta, .semaforo, .punto, .aviso, .kpi { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    #analisis.plegado .cuerpo, #analisis.plegado .pie { display:block; }
+    body.solo-comercial .hoja:not(#comercial), body.solo-cliente .hoja:not(#cliente), body.solo-analisis .hoja:not(#analisis) { display:none; }
+    body.solo-comercial #comercial, body.solo-cliente #cliente, body.solo-analisis #analisis { page-break-before:auto; }
+  }
+</style>
+</head>
+<body>
+<div class="nav">
+  <a href="#comercial">Comercial</a><a href="#cliente">Propuesta cliente</a><a href="#analisis" onclick="toggleAnalisis(true)">Análisis interno</a>
+  <span class="sp"></span>
+  <button class="btn" onclick="imprimir('')">Descargar todo (PDF)</button>
+</div>
+
+<section class="hoja" id="comercial">
+  <div class="cabecera">
+    <div>
+      <div class="marca">IDCO</div>
+      <span class="etiqueta">COMERCIAL · USO INTERNO</span>
+      <h1>Felipe</h1>
+      <div class="meta">Medicina estética · Rinoplastia (cirugía estética de nariz); videollamada de consulta inicial previa a la valoración presencial · 21/10/2026</div>
+    </div>
+    <button class="btn" onclick="imprimir('comercial')">Descargar sección (PDF)</button>
+  </div>
+  <div class="cuerpo">
+    <div class="semaforo"><span class="punto"></span><div><strong>Encaja con condiciones</strong><br><span>Benchmark recortado al rango plausible en: CPM. Revisar fuentes</span></div></div>
+    <div class="kpis">
+      <div class="kpi"><div class="v">95 €</div><div class="l">Precio de apertura por cita</div></div>
+      <div class="kpi"><div class="v">80–150 €</div><div class="l">Rango de negociación</div></div>
+      <div class="kpi"><div class="v">10–12</div><div class="l">Videollamadas presentadas al mes</div></div>
+      <div class="kpi"><div class="v">10</div><div class="l">Citas garantizables al mes</div></div>
+    </div>
+    
+    <h2>Resumen</h2><p>Encaja con condiciones. Con 12 citas presentadas al mes y un ticket de 3.000 €, el cliente generaría 7.740 € al mes frente a 2.225,50 € de coste: ratio 3,48.</p>
+    
+    <h2>Números para negociar</h2><table><tr><th>Precio de apertura</th><td>95 €/show</td></tr><tr><th>No bajar de</th><td>80 €/show</td></tr><tr><th>Techo</th><td>150 €/show</td></tr><tr><th>Inversión en ads del cliente</th><td>1.000 €/mes</td></tr><tr><th>Citas presentadas al mes (conservador / base)</th><td>10 / 12</td></tr><tr><th>Qué cuenta como cita</th><td>Videollamada o llamada de consulta inicial (15–20 min) reservada online a la que la persona asiste</td></tr><tr><th>Coste total por cita para el cliente (escenario base)</th><td>172,52 €</td></tr><tr><th>Citas presentadas garantizables al mes</th><td><strong>10</strong> <span class='nota'>(coste garantía 77,52 €/show)</span></td></tr><tr><th>Coste por cita / ticket mencionado</th><td>5,8 % de 3.000 €</td></tr></table>
+    <h2>Rentabilidad para el cliente</h2><table><tr><th>Ticket usado</th><td>3.000 € <span class='nota'>(investigado)</span></td></tr><tr><th>Cierre asumido videollamada → venta</th><td>20 %</td></tr><tr><th>Ingreso estimado del cliente al mes (escenario base)</th><td>7.740 € = 12 citas × 20 % × 3.000 €</td></tr><tr><th>Coste total del cliente al mes</th><td>2.226 € = ads + citas × precio IDCO</td></tr><tr><th>Ratio ingreso / coste</th><td><strong>3,48x</strong> <span class='nota'>(≥ 2,0x: encaja)</span></td></tr><tr><th>Precio máximo para que le salga rentable</th><td>384 €/show <span class='nota'>(VERDE hasta 222 €/show)</span></td></tr><tr><th>Ticket mínimo para VERDE con este precio</th><td>1.725 €</td></tr></table>
+    <h2>Cómo negociar</h2><p>Precio de apertura: 95 € por videollamada de consulta presentada. Límite inferior: 80 €; por debajo no se acepta. Techo: 150 €, a partir del cual el cliente deja de ahorrar frente a su situación actual. Palancas: confirmar el ticket real antes de cerrar; si resulta inferior a 3.000 €, bajar hacia 80 € sin perforarlo; fijar un tope mensual de citas presentadas facturables. Garantía orientativa de 10 citas presentadas al mes (se formaliza en el anexo de garantía). Cerrar con un periodo inicial de 3 meses en pay-per-show y revisión del precio por cita con datos reales.</p>
+    <h2>Objeciones probables</h2><ul><li>¿Por qué no una cuota fija? Solo paga por cada videollamada de consulta a la que la persona asiste; así el coste sigue a los resultados reales.</li><li>El ticket que indicas no es el real. Lo confirmamos con datos de tus rinoplastias antes de cerrar y el precio por cita se revisa con datos reales tras el periodo inicial de 3 meses.</li><li>No quiero invertir 1.000 € al mes en publicidad sin garantías. La inversión en publicidad es de 1.000 € mensuales de presupuesto y la garantía orientativa de 10 citas presentadas al mes se formaliza en el anexo de garantía.</li></ul>
+    <h2>Riesgos</h2><ul><li>Semáforo AMARILLO por el CPM recortado de 14,43 € a 12,00 € (rango plausible 4,0–12,0): revisar fuentes antes de presentar cifras.</li><li>El ticket de 3.000 € es investigado (notas de 1.000–5.000 € y contraste de mercado), no confirmado: confianza MEDIA.</li><li>La rentabilidad del cliente depende del cierre asumido del 20 % de videollamadas a venta; si cae, el ingreso baja en la misma proporción.</li><li>Con un ticket por debajo de 1.725,19 € el cliente sale del umbral VERDE; por debajo de 1.121,38 € no llega al mínimo rentable.</li><li>Escenario conservador: 10 citas presentadas al mes y 191,90 € de coste total por cita, frente a 172,52 € en el escenario de propuesta.</li><li>Garantía orientativa de 10 citas presentadas al mes (se formaliza en el anexo de garantía).</li></ul>
+    <h2>Siguiente paso</h2><p>Confirmar el ticket real de rinoplastia (VERDE requiere al menos 1.725,19 €) y fijar el tope mensual de citas facturables.</p>
+  </div>
+  <div class="pie">Calculadora PPS · modelo v2.5 · 21/10/2026</div>
+</section>
+
+<section class="hoja" id="cliente">
+  <div class="cabecera">
+    <div>
+      <div class="marca">IDCO</div>
+      <span class="etiqueta">PROPUESTA</span>
+      <h1>Pay-per-show para tus videollamadas de consulta de rinoplastia</h1>
+      <div class="meta">Preparada para Felipe · 21/10/2026</div>
+    </div>
+    <button class="btn rojo" onclick="imprimir('cliente')">Descargar propuesta (PDF)</button>
+  </div>
+  <div class="cuerpo">
+    
+    <h2>Tu situación actual</h2><p>Hoy el formulario no indica cómo consigues tus clientes. Vendes tratamientos de medicina estética, incluidas las rinoplastias.</p>
+    <h2>Nuestra propuesta</h2><p>Te proponemos trabajar en modo pay-per-show: solo pagas por cada videollamada de consulta a la que la persona asiste. Tú inviertes en publicidad de Meta Ads; nosotros creamos los anuncios, gestionamos las campañas y hacemos seguimiento de los contactos hasta que asisten a la cita. La cuenta está pensada para que te salga rentable: con un ticket en torno a 3.000 € por rinoplastia, ¿lo confirmamos? Empezamos con un periodo inicial de 3 meses en pay-per-show y revisión del precio por cita con datos reales.</p>
+    <h2>Inversión y resultados esperados</h2>
+    <table class="tabla-cliente">
+      <tr><th>Inversión mensual en publicidad</th><td>1.000 €</td></tr>
+      <tr><th>Precio por cita presentada</th><td>95 €</td></tr>
+      <tr><th>Videollamadas de consulta presentadas al mes</th><td>12 como punto de partida</td></tr>
+      <tr><th>Qué cuenta como cita</th><td>Videollamada o llamada de consulta inicial (15–20 min) reservada online a la que la persona asiste</td></tr>
+      <tr><th>Cuándo pagas a IDCO</th><td>Solo por cada videollamada de consulta a la que la persona asiste</td></tr>
+    </table>
+    <h2>Próximos pasos</h2><ul><li>Confirmar juntos el ticket medio real de tus rinoplastias.</li><li>Acordar la inversión mensual en publicidad para el periodo inicial.</li><li>Revisar el seguimiento de los contactos hasta la videollamada de consulta.</li></ul>
+  </div>
+  <div class="pie">IDCO · Instituto de Crecimiento Orgánico</div>
+</section>
+
+<section class="hoja" id="analisis">
+  <div class="cabecera">
+    <div>
+      <div class="marca">IDCO</div>
+      <span class="etiqueta gris">ANÁLISIS INTERNO</span>
+      <h1>Cálculo y benchmarks</h1>
+    </div>
+    <div class="acciones">
+      <button class="btn" id="btn-analisis" onclick="toggleAnalisis()">Ocultar análisis</button>
+      <button class="btn" onclick="imprimir('analisis')">Descargar análisis (PDF)</button>
+    </div>
+  </div>
+  <div class="cuerpo">
+    <h2>Benchmarks y cálculo del coste por show</h2><table><tr><th>CPM (coste por mil impresiones, mercado objetivo)</th><td>12,00 € <span class='nota'>(investigado: 14,43, recortado al rango plausible)</span><br><span class='nota'><a href="https://www.superads.ai/facebook-ads-costs/cpm-cost-per-mille/wellness-holistic-health/spain" target="_blank">fuente 1</a></span></td></tr><tr><th>CTR (clics / impresiones)</th><td>1,72 %<br><span class='nota'><a href="https://www.superads.ai/facebook-ads-costs/ctr-click-through-rate/healthcare/spain" target="_blank">fuente 1</a> · <a href="https://www.superads.ai/facebook-ads-costs/ctr-click-through-rate/wellness-holistic-health/spain" target="_blank">fuente 2</a></span></td></tr><tr><th>Conversión de la página de reserva</th><td>5,0 %<br><span class='nota'><a href="https://www.webtonic.io/blog/dermatology-plastic-surgery-meta-ads-statistics" target="_blank">fuente 1</a></span></td></tr><tr><th>CPL calculado = CPM / 1000 / (CTR × conversión)</th><td>13,95 €</td></tr><tr><th>CPL publicado de contraste</th><td>Sin dato</td></tr><tr><th>CPL usado</th><td><strong>13,95 €</strong> <span class='nota'>(calculado por componentes)</span></td></tr><tr><th>Leads que reservan la primera cita</th><td>30 %<br><span class='nota'><a href="https://www.liine.com/wp-content/uploads/dlm_uploads/2024/02/Aesthetics-Marketing-Benchmark-Report-2024.pdf" target="_blank">fuente 1</a> · <a href="https://www.medestheticsmag.com/business/practice-management/article/21232156/5-key-industry-benchmarks-your-aesthetic-practice-should-be-measuring" target="_blank">fuente 2</a></span></td></tr><tr><th>Asistencia de leads fríos</th><td>60 %<br><span class='nota'><a href="https://www.etnainteractive.com/content/uploads/New-Aesthetic-Industry-Conversion-Benchmarks-Secrets-from-the-Top-10.10.10.18-PDF.pdf" target="_blank">fuente 1</a> · <a href="https://mend.com/wp-content/uploads/2024/03/eBook-7-Mandatory-Telehealth-KPIs-Benchmarks-for-2023.pdf" target="_blank">fuente 2</a></span></td></tr><tr><th>Coste en ads por show (base)</th><td>77,52 € = CPL / (reserva × asistencia)</td></tr><tr><th>Escenario conservador</th><td>96,90 € (CPL × 1,15 y asistencia × 0,92)</td></tr><tr><th>Garantía de citas</th><td>10 al mes = inversión ÷ max(coste por show base, suelo 35 €) × 0,8</td></tr></table><div class="aviso">CPM: la investigación dio 14,43 y se ha recortado a 12,00 (rango plausible 4,0–12,0)</div>
+    <h2>Economía y fiabilidad</h2><table><tr><th>Facturación IDCO (conservador / base)</th><td>980 € / 1.226 €</td></tr><tr><th>Coste en ads por show (base / conservador)</th><td>77,52 € / 96,90 €</td></tr><tr><th>Confianza del cálculo</th><td>MEDIA</td></tr><tr><th>Madurez del cliente</th><td>MEDIA (4/6)</td></tr><tr><th>Origen de las variables</th><td>cpl: BENCHMARK, lead_agenda: BENCHMARK, agenda_show: BENCHMARK</td></tr><tr><th>Motivos del semáforo</th><td>Benchmark recortado al rango plausible en: CPM. Revisar fuentes</td></tr><tr><th>Modelo</th><td>v2.5 · 21/10/2026</td></tr></table>
+  </div>
+  <div class="pie">Calculadora PPS · modelo v2.5 · 21/10/2026</div>
+</section>
+
+<script type="application/json" id="idco-pps-data">{"model_version": "2.5", "nombre_lead": "Felipe", "industria": "Medicina estética", "servicio": "Rinoplastia (cirugía estética de nariz); videollamada de consulta inicial previa a la valoración presencial", "semaforo": "AMARILLO", "confianza": "MEDIA", "presupuesto_ads": 1000.0, "precio_recomendado": 95.0, "shows_mes_cons": 10.32, "escenarios": {"conservador": {"cpl": 16.05, "lead_agenda": 0.3, "agenda_show": 0.55, "coste_ads_show": 96.9, "shows_mes": 10.32, "leads_mes": 62.32, "limitado_capacidad": false}, "base": {"cpl": 13.95, "lead_agenda": 0.3, "agenda_show": 0.6, "coste_ads_show": 77.52, "shows_mes": 12.9, "leads_mes": 71.67, "limitado_capacidad": false}, "favorable": {"cpl": 12.56, "lead_agenda": 0.3, "agenda_show": 0.63, "coste_ads_show": 66.45, "shows_mes": 15.05, "leads_mes": 79.63, "limitado_capacidad": false}}, "garantia_shows_mes": 10.0, "garantia_coste_show": 77.52, "garantia_suelo_aplicado": false, "tipo_informe": "COMPLETO", "supuestos": [], "descalificado": false, "motivo_descalificacion": "", "ticket_tramo": "", "ticket_min": null, "rentabilidad": {"ticket_evaluacion": 3000.0, "ticket_origen": "INVESTIGADO", "ticket_tramo": "", "ticket_investigado": 3000.0, "ticket_fuentes": "Ticket indicado en las notas del formulario (1.000–5.000 €, punto medio 3.000 €). Contraste de precio de mercado (4.000–8.000 € en España): https://www.saludonnet.com/blog/operacion-de-nariz-cuanto-cuesta-y-de-que-depende-el-precio/", "cierre_pct": 20, "shows_cons": 12.9, "escenario": "base", "ingreso_estimado_mes": 7740.0, "coste_cliente_mes": 2225.5, "ratio": 3.48, "ratio_min": 1.3, "ratio_verde": 2.0, "precio_max_rentable": 384.02, "precio_verde": 222.48, "ticket_min_rentable": 1121.38, "ticket_min_verde": 1725.19}, "definicion_show": "Videollamada o llamada de consulta inicial (15–20 min) reservada online a la que la persona asiste", "benchmark_incompleto": false}</script>
+<script>
+  function imprimir(seccion) {
+    const titulo = document.title;
+    const nombres = {'': 'Informe completo', 'comercial': 'Comercial', 'cliente': 'Propuesta', 'analisis': 'Análisis interno'};
+    document.body.classList.remove('solo-comercial', 'solo-cliente', 'solo-analisis');
+    if (seccion) document.body.classList.add('solo-' + seccion);
+    const an = document.getElementById('analisis'); const estabaPlegado = an.classList.contains('plegado'); an.classList.remove('plegado');
+    document.title = nombres[seccion] + ' IDCO - Felipe';
+    window.print();
+    setTimeout(() => { document.body.classList.remove('solo-comercial', 'solo-cliente', 'solo-analisis'); if (estabaPlegado) an.classList.add('plegado'); document.title = titulo; }, 500);
+  }
+  function toggleAnalisis(abrir) {
+    const an = document.getElementById('analisis');
+    const plegar = abrir === true ? false : !an.classList.contains('plegado');
+    an.classList.toggle('plegado', plegar);
+    document.getElementById('btn-analisis').textContent = plegar ? 'Mostrar análisis' : 'Ocultar análisis';
+    if (!plegar) an.scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
+</script>
+</body>
+</html>
