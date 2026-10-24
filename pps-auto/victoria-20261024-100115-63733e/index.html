@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Preliminar · Victoria · IDCO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root { --negro:#0A0A0A; --rojo:#DD1927; --gris:#F2F2F2; --texto:#1A1A1A; --suave:#6B6B6B; --sem:#DD1927; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#E9E9E9; font-family:'DM Sans',Arial,sans-serif; color:var(--texto); line-height:1.55; }
+  .nav { position:sticky; top:0; z-index:10; background:var(--negro); padding:10px 24px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+  .nav a { color:#BDBDBD; text-decoration:none; font-weight:700; font-size:14px; padding:8px 12px; border-radius:6px; }
+  .nav a:hover { color:#fff; background:#222; }
+  .nav .sp { flex:1; }
+  .btn { font-family:inherit; font-weight:700; font-size:14px; border:0; border-radius:6px; padding:10px 16px; cursor:pointer; background:#fff; color:var(--negro); }
+  .btn.rojo { background:var(--rojo); color:#fff; }
+  .btn.sec { background:var(--gris); color:var(--negro); font-size:13px; padding:8px 12px; }
+  .hoja { max-width:860px; margin:28px auto; background:#fff; box-shadow:0 2px 14px rgba(0,0,0,.08); }
+  .cabecera { background:var(--negro); color:#fff; padding:28px 40px; display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; }
+  .cabecera .btn { margin-top:6px; }
+  .marca { font-family:'Bebas Neue',sans-serif; font-size:30px; letter-spacing:4px; }
+  .etiqueta { display:inline-block; background:var(--rojo); color:#fff; font-weight:700; font-size:12px; letter-spacing:1.5px; padding:4px 10px; margin-top:10px; }
+  .etiqueta.gris { background:#444; }
+  h1 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:40px; letter-spacing:1px; margin:10px 0 4px; line-height:1.1; }
+  .meta { color:#BDBDBD; font-size:14px; }
+  .cuerpo { padding:28px 40px 36px; }
+  h2 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:26px; letter-spacing:1px; margin:26px 0 8px; }
+  h2:first-child { margin-top:0; }
+  table { width:100%; border-collapse:collapse; margin:8px 0 4px; font-size:15px; }
+  th, td { text-align:left; padding:9px 12px; border-bottom:1px solid #E5E5E5; vertical-align:top; }
+  th { width:46%; font-weight:500; color:var(--suave); }
+  td { font-weight:700; }
+  .semaforo { display:flex; align-items:center; gap:14px; padding:14px 18px; background:var(--gris); margin-bottom:14px; }
+  .punto { width:18px; height:18px; border-radius:50%; background:var(--sem); flex:none; }
+  .semaforo strong { font-size:18px; }
+  .kpis { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:0 0 8px; }
+  .kpi { background:var(--gris); padding:14px; border-top:3px solid var(--sem); }
+  .kpi .v { font-family:'Bebas Neue',sans-serif; font-size:30px; line-height:1; }
+  .kpi .l { color:var(--suave); font-size:12px; margin-top:4px; }
+  .aviso { border-left:4px solid #E0A800; background:#FFF8E1; padding:10px 14px; margin:12px 0; font-size:14px; }
+  .aviso.rojo { border-left-color:var(--rojo); background:#FDECEC; }
+  .aviso ul { margin:4px 0 0; }
+  .tabla-cliente td { font-size:17px; }
+  .calculo { margin:14px 0; border:1px solid #E5E5E5; border-radius:6px; padding:8px 12px; }
+  .calculo summary { cursor:pointer; font-weight:700; }
+  .nota { font-weight:400; color:var(--suave); font-size:13px; }
+  #analisis.plegado .cuerpo, #analisis.plegado .pie { display:none; }
+  #analisis.plegado .cabecera { padding:18px 40px; }
+  #analisis.plegado h1 { font-size:26px; margin:4px 0 0; }
+  .acciones { display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+  ul { padding-left:20px; margin:6px 0; }
+  p { margin:6px 0; }
+  .pie { color:var(--suave); font-size:12px; padding:0 40px 24px; }
+  @media (max-width:640px) { .cabecera, .cuerpo { padding:22px; } h1 { font-size:32px; } th { width:52%; } .kpis { grid-template-columns:repeat(2, 1fr); } }
+  @media print {
+    @page { size:A4; margin:12mm; }
+    body { background:#fff; }
+    .nav, .cabecera .btn, .abrir { display:none; }
+    .hoja { box-shadow:none; margin:0; max-width:none; page-break-before:always; }
+    #comercial { page-break-before:auto; }
+    .hoja, .cabecera, .etiqueta, .semaforo, .punto, .aviso, .kpi { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    #analisis.plegado .cuerpo, #analisis.plegado .pie { display:block; }
+    body.solo-comercial .hoja:not(#comercial), body.solo-cliente .hoja:not(#cliente), body.solo-analisis .hoja:not(#analisis) { display:none; }
+    body.solo-comercial #comercial, body.solo-cliente #cliente, body.solo-analisis #analisis { page-break-before:auto; }
+  }
+</style>
+</head>
+<body>
+<div class="nav">
+  <a href="#comercial">Comercial</a><a href="#cliente">Propuesta cliente</a><a href="#analisis" onclick="toggleAnalisis(true)">Análisis interno</a>
+  <span class="sp"></span>
+  <button class="btn" onclick="imprimir('')">Descargar todo (PDF)</button>
+</div>
+
+<section class="hoja" id="comercial">
+  <div class="cabecera">
+    <div>
+      <div class="marca">IDCO</div>
+      <span class="etiqueta">EVALUACIÓN PRELIMINAR PRE-REUNIÓN · USO INTERNO</span>
+      <h1>Victoria</h1>
+      <div class="meta">Psicología · Terapia de pareja y terapia individual para adultos (principal: terapia individual y de pareja, consulta online/presencial) · 24/10/2026</div>
+    </div>
+    <button class="btn" onclick="imprimir('comercial')">Descargar sección (PDF)</button>
+  </div>
+  <div class="cuerpo">
+    <div class="semaforo"><span class="punto"></span><div><strong>No encaja pay-per-show (preliminar)</strong><br><span>Antes descartado: Empezando, &lt;500 (lógica del formulario cambiada 23/10 por David). Descalificado: Ticket medio inferior a 500 €: no cubre un modelo por cita presentada | No es rentable para el cliente: para que gane 1,3x IDCO tendría que cobrar 11 €/show o menos, por debajo del mínimo (70 €). Necesita ticket ≥ 881 €, más inversión o promocionar un servicio de más ticket</span></div></div>
+    <div class="kpis">
+      <div class="kpi"><div class="v">—</div><div class="l">Precio de apertura por cita</div></div>
+      <div class="kpi"><div class="v">—</div><div class="l">Rango de negociación</div></div>
+      <div class="kpi"><div class="v">12–15</div><div class="l">Videollamadas presentadas al mes</div></div>
+      <div class="kpi"><div class="v">12</div><div class="l">Citas garantizables al mes</div></div>
+    </div>
+    <div class="aviso rojo"><strong>Descalificado.</strong> Ticket medio inferior a 500 €: no cubre un modelo por cita presentada</div><div class="aviso"><strong>Evaluación preliminar automática</strong> con los datos del formulario corto, previa a la reunión. Las cifras son orientativas: el análisis detallado se hace después con el formulario completo.<br><strong>Supuestos:</strong><ul><li>Ticket de evaluación: 500 € (tramo max (descalificado), tramo &quot;Menos de 500 euros&quot;)</li><li>Inversión en publicidad asumida: 1.000 €/mes (el formulario solo pregunta si dispone de esa cantidad)</li><li>Capacidad de atender videollamadas: sin límite (no se pregunta)</li><li>Mercado: España (no se pregunta)</li><li>Sin datos propios de leads, citas ni asistencia: 100 % benchmarks investigados para el subtipo de servicio</li><li>Sin coste actual por cita: techo de referencia 150 €/show</li></ul></div>
+    <h2>Resumen</h2><p>Evaluación preliminar (pre-reunión). No encaja pay-per-show. Con 15 citas presentadas al mes y un ticket de 500 €, el cliente generaría 1.527,27 € al mes frente a 2.069,09 € de coste: ratio 0,74x.</p>
+    <h2>Datos del formulario</h2><table><tr><th>Sector</th><td>Psicología</td></tr><tr><th>¿Ya vende servicios?</th><td>Si</td></tr><tr><th>Qué vende</th><td>Terapia de pareja y terapia individual en adultos</td></tr><tr><th>Ticket medio</th><td>Menos de 500 euros</td></tr><tr><th>Captación actual</th><td>Otro</td></tr><tr><th>Instagram / web</th><td>victoriajimenezpsicologia.com</td></tr><tr><th>¿Dispone de 1.000 €/mes para ads?</th><td>Si</td></tr><tr><th>Email</th><td>jimenezamengual@gmail.com</td></tr><tr><th>Origen (UTM)</th><td>source: ig, medium: paid, campaign: 120222164487800339</td></tr></table>
+    <h2>Números para negociar</h2><table><tr><th>Precio de apertura</th><td>—</td></tr><tr><th>No bajar de</th><td>70 €/show</td></tr><tr><th>Techo</th><td>10 €/show</td></tr><tr><th>Inversión en ads del cliente</th><td>1.000 €/mes</td></tr><tr><th>Citas presentadas al mes (conservador / base)</th><td>12 / 15</td></tr><tr><th>Qué cuenta como cita</th><td>Videollamada o llamada de consulta inicial (15–20 min) reservada online a la que la persona asiste</td></tr><tr><th>Coste total por cita para el cliente (escenario base)</th><td>135,48 €</td></tr><tr><th>Citas presentadas garantizables al mes</th><td><strong>12</strong> <span class='nota'>(coste garantía 65,48 €/show)</span></td></tr><tr><th>Coste por cita / ticket mínimo del tramo</th><td>27,1 % de 500 €</td></tr></table>
+    <h2>Rentabilidad para el cliente</h2><table><tr><th>Ticket usado</th><td>500 € <span class='nota'>(tramo max (descalificado))</span></td></tr><tr><th>Cierre asumido videollamada → venta</th><td>20 %</td></tr><tr><th>Ingreso estimado del cliente al mes (escenario base)</th><td>1.527 € = 15 citas × 20 % × 500 €</td></tr><tr><th>Coste total del cliente al mes</th><td>2.069 € = ads + citas × precio IDCO</td></tr><tr><th>Ratio ingreso / coste</th><td><strong>0,74x</strong> <span class='nota'>(objetivo ≥ 2,0x; mínimo 1,3x)</span></td></tr><tr><th>Precio máximo para que le salga rentable</th><td>11 €/show <span class='nota'>(VERDE hasta 0 €/show)</span></td></tr><tr><th>Ticket mínimo para VERDE con este precio</th><td>1.355 €</td></tr></table>
+    <h2>Cómo negociar</h2><p>Precio de apertura: no se propone. El límite inferior de IDCO (70 €/show) supera el precio máximo rentable para el cliente (11,45 €/show), así que ningún precio cuadra con el ticket actual. Para alcanzar ratio 2,0x no basta con bajar el precio (precio máximo 0 €): hace falta ticket de 1.354,76 € o más inversión. Confirmar en la reunión: ticket real del servicio a promocionar (mínimo 880,6 € para 1,3x), inversión real de 1.000 €/mes, si ya vende y cómo cierra, capacidad de videollamadas y coste actual por cita si hace publicidad. Periodo inicial de 3 meses en pay-per-show y revisión del precio por cita con datos reales.</p>
+    <h2>Objeciones probables</h2><ul><li>«Mi ticket es menor de 500 €, ¿por qué me conviene?»: con ese ticket, el coste total por cita de 135,48 € supera lo que se factura. Solo encaja si el ticket del servicio que se promociona supera 880,6 €.</li><li>«¿Por qué invertir 1.000 € al mes sin resultados garantizados?»: la garantía orientativa es de 12 citas presentadas al mes (se formaliza en el anexo de garantía). La inversión se revisa con datos reales tras el periodo inicial de 3 meses.</li><li>«No tengo claro qué cuenta como cita»: cuenta la videollamada o llamada de consulta inicial de 15–20 min reservada online a la que la persona asiste. No cuentan la visita ni el tratamiento.</li></ul>
+    <h2>Riesgos</h2><ul><li>El ticket de 500 € viene del tramo máximo («Menos de 500 euros»), no de un dato del cliente: el ticket real puede ser menor.</li><li>La rentabilidad del cliente no alcanza el umbral mínimo para pay-per-show con los datos actuales.</li><li>Se asume un cierre de videollamada a venta del 20 %; si cierra menos, el ingreso baja en proporción.</li><li>Escenario conservador como 12 citas presentadas al mes y 151,85 € de coste total por cita.</li><li>Confianza MEDIA: todo son benchmarks, sin datos propios de leads, citas ni asistencia. La inversión de 1.000 € es un supuesto, el formulario solo pregunta si puede disponer de esa cantidad.</li></ul>
+    <h2>Siguiente paso</h2><p>Reunión de descubrimiento; después, formulario PPS completo.</p><p>Confirmar en la sesión informativa si el ticket real del servicio supera 880,6 €; si no, cerrar sin propuesta.</p>
+  </div>
+  <div class="pie">Calculadora PPS · modelo v2.5 · 24/10/2026</div>
+</section>
+
+<section class="hoja" id="cliente">
+  <div class="cabecera">
+    <div>
+      <div class="marca">IDCO</div>
+      <span class="etiqueta">PROPUESTA ORIENTATIVA</span>
+      <h1>Pay-per-show: pendiente de validar los datos</h1>
+      <div class="meta">Preparada para Victoria · 24/10/2026</div>
+    </div>
+    <button class="btn rojo" onclick="imprimir('cliente')">Descargar propuesta (PDF)</button>
+  </div>
+  <div class="cuerpo">
+    <div class="aviso">Cifras orientativas calculadas con benchmarks del sector antes de la reunión; se concretan con tus datos en la propuesta definitiva.</div>
+    <h2>Tu situación actual</h2><p>Según el formulario, captas clientes por un método que indicas como «Otro», sin detallarlo. Para valorar la propuesta necesitamos conocer tu coste actual por cita presentada.</p>
+    <h2>Nuestra propuesta</h2><p>Con los datos que tenemos, el pay-per-show no te saldría rentable: el ticket de tu servicio y la inversión en publicidad no cubren el coste por cita presentada. Con este modelo solo pagas por las videollamadas de consulta a las que la persona asiste. Para reabrirlo habría que confirmar el ticket real del servicio que quieres promocionar y que puedes destinar esa inversión mensual a publicidad. Si esos datos cambian, revisamos la propuesta con ellos.</p>
+    
+    <h2>Próximos pasos</h2><ul><li>Confirmar el ticket real del servicio que quieres promocionar.</li><li>Confirmar que puedes destinar 1.000 € al mes a publicidad.</li><li>Agendar una reunión para validar estos datos.</li></ul>
+  </div>
+  <div class="pie">IDCO · Instituto de Crecimiento Orgánico</div>
+</section>
+
+<section class="hoja" id="analisis">
+  <div class="cabecera">
+    <div>
+      <div class="marca">IDCO</div>
+      <span class="etiqueta gris">ANÁLISIS INTERNO</span>
+      <h1>Cálculo y benchmarks</h1>
+    </div>
+    <div class="acciones">
+      <button class="btn" id="btn-analisis" onclick="toggleAnalisis()">Ocultar análisis</button>
+      <button class="btn" onclick="imprimir('analisis')">Descargar análisis (PDF)</button>
+    </div>
+  </div>
+  <div class="cuerpo">
+    <h2>Benchmarks y cálculo del coste por show</h2><table><tr><th>CPM (coste por mil impresiones, mercado objetivo)</th><td>9,90 €<br><span class='nota'><a href="https://www.superads.ai/facebook-ads-costs/cpm-cost-per-mille/wellness-holistic-health/spain" target="_blank">fuente 1</a> · <a href="https://www.superads.ai/facebook-ads-costs/cpm-cost-per-mille/spain" target="_blank">fuente 2</a></span></td></tr><tr><th>CTR (clics / impresiones)</th><td>1,50 %<br><span class='nota'><a href="https://www.superads.ai/facebook-ads-costs/ctr-click-through-rate/marketing-advertising/spain" target="_blank">fuente 1</a> · <a href="https://www.superads.ai/facebook-ads-costs/ctr-click-through-rate/recreation-and-travel/spain" target="_blank">fuente 2</a></span></td></tr><tr><th>Conversión de la página de reserva</th><td>4,8 %<br><span class='nota'><a href="https://www.webtonic.io/blog/mental-health-and-counseling-landing-pages-and-cro-statistics" target="_blank">fuente 1</a> · <a href="https://www.wordstream.com/blog/conversion-rate-benchmarks" target="_blank">fuente 2</a></span></td></tr><tr><th>CPL calculado = CPM / 1000 / (CTR × conversión)</th><td>13,75 €</td></tr><tr><th>CPL publicado de contraste</th><td>Sin dato</td></tr><tr><th>CPL usado</th><td><strong>13,75 €</strong> <span class='nota'>(calculado por componentes)</span></td></tr><tr><th>Leads que reservan la primera cita</th><td>30 %<br><span class='nota'><a href="https://www.webtonic.io/blog/mental-health-and-counseling-meta-ads-statistics" target="_blank">fuente 1</a> · <a href="https://9clouds.com/blog/performance-benchmarks-for-healthcare-facebook-ads/" target="_blank">fuente 2</a></span></td></tr><tr><th>Asistencia de leads fríos</th><td>70 %<br><span class='nota'><a href="https://kffhealthnews.org/news/article/no-cancel-culture-how-telehealth-is-making-it-easier-to-keep-that-therapy-session/" target="_blank">fuente 1</a> · <a href="https://curogram.com/blog/emr-integration/notenetic/notenetic-telehealth-sms-launch-for-behavioral-health" target="_blank">fuente 2</a></span></td></tr><tr><th>Coste en ads por show (base)</th><td>65,48 € = CPL / (reserva × asistencia)</td></tr><tr><th>Escenario conservador</th><td>81,85 € (CPL × 1,15 y asistencia × 0,92)</td></tr><tr><th>Garantía de citas</th><td>12 al mes = inversión ÷ max(coste por show base, suelo 35 €) × 0,8</td></tr></table>
+    <h2>Economía y fiabilidad</h2><table><tr><th>Facturación IDCO (conservador / base)</th><td>855 € / 1.069 €</td></tr><tr><th>Coste en ads por show (base / conservador)</th><td>65,48 € / 81,85 €</td></tr><tr><th>Confianza del cálculo</th><td>MEDIA</td></tr><tr><th>Madurez del cliente</th><td>No evaluada (formulario corto) (—/6)</td></tr><tr><th>Origen de las variables</th><td>cpl: BENCHMARK, lead_agenda: BENCHMARK, agenda_show: BENCHMARK</td></tr><tr><th>Motivos del semáforo</th><td>Antes descartado: Empezando, &lt;500 (lógica del formulario cambiada 23/10 por David). Descalificado: Ticket medio inferior a 500 €: no cubre un modelo por cita presentada | No es rentable para el cliente: para que gane 1,3x IDCO tendría que cobrar 11 €/show o menos, por debajo del mínimo (70 €). Necesita ticket ≥ 881 €, más inversión o promocionar un servicio de más ticket</td></tr><tr><th>Supuestos del informe preliminar</th><td>Ticket de evaluación: 500 € (tramo max (descalificado), tramo &quot;Menos de 500 euros&quot;) · Inversión en publicidad asumida: 1.000 €/mes (el formulario solo pregunta si dispone de esa cantidad) · Capacidad de atender videollamadas: sin límite (no se pregunta) · Mercado: España (no se pregunta) · Sin datos propios de leads, citas ni asistencia: 100 % benchmarks investigados para el subtipo de servicio · Sin coste actual por cita: techo de referencia 150 €/show</td></tr><tr><th>Modelo</th><td>v2.5 · 24/10/2026</td></tr></table>
+  </div>
+  <div class="pie">Calculadora PPS · modelo v2.5 · 24/10/2026</div>
+</section>
+
+<script type="application/json" id="idco-pps-data">{"model_version": "2.5", "nombre_lead": "Victoria", "industria": "Psicología", "servicio": "Terapia de pareja y terapia individual para adultos (principal: terapia individual y de pareja, consulta online/presencial)", "semaforo": "ROJO", "confianza": "MEDIA", "presupuesto_ads": 1000.0, "precio_recomendado": null, "shows_mes_cons": 12.22, "escenarios": {"conservador": {"cpl": 15.81, "lead_agenda": 0.3, "agenda_show": 0.64, "coste_ads_show": 81.85, "shows_mes": 12.22, "leads_mes": 63.24, "limitado_capacidad": false}, "base": {"cpl": 13.75, "lead_agenda": 0.3, "agenda_show": 0.7, "coste_ads_show": 65.48, "shows_mes": 15.27, "leads_mes": 72.73, "limitado_capacidad": false}, "favorable": {"cpl": 12.38, "lead_agenda": 0.3, "agenda_show": 0.73, "coste_ads_show": 56.12, "shows_mes": 17.82, "leads_mes": 80.81, "limitado_capacidad": false}}, "garantia_shows_mes": 12.0, "garantia_coste_show": 65.48, "garantia_suelo_aplicado": false, "tipo_informe": "PRELIMINAR", "supuestos": ["Ticket de evaluación: 500 € (tramo max (descalificado), tramo \"Menos de 500 euros\")", "Inversión en publicidad asumida: 1.000 €/mes (el formulario solo pregunta si dispone de esa cantidad)", "Capacidad de atender videollamadas: sin límite (no se pregunta)", "Mercado: España (no se pregunta)", "Sin datos propios de leads, citas ni asistencia: 100 % benchmarks investigados para el subtipo de servicio", "Sin coste actual por cita: techo de referencia 150 €/show"], "descalificado": true, "motivo_descalificacion": "Ticket medio inferior a 500 €: no cubre un modelo por cita presentada", "ticket_tramo": "Menos de 500 euros", "ticket_min": 0.0, "rentabilidad": {"ticket_evaluacion": 500.0, "ticket_origen": "TRAMO_MAX (descalificado)", "ticket_tramo": "Menos de 500 euros", "ticket_investigado": 70.0, "ticket_fuentes": "https://www.betterhelp.com/es/blog/terapia/cuánto-cuesta-una-sesión-de-psicólogo-en-españa-precios-factores-y-opciones-en-2025/, https://trustlocal.es/coste/psicologos-coste/", "cierre_pct": 20, "shows_cons": 15.27, "escenario": "base", "ingreso_estimado_mes": 1527.27, "coste_cliente_mes": 2069.09, "ratio": 0.74, "ratio_min": 1.3, "ratio_verde": 2.0, "precio_max_rentable": 11.45, "precio_verde": 0, "ticket_min_rentable": 880.6, "ticket_min_verde": 1354.76}, "definicion_show": "Videollamada o llamada de consulta inicial (15–20 min) reservada online a la que la persona asiste", "benchmark_incompleto": false}</script>
+<script>
+  function imprimir(seccion) {
+    const titulo = document.title;
+    const nombres = {'': 'Informe completo', 'comercial': 'Comercial', 'cliente': 'Propuesta', 'analisis': 'Análisis interno'};
+    document.body.classList.remove('solo-comercial', 'solo-cliente', 'solo-analisis');
+    if (seccion) document.body.classList.add('solo-' + seccion);
+    const an = document.getElementById('analisis'); const estabaPlegado = an.classList.contains('plegado'); an.classList.remove('plegado');
+    document.title = nombres[seccion] + ' IDCO - Victoria';
+    window.print();
+    setTimeout(() => { document.body.classList.remove('solo-comercial', 'solo-cliente', 'solo-analisis'); if (estabaPlegado) an.classList.add('plegado'); document.title = titulo; }, 500);
+  }
+  function toggleAnalisis(abrir) {
+    const an = document.getElementById('analisis');
+    const plegar = abrir === true ? false : !an.classList.contains('plegado');
+    an.classList.toggle('plegado', plegar);
+    document.getElementById('btn-analisis').textContent = plegar ? 'Mostrar análisis' : 'Ocultar análisis';
+    if (!plegar) an.scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
+</script>
+</body>
+</html>
