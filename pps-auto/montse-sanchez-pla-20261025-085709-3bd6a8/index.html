@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Preliminar · Montse Sanchez pla · IDCO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root { --negro:#0A0A0A; --rojo:#DD1927; --gris:#F2F2F2; --texto:#1A1A1A; --suave:#6B6B6B; --sem:#DD1927; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#E9E9E9; font-family:'DM Sans',Arial,sans-serif; color:var(--texto); line-height:1.55; }
+  .nav { position:sticky; top:0; z-index:10; background:var(--negro); padding:10px 24px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+  .nav a { color:#BDBDBD; text-decoration:none; font-weight:700; font-size:14px; padding:8px 12px; border-radius:6px; }
+  .nav a:hover { color:#fff; background:#222; }
+  .nav .sp { flex:1; }
+  .btn { font-family:inherit; font-weight:700; font-size:14px; border:0; border-radius:6px; padding:10px 16px; cursor:pointer; background:#fff; color:var(--negro); }
+  .btn.rojo { background:var(--rojo); color:#fff; }
+  .btn.sec { background:var(--gris); color:var(--negro); font-size:13px; padding:8px 12px; }
+  .hoja { max-width:860px; margin:28px auto; background:#fff; box-shadow:0 2px 14px rgba(0,0,0,.08); }
+  .cabecera { background:var(--negro); color:#fff; padding:28px 40px; display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; }
+  .cabecera .btn { margin-top:6px; }
+  .marca { font-family:'Bebas Neue',sans-serif; font-size:30px; letter-spacing:4px; }
+  .etiqueta { display:inline-block; background:var(--rojo); color:#fff; font-weight:700; font-size:12px; letter-spacing:1.5px; padding:4px 10px; margin-top:10px; }
+  .etiqueta.gris { background:#444; }
+  h1 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:40px; letter-spacing:1px; margin:10px 0 4px; line-height:1.1; }
+  .meta { color:#BDBDBD; font-size:14px; }
+  .cuerpo { padding:28px 40px 36px; }
+  h2 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:26px; letter-spacing:1px; margin:26px 0 8px; }
+  h2:first-child { margin-top:0; }
+  table { width:100%; border-collapse:collapse; margin:8px 0 4px; font-size:15px; }
+  th, td { text-align:left; padding:9px 12px; border-bottom:1px solid #E5E5E5; vertical-align:top; }
+  th { width:46%; font-weight:500; color:var(--suave); }
+  td { font-weight:700; }
+  .semaforo { display:flex; align-items:center; gap:14px; padding:14px 18px; background:var(--gris); margin-bottom:14px; }
+  .punto { width:18px; height:18px; border-radius:50%; background:var(--sem); flex:none; }
+  .semaforo strong { font-size:18px; }
+  .kpis { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:0 0 8px; }
+  .kpi { background:var(--gris); padding:14px; border-top:3px solid var(--sem); }
+  .kpi .v { font-family:'Bebas Neue',sans-serif; font-size:30px; line-height:1; }
+  .kpi .l { color:var(--suave); font-size:12px; margin-top:4px; }
+  .aviso { border-left:4px solid #E0A800; background:#FFF8E1; padding:10px 14px; margin:12px 0; font-size:14px; }
+  .aviso.rojo { border-left-color:var(--rojo); background:#FDECEC; }
+  .aviso ul { margin:4px 0 0; }
+  .tabla-cliente td { font-size:17px; }
+  .calculo { margin:14px 0; border:1px solid #E5E5E5; border-radius:6px; padding:8px 12px; }
+  .calculo summary { cursor:pointer; font-weight:700; }
+  .nota { font-weight:400; color:var(--suave); font-size:13px; }
+  #analisis.plegado .cuerpo, #analisis.plegado .pie { display:none; }
+  #analisis.plegado .cabecera { padding:18px 40px; }
+  #analisis.plegado h1 { font-size:26px; margin:4px 0 0; }
+  .acciones { display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+  ul { padding-left:20px; margin:6px 0; }
+  p { margin:6px 0; }
+  .pie { color:var(--suave); font-size:12px; padding:0 40px 24px; }
+  @media (max-width:640px) { .cabecera, .cuerpo { padding:22px; } h1 { font-size:32px; } th { width:52%; } .kpis { grid-template-columns:repeat(2, 1fr); } }
+  @media print {
+    @page { size:A4; margin:12mm; }
+    body { background:#fff; }
+    .nav, .cabecera .btn, .abrir { display:none; }
+    .hoja { box-shadow:none; margin:0; max-width:none; page-break-before:always; }
+    #comercial { page-break-before:auto; }
+    .hoja, .cabecera, .etiqueta, .semaforo, .punto, .aviso, .kpi { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    #analisis.plegado .cuerpo, #analisis.plegado .pie { display:block; }
+    body.solo-comercial .hoja:not(#comercial), body.solo-cliente .hoja:not(#cliente), body.solo-analisis .hoja:not(#analisis) { display:none; }
+    body.solo-comercial #comercial, body.solo-cliente #cliente, body.solo-analisis #analisis { page-break-before:auto; }
+  }
+</style>
+</head>
+<body>
+<div class="nav">
+  <a href="#comercial">Comercial</a><a href="#cliente">Propuesta cliente</a><a href="#analisis" onclick="toggleAnalisis(true)">Análisis interno</a>
+  <span class="sp"></span>
+  <button class="btn" onclick="imprimir('')">Descargar todo (PDF)</button>
+</div>
+
+<section class="hoja" id="comercial">
+  <div class="cabecera">
+    <div>
+      <div class="marca">IDCO</div>
+      <span class="etiqueta">EVALUACIÓN PRELIMINAR PRE-REUNIÓN · USO INTERNO</span>
+      <h1>Montse Sanchez pla</h1>
+      <div class="meta">Estética · Bonos de tratamientos de estética con aparatología: Indiba (radiofrecuencia), LPG/endermología y Zionic. Principal: bonos de Indiba facial y corporal. Anuncios para reservar una videollamada de consulta inicial de 15-20 min. · 25/10/2026</div>
+    </div>
+    <button class="btn" onclick="imprimir('comercial')">Descargar sección (PDF)</button>
+  </div>
+  <div class="cuerpo">
+    <div class="semaforo"><span class="punto"></span><div><strong>No encaja pay-per-show (preliminar)</strong><br><span>No es rentable para el cliente: para que gane 1,3x IDCO tendría que cobrar 57 €/show o menos, por debajo del mínimo (60 €). Necesita ticket ≥ 768 €, más inversión o promocionar un servicio de más ticket</span></div></div>
+    <div class="kpis">
+      <div class="kpi"><div class="v">—</div><div class="l">Precio de apertura por cita</div></div>
+      <div class="kpi"><div class="v">—</div><div class="l">Rango de negociación</div></div>
+      <div class="kpi"><div class="v">13–17</div><div class="l">Videollamadas presentadas al mes</div></div>
+      <div class="kpi"><div class="v">13</div><div class="l">Citas garantizables al mes</div></div>
+    </div>
+    <div class="aviso"><strong>Evaluación preliminar automática</strong> con los datos del formulario corto, previa a la reunión. Las cifras son orientativas: el análisis detallado se hace después con el formulario completo.<br><strong>Supuestos:</strong><ul><li>Ticket de evaluación: 750 € (investigado (dentro del tramo typeform), tramo &quot;Entre 500-1.000€&quot;)</li><li>Inversión en publicidad asumida: 1.000 €/mes (el formulario solo pregunta si dispone de esa cantidad)</li><li>Capacidad de atender videollamadas: sin límite (no se pregunta)</li><li>Mercado: España (no se pregunta)</li><li>Sin datos propios de leads, citas ni asistencia: 100 % benchmarks investigados para el subtipo de servicio</li><li>Sin coste actual por cita: techo de referencia 150 €/show</li></ul></div>
+    <h2>Resumen</h2><p>Evaluación preliminar (pre-reunión): no encaja pay-per-show. Con 17 citas presentadas al mes y ticket investigado de 750 € (tramo 500-1.000 €), ingreso de 2.578,12 € frente a coste de 2.031,25 €: ratio 1,27. Supuestos: inversión asumida de 1.000 €/mes.</p>
+    <h2>Datos del formulario</h2><table><tr><th>Sector</th><td>Estetica</td></tr><tr><th>¿Ya vende servicios?</th><td>Si</td></tr><tr><th>Qué vende</th><td>Bonos de indiba , LPG, ZIONIC …</td></tr><tr><th>Ticket medio</th><td>Entre 500-1.000€</td></tr><tr><th>Captación actual</th><td>Publicidad (Google ads, Facebook ads...)</td></tr><tr><th>Instagram / web</th><td>Esenciacenter.es</td></tr><tr><th>¿Dispone de 1.000 €/mes para ads?</th><td>Si</td></tr><tr><th>Email</th><td>hola@esenciacenter.es</td></tr><tr><th>Origen (UTM)</th><td>source: ig, medium: paid, campaign: 120222164487800339</td></tr></table>
+    <h2>Números para negociar</h2><table><tr><th>Precio de apertura</th><td>—</td></tr><tr><th>No bajar de</th><td>60 €/show</td></tr><tr><th>Techo</th><td>55 €/show</td></tr><tr><th>Inversión en ads del cliente</th><td>1.000 €/mes</td></tr><tr><th>Citas presentadas al mes (conservador / base)</th><td>13 / 17</td></tr><tr><th>Qué cuenta como cita</th><td>Videollamada o llamada de consulta inicial (15–20 min) reservada online a la que la persona asiste</td></tr><tr><th>Coste total por cita para el cliente (escenario base)</th><td>118,18 €</td></tr><tr><th>Citas presentadas garantizables al mes</th><td><strong>13</strong> <span class='nota'>(coste garantía 58,18 €/show)</span></td></tr><tr><th>Coste por cita / ticket mínimo del tramo</th><td>15,8 % de 750 €</td></tr></table>
+    <h2>Rentabilidad para el cliente</h2><table><tr><th>Ticket usado</th><td>750 € <span class='nota'>(investigado (dentro del tramo typeform))</span></td></tr><tr><th>Cierre asumido videollamada → venta</th><td>20 %</td></tr><tr><th>Ingreso estimado del cliente al mes (escenario base)</th><td>2.578 € = 17 citas × 20 % × 750 €</td></tr><tr><th>Coste total del cliente al mes</th><td>2.031 € = ads + citas × precio IDCO</td></tr><tr><th>Ratio ingreso / coste</th><td><strong>1,27x</strong> <span class='nota'>(objetivo ≥ 2,0x; mínimo 1,3x)</span></td></tr><tr><th>Precio máximo para que le salga rentable</th><td>57 €/show <span class='nota'>(VERDE hasta 17 €/show)</span></td></tr><tr><th>Ticket mínimo para VERDE con este precio</th><td>1.182 €</td></tr></table>
+    <h2>Cómo negociar</h2><p>No hay precio de apertura: con los datos actuales no encaja. Confirmar en la reunión: inversión real en publicidad (se asume 1.000 €/mes), ticket real del servicio a promocionar (1,3x desde 768,18 € por venta; 2,0x desde 1.181,82 €), cierre real de videollamada a venta (se asume 20 %), capacidad de videollamadas y coste actual por cita si ya hacen publicidad. Bajar el precio no basta: el precio máximo rentable es 57,20 € por cita, por debajo del mínimo de IDCO (60 €), y el precio para 2,0x sería 16,82 €. Hace falta más ticket o más inversión. Solo si el ticket real lo justifica, plantear el periodo inicial de 3 meses en pay-per-show y revisión del precio por cita con datos reales.</p>
+    <h2>Objeciones probables</h2><ul><li>«Ya invierto en publicidad y no quiero pagar más por cita.» Respuesta: la inversión en Meta Ads la pone el cliente; IDCO cobra solo por cada videollamada de consulta a la que asiste la persona.</li><li>«Pagar por videollamada no tiene sentido si la venta es el tratamiento.» Respuesta: la cuenta solo sale si el ticket de la venta cubre el coste por cita; por eso confirmamos primero el ticket real del servicio.</li><li>«Quiero probarlo sin compromiso.» Respuesta: con los datos actuales no sale rentable; si el ticket real es mayor, planteamos un periodo inicial de 3 meses en pay-per-show y revisión del precio por cita con datos reales.</li></ul>
+    <h2>Riesgos</h2><ul><li>No es rentable para el cliente: para llegar a 1,3x el coste por cita debería ser de 57,20 € o menos, por debajo del mínimo de IDCO (60 €).</li><li>Todo son benchmarks: ticket de 750 € investigado, sin datos propios y confianza MEDIA; el ticket real puede cambiar la conclusión.</li><li>Inversión de 1.000 €/mes y cierre del 20 % asumidos; si el cierre real es menor, el ingreso cae.</li><li>Escenario conservador como 13 citas al mes y 132,73 € de coste total por cita.</li><li>CPL calculado de 7,35 € por debajo de campañas reales: se aplica el suelo de 8,00 €.</li><li>Motor: precio máximo (55 €) inferior al mínimo (60 €) y precio recomendado vacío; revisar antes de usar cifras de precio.</li></ul>
+    <h2>Siguiente paso</h2><p>Reunión de descubrimiento; después, formulario PPS completo.</p><p>Confirmar el ticket real del servicio a promocionar y compararlo con el mínimo de 768,18 € por venta.</p>
+  </div>
+  <div class="pie">Calculadora PPS · modelo v2.5 · 25/10/2026</div>
+</section>
+
+<section class="hoja" id="cliente">
+  <div class="cabecera">
+    <div>
+      <div class="marca">IDCO</div>
+      <span class="etiqueta">PROPUESTA ORIENTATIVA</span>
+      <h1>Pay-per-show: pendiente de validar los datos</h1>
+      <div class="meta">Preparada para Montse Sanchez pla · 25/10/2026</div>
+    </div>
+    <button class="btn rojo" onclick="imprimir('cliente')">Descargar propuesta (PDF)</button>
+  </div>
+  <div class="cuerpo">
+    <div class="aviso">Cifras orientativas calculadas con benchmarks del sector antes de la reunión; se concretan con tus datos en la propuesta definitiva.</div>
+    <h2>Tu situación actual</h2><p>Captan clientes con publicidad de pago en Google Ads y Facebook Ads. Su servicio principal son los bonos de Indiba facial y corporal, junto con LPG y Zionic.</p>
+    <h2>Nuestra propuesta</h2><p>Con los datos que tenemos ahora, el pay-per-show no te resultaría rentable. Con un ticket en torno a 750 €, que tendríamos que confirmar, la cuenta no cuadra. Para reabrirlo hace falta validar tu ticket real y el servicio que promocionarías, además de la inversión mensual en publicidad que puedes asumir. Si el ticket de ese servicio es más alto, lo revisamos juntos con datos reales.</p>
+    
+    <h2>Próximos pasos</h2><ul><li>Reunión para validar el ticket real de tu servicio principal.</li><li>Confirmar qué servicio quieres promocionar y cuánto puedes invertir al mes en publicidad.</li></ul>
+  </div>
+  <div class="pie">IDCO · Instituto de Crecimiento Orgánico</div>
+</section>
+
+<section class="hoja" id="analisis">
+  <div class="cabecera">
+    <div>
+      <div class="marca">IDCO</div>
+      <span class="etiqueta gris">ANÁLISIS INTERNO</span>
+      <h1>Cálculo y benchmarks</h1>
+    </div>
+    <div class="acciones">
+      <button class="btn" id="btn-analisis" onclick="toggleAnalisis()">Ocultar análisis</button>
+      <button class="btn" onclick="imprimir('analisis')">Descargar análisis (PDF)</button>
+    </div>
+  </div>
+  <div class="cuerpo">
+    <h2>Benchmarks y cálculo del coste por show</h2><table><tr><th>CPM (coste por mil impresiones, mercado objetivo)</th><td>8,00 €<br><span class='nota'><a href="https://www.superads.ai/facebook-ads-costs/cpm-cost-per-mille/spain" target="_blank">fuente 1</a> · <a href="https://www.shopify.com/es/blog/cuanto-cuestan-los-anuncios-de-facebook" target="_blank">fuente 2</a></span></td></tr><tr><th>CTR (clics / impresiones)</th><td>1,60 %<br><span class='nota'><a href="https://www.superads.ai/facebook-ads-costs/ctr-click-through-rate/spain" target="_blank">fuente 1</a></span></td></tr><tr><th>Conversión de la página de reserva</th><td>6,8 %<br><span class='nota'><a href="https://visionary-marketing.co.uk/blog/conversion-benchmark-report-2026" target="_blank">fuente 1</a> · <a href="https://www.webtonic.io/blog/medical-spa-aesthetics-facebook-ads-statistics" target="_blank">fuente 2</a> · <a href="https://unbounce.com/conversion-benchmark-report/healthcare-wellness-conversion-rate" target="_blank">fuente 3</a></span></td></tr><tr><th>CPL calculado = CPM / 1000 / (CTR × conversión)</th><td>7,35 €</td></tr><tr><th>CPL publicado de contraste</th><td>Sin dato</td></tr><tr><th>CPL usado</th><td><strong>8,00 €</strong> <span class='nota'>(calculado por componentes)</span></td></tr><tr><th>Leads que reservan la primera cita</th><td>25 %<br><span class='nota'><a href="https://www.webtonic.io/blog/medical-spa-aesthetics-facebook-ads-statistics" target="_blank">fuente 1</a> · <a href="https://themedspaagency.com/?p=3242" target="_blank">fuente 2</a></span></td></tr><tr><th>Asistencia de leads fríos</th><td>55 %<br><span class='nota'><a href="https://schedly.io/scheduling-statistics" target="_blank">fuente 1</a> · <a href="https://cotera.co/articles/meeting-no-show-tracking-ai" target="_blank">fuente 2</a> · <a href="https://segmetrics.io/wp-content/uploads/Playbook-Sales-Call-Show-Rate.pdf" target="_blank">fuente 3</a></span></td></tr><tr><th>Coste en ads por show (base)</th><td>58,18 € = CPL / (reserva × asistencia)</td></tr><tr><th>Escenario conservador</th><td>72,73 € (CPL × 1,15 y asistencia × 0,92)</td></tr><tr><th>Garantía de citas</th><td>13 al mes = inversión ÷ max(coste por show base, suelo 35 €) × 0,8</td></tr></table><div class="aviso">CPL por componentes (7,35 €) por debajo de lo que IDCO ve en campañas reales: se usa el suelo de 8,00 €</div>
+    <h2>Economía y fiabilidad</h2><table><tr><th>Facturación IDCO (conservador / base)</th><td>825 € / 1.031 €</td></tr><tr><th>Coste en ads por show (base / conservador)</th><td>58,18 € / 72,73 €</td></tr><tr><th>Confianza del cálculo</th><td>MEDIA</td></tr><tr><th>Madurez del cliente</th><td>No evaluada (formulario corto) (—/6)</td></tr><tr><th>Origen de las variables</th><td>cpl: BENCHMARK, lead_agenda: BENCHMARK, agenda_show: BENCHMARK</td></tr><tr><th>Motivos del semáforo</th><td>No es rentable para el cliente: para que gane 1,3x IDCO tendría que cobrar 57 €/show o menos, por debajo del mínimo (60 €). Necesita ticket ≥ 768 €, más inversión o promocionar un servicio de más ticket</td></tr><tr><th>Supuestos del informe preliminar</th><td>Ticket de evaluación: 750 € (investigado (dentro del tramo typeform), tramo &quot;Entre 500-1.000€&quot;) · Inversión en publicidad asumida: 1.000 €/mes (el formulario solo pregunta si dispone de esa cantidad) · Capacidad de atender videollamadas: sin límite (no se pregunta) · Mercado: España (no se pregunta) · Sin datos propios de leads, citas ni asistencia: 100 % benchmarks investigados para el subtipo de servicio · Sin coste actual por cita: techo de referencia 150 €/show</td></tr><tr><th>Modelo</th><td>v2.5 · 25/10/2026</td></tr></table>
+  </div>
+  <div class="pie">Calculadora PPS · modelo v2.5 · 25/10/2026</div>
+</section>
+
+<script type="application/json" id="idco-pps-data">{"model_version": "2.5", "nombre_lead": "Montse Sanchez pla", "industria": "Estética", "servicio": "Bonos de tratamientos de estética con aparatología: Indiba (radiofrecuencia), LPG/endermología y Zionic. Principal: bonos de Indiba facial y corporal. Anuncios para reservar una videollamada de consulta inicial de 15-20 min.", "semaforo": "ROJO", "confianza": "MEDIA", "presupuesto_ads": 1000.0, "precio_recomendado": null, "shows_mes_cons": 13.75, "escenarios": {"conservador": {"cpl": 9.2, "lead_agenda": 0.25, "agenda_show": 0.51, "coste_ads_show": 72.73, "shows_mes": 13.75, "leads_mes": 108.7, "limitado_capacidad": false}, "base": {"cpl": 8.0, "lead_agenda": 0.25, "agenda_show": 0.55, "coste_ads_show": 58.18, "shows_mes": 17.19, "leads_mes": 125.0, "limitado_capacidad": false}, "favorable": {"cpl": 7.2, "lead_agenda": 0.25, "agenda_show": 0.58, "coste_ads_show": 49.87, "shows_mes": 20.05, "leads_mes": 138.89, "limitado_capacidad": false}}, "garantia_shows_mes": 13.0, "garantia_coste_show": 58.18, "garantia_suelo_aplicado": false, "tipo_informe": "PRELIMINAR", "supuestos": ["Ticket de evaluación: 750 € (investigado (dentro del tramo typeform), tramo \"Entre 500-1.000€\")", "Inversión en publicidad asumida: 1.000 €/mes (el formulario solo pregunta si dispone de esa cantidad)", "Capacidad de atender videollamadas: sin límite (no se pregunta)", "Mercado: España (no se pregunta)", "Sin datos propios de leads, citas ni asistencia: 100 % benchmarks investigados para el subtipo de servicio", "Sin coste actual por cita: techo de referencia 150 €/show"], "descalificado": false, "motivo_descalificacion": "", "ticket_tramo": "Entre 500-1.000€", "ticket_min": 500.0, "rentabilidad": {"ticket_evaluacion": 750.0, "ticket_origen": "INVESTIGADO (dentro del tramo typeform)", "ticket_tramo": "Entre 500-1.000€", "ticket_investigado": 750.0, "ticket_fuentes": "https://booksy.com/es-es/s/indiba-facial/49062_alella, https://booksy.com/es-es/s/indiba/49357_ripollet, https://www.whatclinic.com/beauty-clinics/spain/endermologie", "cierre_pct": 20, "shows_cons": 17.19, "escenario": "base", "ingreso_estimado_mes": 2578.12, "coste_cliente_mes": 2031.25, "ratio": 1.27, "ratio_min": 1.3, "ratio_verde": 2.0, "precio_max_rentable": 57.2, "precio_verde": 16.82, "ticket_min_rentable": 768.18, "ticket_min_verde": 1181.82}, "definicion_show": "Videollamada o llamada de consulta inicial (15–20 min) reservada online a la que la persona asiste", "benchmark_incompleto": false}</script>
+<script>
+  function imprimir(seccion) {
+    const titulo = document.title;
+    const nombres = {'': 'Informe completo', 'comercial': 'Comercial', 'cliente': 'Propuesta', 'analisis': 'Análisis interno'};
+    document.body.classList.remove('solo-comercial', 'solo-cliente', 'solo-analisis');
+    if (seccion) document.body.classList.add('solo-' + seccion);
+    const an = document.getElementById('analisis'); const estabaPlegado = an.classList.contains('plegado'); an.classList.remove('plegado');
+    document.title = nombres[seccion] + ' IDCO - Montse Sanchez pla';
+    window.print();
+    setTimeout(() => { document.body.classList.remove('solo-comercial', 'solo-cliente', 'solo-analisis'); if (estabaPlegado) an.classList.add('plegado'); document.title = titulo; }, 500);
+  }
+  function toggleAnalisis(abrir) {
+    const an = document.getElementById('analisis');
+    const plegar = abrir === true ? false : !an.classList.contains('plegado');
+    an.classList.toggle('plegado', plegar);
+    document.getElementById('btn-analisis').textContent = plegar ? 'Mostrar análisis' : 'Ocultar análisis';
+    if (!plegar) an.scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
+</script>
+</body>
+</html>
