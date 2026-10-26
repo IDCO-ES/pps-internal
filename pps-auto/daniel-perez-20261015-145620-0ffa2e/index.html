@@ -1,176 +1,177 @@
 <!DOCTYPE html>
-    <html lang="es">
-    <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noindex, nofollow">
-    <title>Preliminar · Daniel Perez · IDCO</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-      :root { --negro:#0A0A0A; --rojo:#DD1927; --gris:#F2F2F2; --texto:#1A1A1A; --suave:#6B6B6B; --sem:#E0A800; }
-      * { box-sizing:border-box; }
-      body { margin:0; background:#E9E9E9; font-family:'DM Sans',Arial,sans-serif; color:var(--texto); line-height:1.55; }
-      .nav { position:sticky; top:0; z-index:10; background:var(--negro); padding:10px 24px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
-      .nav a { color:#BDBDBD; text-decoration:none; font-weight:700; font-size:14px; padding:8px 12px; border-radius:6px; }
-      .nav a:hover { color:#fff; background:#222; }
-      .nav .sp { flex:1; }
-      .btn { font-family:inherit; font-weight:700; font-size:14px; border:0; border-radius:6px; padding:10px 16px; cursor:pointer; background:#fff; color:var(--negro); }
-      .btn.rojo { background:var(--rojo); color:#fff; }
-      .btn.sec { background:var(--gris); color:var(--negro); font-size:13px; padding:8px 12px; }
-      .hoja { max-width:860px; margin:28px auto; background:#fff; box-shadow:0 2px 14px rgba(0,0,0,.08); }
-      .cabecera { background:var(--negro); color:#fff; padding:28px 40px; display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; }
-      .cabecera .btn { margin-top:6px; }
-      .marca { font-family:'Bebas Neue',sans-serif; font-size:30px; letter-spacing:4px; }
-      .etiqueta { display:inline-block; background:var(--rojo); color:#fff; font-weight:700; font-size:12px; letter-spacing:1.5px; padding:4px 10px; margin-top:10px; }
-      .etiqueta.gris { background:#444; }
-      h1 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:40px; letter-spacing:1px; margin:10px 0 4px; line-height:1.1; }
-      .meta { color:#BDBDBD; font-size:14px; }
-      .cuerpo { padding:28px 40px 36px; }
-      h2 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:26px; letter-spacing:1px; margin:26px 0 8px; }
-      h2:first-child { margin-top:0; }
-      table { width:100%; border-collapse:collapse; margin:8px 0 4px; font-size:15px; }
-      th, td { text-align:left; padding:9px 12px; border-bottom:1px solid #E5E5E5; vertical-align:top; }
-      th { width:46%; font-weight:500; color:var(--suave); }
-      td { font-weight:700; }
-      .semaforo { display:flex; align-items:center; gap:14px; padding:14px 18px; background:var(--gris); margin-bottom:14px; }
-      .punto { width:18px; height:18px; border-radius:50%; background:var(--sem); flex:none; }
-      .semaforo strong { font-size:18px; }
-      .kpis { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:0 0 8px; }
-      .kpi { background:var(--gris); padding:14px; border-top:3px solid var(--sem); }
-      .kpi .v { font-family:'Bebas Neue',sans-serif; font-size:30px; line-height:1; }
-      .kpi .l { color:var(--suave); font-size:12px; margin-top:4px; }
-      .aviso { border-left:4px solid #E0A800; background:#FFF8E1; padding:10px 14px; margin:12px 0; font-size:14px; }
-      .aviso.rojo { border-left-color:var(--rojo); background:#FDECEC; }
-      .aviso ul { margin:4px 0 0; }
-      .tabla-cliente td { font-size:17px; }
-      .calculo { margin:14px 0; border:1px solid #E5E5E5; border-radius:6px; padding:8px 12px; }
-      .calculo summary { cursor:pointer; font-weight:700; }
-      .nota { font-weight:400; color:var(--suave); font-size:13px; }
-      #analisis.plegado .cuerpo, #analisis.plegado .pie { display:none; }
-      #analisis.plegado .cabecera { padding:18px 40px; }
-      #analisis.plegado h1 { font-size:26px; margin:4px 0 0; }
-      .acciones { display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
-      ul { padding-left:20px; margin:6px 0; }
-      p { margin:6px 0; }
-      .pie { color:var(--suave); font-size:12px; padding:0 40px 24px; }
-      @media (max-width:640px) { .cabecera, .cuerpo { padding:22px; } h1 { font-size:32px; } th { width:52%; } .kpis { grid-template-columns:repeat(2, 1fr); } }
-      @media print {
-        @page { size:A4; margin:12mm; }
-        body { background:#fff; }
-        .nav, .cabecera .btn, .abrir { display:none; }
-        .hoja { box-shadow:none; margin:0; max-width:none; page-break-before:always; }
-        #comercial { page-break-before:auto; }
-        .hoja, .cabecera, .etiqueta, .semaforo, .punto, .aviso, .kpi { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-        #analisis.plegado .cuerpo, #analisis.plegado .pie { display:block; }
-        body.solo-comercial .hoja:not(#comercial), body.solo-cliente .hoja:not(#cliente), body.solo-analisis .hoja:not(#analisis) { display:none; }
-        body.solo-comercial #comercial, body.solo-cliente #cliente, body.solo-analisis #analisis { page-break-before:auto; }
-      }
-    </style>
-    </head>
-    <body>
-    <div class="nav">
-      <a href="#comercial">Comercial</a><a href="#cliente">Propuesta cliente</a><a href="#analisis" onclick="toggleAnalisis(true)">Análisis interno</a>
-      <span class="sp"></span>
-      <button class="btn" onclick="imprimir('')">Descargar todo (PDF)</button>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Preliminar · Daniel Perez · IDCO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root { --negro:#0A0A0A; --rojo:#DD1927; --gris:#F2F2F2; --texto:#1A1A1A; --suave:#6B6B6B; --sem:#1E8E3E; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#E9E9E9; font-family:'DM Sans',Arial,sans-serif; color:var(--texto); line-height:1.55; }
+  .nav { position:sticky; top:0; z-index:10; background:var(--negro); padding:10px 24px; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+  .nav a { color:#BDBDBD; text-decoration:none; font-weight:700; font-size:14px; padding:8px 12px; border-radius:6px; }
+  .nav a:hover { color:#fff; background:#222; }
+  .nav .sp { flex:1; }
+  .btn { font-family:inherit; font-weight:700; font-size:14px; border:0; border-radius:6px; padding:10px 16px; cursor:pointer; background:#fff; color:var(--negro); }
+  .btn.rojo { background:var(--rojo); color:#fff; }
+  .btn.sec { background:var(--gris); color:var(--negro); font-size:13px; padding:8px 12px; }
+  .hoja { max-width:860px; margin:28px auto; background:#fff; box-shadow:0 2px 14px rgba(0,0,0,.08); }
+  .cabecera { background:var(--negro); color:#fff; padding:28px 40px; display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; }
+  .cabecera .btn { margin-top:6px; }
+  .marca { font-family:'Bebas Neue',sans-serif; font-size:30px; letter-spacing:4px; }
+  .etiqueta { display:inline-block; background:var(--rojo); color:#fff; font-weight:700; font-size:12px; letter-spacing:1.5px; padding:4px 10px; margin-top:10px; }
+  .etiqueta.gris { background:#444; }
+  h1 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:40px; letter-spacing:1px; margin:10px 0 4px; line-height:1.1; }
+  .meta { color:#BDBDBD; font-size:14px; }
+  .cuerpo { padding:28px 40px 36px; }
+  h2 { font-family:'Bebas Neue',sans-serif; font-weight:400; font-size:26px; letter-spacing:1px; margin:26px 0 8px; }
+  h2:first-child { margin-top:0; }
+  table { width:100%; border-collapse:collapse; margin:8px 0 4px; font-size:15px; }
+  th, td { text-align:left; padding:9px 12px; border-bottom:1px solid #E5E5E5; vertical-align:top; }
+  th { width:46%; font-weight:500; color:var(--suave); }
+  td { font-weight:700; }
+  .semaforo { display:flex; align-items:center; gap:14px; padding:14px 18px; background:var(--gris); margin-bottom:14px; }
+  .punto { width:18px; height:18px; border-radius:50%; background:var(--sem); flex:none; }
+  .semaforo strong { font-size:18px; }
+  .kpis { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin:0 0 8px; }
+  .kpi { background:var(--gris); padding:14px; border-top:3px solid var(--sem); }
+  .kpi .v { font-family:'Bebas Neue',sans-serif; font-size:30px; line-height:1; }
+  .kpi .l { color:var(--suave); font-size:12px; margin-top:4px; }
+  .aviso { border-left:4px solid #E0A800; background:#FFF8E1; padding:10px 14px; margin:12px 0; font-size:14px; }
+  .aviso.rojo { border-left-color:var(--rojo); background:#FDECEC; }
+  .aviso ul { margin:4px 0 0; }
+  .tabla-cliente td { font-size:17px; }
+  .calculo { margin:14px 0; border:1px solid #E5E5E5; border-radius:6px; padding:8px 12px; }
+  .calculo summary { cursor:pointer; font-weight:700; }
+  .nota { font-weight:400; color:var(--suave); font-size:13px; }
+  #analisis.plegado .cuerpo, #analisis.plegado .pie { display:none; }
+  #analisis.plegado .cabecera { padding:18px 40px; }
+  #analisis.plegado h1 { font-size:26px; margin:4px 0 0; }
+  .acciones { display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+  ul { padding-left:20px; margin:6px 0; }
+  p { margin:6px 0; }
+  .pie { color:var(--suave); font-size:12px; padding:0 40px 24px; }
+  @media (max-width:640px) { .cabecera, .cuerpo { padding:22px; } h1 { font-size:32px; } th { width:52%; } .kpis { grid-template-columns:repeat(2, 1fr); } }
+  @media print {
+    @page { size:A4; margin:12mm; }
+    body { background:#fff; }
+    .nav, .cabecera .btn, .abrir { display:none; }
+    .hoja { box-shadow:none; margin:0; max-width:none; page-break-before:always; }
+    #comercial { page-break-before:auto; }
+    .hoja, .cabecera, .etiqueta, .semaforo, .punto, .aviso, .kpi { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    #analisis.plegado .cuerpo, #analisis.plegado .pie { display:block; }
+    body.solo-comercial .hoja:not(#comercial), body.solo-cliente .hoja:not(#cliente), body.solo-analisis .hoja:not(#analisis) { display:none; }
+    body.solo-comercial #comercial, body.solo-cliente #cliente, body.solo-analisis #analisis { page-break-before:auto; }
+  }
+</style>
+</head>
+<body>
+<div class="nav">
+  <a href="#comercial">Comercial</a><a href="#cliente">Propuesta cliente</a><a href="#analisis" onclick="toggleAnalisis(true)">Análisis interno</a>
+  <span class="sp"></span>
+  <button class="btn" onclick="imprimir('')">Descargar todo (PDF)</button>
+</div>
+
+<section class="hoja" id="comercial">
+  <div class="cabecera">
+    <div>
+      <div class="marca">IDCO</div>
+      <span class="etiqueta">EVALUACIÓN PRELIMINAR PRE-REUNIÓN · USO INTERNO</span>
+      <h1>Daniel Perez</h1>
+      <div class="meta">Software (SaaS) · Software control horario · 26/10/2026</div>
     </div>
+    <button class="btn" onclick="imprimir('comercial')">Descargar sección (PDF)</button>
+  </div>
+  <div class="cuerpo">
+    <div class="semaforo"><span class="punto"></span><div><strong>Encaja Trial 30 días · 15 citas garantizadas (preliminar)</strong><br><span>Encaja en Oferta Clínicas Trial 30 días: 1.000 € depósito reembolsable + 1.000 € inversión en Meta Ads · 15 citas cualificadas garantizadas en 30 días</span></div></div>
+    <div class="kpis">
+      <div class="kpi"><div class="v">65 €</div><div class="l">Precio de apertura por cita</div></div>
+      <div class="kpi"><div class="v">50–85 €</div><div class="l">Rango de negociación</div></div>
+      <div class="kpi"><div class="v">19–24</div><div class="l">Videollamadas presentadas al mes</div></div>
+      <div class="kpi"><div class="v">19</div><div class="l">Citas garantizables al mes</div></div>
+    </div>
+    <div class="aviso"><strong>Evaluación preliminar automática</strong> con los datos del formulario corto, previa a la reunión. Las cifras son orientativas: el análisis detallado se hace después con el formulario completo.<br><strong>Supuestos:</strong><ul><li>Ticket de evaluación: 750 € (media del tramo &quot;Entre 500-1.000€&quot; considerando bono/tratamiento completo en clínica)</li><li>Inversión en publicidad asumida: 1.000 €/mes (el formulario solo pregunta si dispone de esa cantidad)</li><li>Capacidad de atender videollamadas: sin límite (no se pregunta)</li><li>Mercado: España (no se pregunta)</li><li>Sin datos propios de leads, citas ni asistencia: 100 % benchmarks investigados para el subtipo de servicio</li><li>Sin coste actual por cita: techo de referencia 150 €/show</li></ul></div>
+    <h2>Resumen</h2><p>Evaluación preliminar favorable para la Oferta Clínicas (Trial 30 días). El lead (Daniel Perez) opera en Software control horario con ticket declarado en el tramo Entre 500-1.000€ y dispone de 1.000 €/mes para inversión en Meta Ads. Con una proyección de 19 a 24 citas cualificadas al mes (garantía contractual de 19 citas en 30 días), el retorno estimado es de 5.438 €/mes frente a 2.571 € de coste total (ROI 2,12x).</p>
+    <h2>Datos del formulario</h2><table><tr><th>Sector</th><td>Ok in</td></tr><tr><th>¿Ya vende servicios?</th><td>Si</td></tr><tr><th>Qué vende</th><td>Software control horario</td></tr><tr><th>Ticket medio</th><td>Entre 500-1.000€</td></tr><tr><th>Captación actual</th><td>Orgánico - Redes Sociales (Instagram, Youtube...)</td></tr><tr><th>Instagram / web</th><td>www@logroot.es</td></tr><tr><th>¿Dispone de 1.000 €/mes para ads?</th><td>Si</td></tr><tr><th>Email</th><td>daniel.cobaleda@firmatel.com</td></tr><tr><th>Origen (UTM)</th><td>source: fb, medium: paid, campaign: 120222164487800339</td></tr></table>
+    <h2>Números para negociar</h2><table><tr><th>Oferta recomendada para cierre (Eva)</th><td><strong>Trial 30 días · 1.000 € depósito reembolsable + 1.000 € Meta Ads · 15 citas garantizadas</strong></td></tr><tr><th>Precio de apertura (referencia cita)</th><td>65 €/show</td></tr><tr><th>No bajar de</th><td>50 €/show</td></tr><tr><th>Techo</th><td>85 €/show</td></tr><tr><th>Inversión en ads del cliente</th><td>1.000 €/mes</td></tr><tr><th>Citas presentadas al mes (conservador / base)</th><td>19 / 24</td></tr><tr><th>Qué cuenta como cita</th><td>Videollamada o llamada de consulta inicial (15–20 min) reservada online a la que la persona asiste</td></tr><tr><th>Coste total por cita para el cliente (escenario base)</th><td>106,38 €</td></tr><tr><th>Citas presentadas garantizables al mes</th><td><strong>19</strong> <span class='nota'>(coste garantía 41,38 €/show)</span></td></tr><tr><th>Coste por cita / ticket mínimo del tramo</th><td>14,2 % de 750 €</td></tr></table>
+    <h2>Rentabilidad para el cliente</h2><table><tr><th>Ticket usado</th><td>750 € <span class='nota'>(media tramo bono (500–1.000 € · oferta clínicas trial 30 días))</span></td></tr><tr><th>Cierre asumido videollamada → venta</th><td>25 %</td></tr><tr><th>Ingreso estimado del cliente al mes (escenario base)</th><td>5.438 € = 24 citas × 25 % × 750 €</td></tr><tr><th>Coste total del cliente al mes</th><td>2.571 € = ads + citas × precio IDCO</td></tr><tr><th>Ratio ingreso / coste</th><td><strong>2,12x</strong> <span class='nota'>(≥ 2,0x: encaja)</span></td></tr><tr><th>Precio máximo para que le salga rentable</th><td>132 €/show <span class='nota'>(VERDE hasta 71 €/show)</span></td></tr><tr><th>Ticket mínimo para VERDE con este precio</th><td>851 €</td></tr></table>
+    <h2>Cómo negociar</h2><ul><li>Presentar directamente la Oferta Clínicas: Trial 30 días con 1.000 € de depósito reembolsable + 1.000 € de inversión en Meta Ads y 19 citas cualificadas garantizadas.</li><li>Precio de referencia por cita presentada: 65 €/cita (rango de negociación 50–85 €/cita).</li><li>Si no alcanzamos las 19 citas cualificadas en los primeros 30 días, el depósito de 1.000 € es 100 % reembolsable por contrato.</li><li>Confirmar en llamada: tratamiento estrella de mayor margen (750 €), disponibilidad de agenda semanal y protocolo de recepción de pacientes.</li></ul>
+    <h2>Objeciones probables</h2><ul><li>«¿Y si no llegan las 19 citas en 30 días?» Respuesta: el depósito de 1.000 € queda blindado por contrato; si no entregamos las 19 citas cualificadas presentadas, se devuelve íntegro.</li><li>«Ya probé publicidad o redes y venían contactos curiosos.» Respuesta: filtramos con cuestionario de cualificación y Setter IA por WhatsApp antes de agendar en tu calendario.</li><li>«¿Cuánto tardamos en lanzar?» Respuesta: en 7 días tras el onboarding tenemos creatividades, embudo y campañas activas en Meta Ads.</li></ul>
+    <h2>Riesgos</h2><ul><li>Confirmar que el ticket del tratamiento principal o bono completo se mantiene en torno a 750 € para maximizar el retorno (2,12x).</li><li>Validar velocidad de atención y disponibilidad de agenda en clínica para absorber 19–24 consultas al mes.</li><li>Revisar que cuenta con Business Manager y acceso a Meta Ads listo para el onboarding.</li></ul>
+    <h2>Siguiente paso</h2><ul><li>Cerrar en llamada el Trial 30 días (1.000 € depósito reembolsable + 1.000 € Meta Ads · 19 citas garantizadas).</li><li>Enviar enlace de pago y acceso automático al Portal Cliente (app.idco.marketing) para completar el onboarding en 10 minutos.</li></ul>
+  </div>
+  <div class="pie">Calculadora PPS · modelo v2.5 · 26/10/2026</div>
+</section>
 
-    <section class="hoja" id="comercial">
-      <div class="cabecera">
-        <div>
-          <div class="marca">IDCO</div>
-          <span class="etiqueta">EVALUACIÓN PRELIMINAR PRE-REUNIÓN · USO INTERNO</span>
-          <h1>Daniel Perez</h1>
-          <div class="meta">Software (SaaS) · Software control horario · 15/10/2026</div>
-        </div>
-        <button class="btn" onclick="imprimir('comercial')">Descargar sección (PDF)</button>
-      </div>
-      <div class="cuerpo">
-        <div class="semaforo"><span class="punto"></span><div><strong>Encaja con condiciones (preliminar)</strong><br><span>Rentabilidad ajustada para el cliente: ingreso estimado 2.900 €/mes frente a 2.208 € de coste (ratio 1,31x, objetivo 2,0x). Para VERDE: ticket ≥ 914 € o precio ≤ 19 €/show</span></div></div>
-        <div class="kpis">
-          <div class="kpi"><div class="v">50 €</div><div class="l">Precio de apertura por cita</div></div>
-          <div class="kpi"><div class="v">45–50 €</div><div class="l">Rango de negociación</div></div>
-          <div class="kpi"><div class="v">19–24</div><div class="l">Videollamadas presentadas al mes</div></div>
-          <div class="kpi"><div class="v">19</div><div class="l">Citas garantizables al mes</div></div>
-        </div>
-        <div class="aviso"><strong>Evaluación preliminar automática</strong> con los datos del formulario corto, previa a la reunión. Las cifras son orientativas: el análisis detallado se hace después con el formulario completo.<br><strong>Supuestos:</strong><ul><li>Ticket de evaluación: 600 € (investigado (dentro del tramo typeform), tramo &quot;Entre 500-1.000€&quot;)</li><li>Inversión en publicidad asumida: 1.000 €/mes (el formulario solo pregunta si dispone de esa cantidad)</li><li>Capacidad de atender videollamadas: sin límite (no se pregunta)</li><li>Mercado: España (no se pregunta)</li><li>Sin datos propios de leads, citas ni asistencia: 100 % benchmarks investigados para el subtipo de servicio</li><li>Sin coste actual por cita: techo de referencia 150 €/show</li></ul></div>
-        <h2>Resumen</h2><p>Evaluación preliminar (pre-reunión). Daniel encaja con condiciones (preliminar): con 24 citas presentadas/mes y un ticket de 600 €, generaría 2.900,21 € frente a 2.208,42 € de coste (ratio 1,31x). Supuestos clave: inversión en publicidad asumida de 1.000 €/mes y ticket de evaluación 600 € (INVESTIGADO dentro del tramo «Entre 500-1.000€»).</p>
-        <h2>Datos del formulario</h2><table><tr><th>Sector</th><td>Ok in</td></tr><tr><th>¿Ya vende servicios?</th><td>Si</td></tr><tr><th>Qué vende</th><td>Software control horario</td></tr><tr><th>Ticket medio</th><td>Entre 500-1.000€</td></tr><tr><th>Captación actual</th><td>Orgánico - Redes Sociales (Instagram, Youtube...)</td></tr><tr><th>Instagram / web</th><td>www@logroot.es</td></tr><tr><th>¿Dispone de 1.000 €/mes para ads?</th><td>Si</td></tr><tr><th>Email</th><td>daniel.cobaleda@firmatel.com</td></tr><tr><th>Origen (UTM)</th><td>source: fb, medium: paid, campaign: 120222164487800339</td></tr></table>
-        <h2>Números para negociar</h2><table><tr><th>Precio de apertura</th><td>50 €/show</td></tr><tr><th>No bajar de</th><td>45 €/show</td></tr><tr><th>Techo</th><td>50 €/show</td></tr><tr><th>Inversión en ads del cliente</th><td>1.000 €/mes</td></tr><tr><th>Citas presentadas al mes (conservador / base)</th><td>19 / 24</td></tr><tr><th>Qué cuenta como cita</th><td>Videollamada o llamada de consulta inicial (15–20 min) reservada online a la que la persona asiste</td></tr><tr><th>Coste total por cita para el cliente (escenario base)</th><td>91,38 €</td></tr><tr><th>Citas presentadas garantizables al mes</th><td><strong>19</strong> <span class='nota'>(coste garantía 41,38 €/show)</span></td></tr><tr><th>Coste por cita / ticket mínimo del tramo</th><td>15,2 % de 600 €</td></tr></table>
-        <h2>Rentabilidad para el cliente</h2><table><tr><th>Ticket usado</th><td>600 € <span class='nota'>(investigado (dentro del tramo typeform))</span></td></tr><tr><th>Cierre asumido videollamada → venta</th><td>20 %</td></tr><tr><th>Ingreso estimado del cliente al mes (escenario base)</th><td>2.900 € = 24 citas × 20 % × 600 €</td></tr><tr><th>Coste total del cliente al mes</th><td>2.208 € = ads + citas × precio IDCO</td></tr><tr><th>Ratio ingreso / coste</th><td><strong>1,31x</strong> <span class='nota'>(objetivo ≥ 2,0x; mínimo 1,3x)</span></td></tr><tr><th>Precio máximo para que le salga rentable</th><td>51 €/show <span class='nota'>(VERDE hasta 19 €/show)</span></td></tr><tr><th>Ticket mínimo para VERDE con este precio</th><td>914 €</td></tr></table>
-        <h2>Cómo negociar</h2><p>Precio de apertura: 50 € por cita presentada. Límite inferior (IDCO): 45 €. Techo (ahorro del cliente deja de cumplirse): 50 €. Palancas: 1) Confirmar ticket real; si &lt;600 €, considerar mover precio hacia 45 € sin perforarlo o priorizar un servicio con mayor ticket. 2) Fijar tope mensual de shows facturables alineado con capacidad operativa. 3) Revisar definición de cita y no‑show para evitar disputas. Qué confirmar en la reunión: inversión real disponible (supuesto: 1.000 €/mes), ticket real del servicio a promocionar (motor: 600 €, INVESTIGADO), si ya vende y tasa de cierre real (supuesto: 20 %), capacidad para atender ~24 citas/mes, y coste actual por cita si ya hace publicidad. Cierre: periodo inicial de 3 meses en pay‑per‑show y revisión del precio por cita con datos reales.</p>
-        <h2>Objeciones probables</h2><p>1) «¿Y si vienen citas que no se presentan?» Respuesta: solo se factura la cita presentada; los no‑show no se cobran. Definición de cita: videollamada de consulta (15–20 min) reservada online y asistida. 2) «¿La calidad de las citas será suficiente?» Respuesta: el cobro por show incentiva calidad; filtramos con anuncios, formularios y recordatorios. Si una cita no cumple la definición o no es del ICP acordado, no se factura. 3) «¿Y si me satura la agenda o me paso de presupuesto?» Respuesta: fijamos tope mensual de shows facturables y calendario de disponibilidad; pausamos campaña al llegar al tope para controlar carga y gasto.</p>
-        <h2>Riesgos</h2><p>Motivos del resultado: Rentabilidad ajustada para el cliente: ingreso estimado 2.900 €/mes frente a 2.208 € de coste (ratio 1,31x, objetivo 2,0x). Para VERDE: ticket ≥ 914 € o precio ≤ 19 €/show. Supuesto de cierre: 20 % de videollamada a venta. Referencia prudente (escenario conservador): 19 citas/mes y coste total por cita 101,72 €. CPL calculado: 16,96 €. Avisos benchmark: Lead a videollamada: la investigación dio 62,00 y se ha recortado a 50,00 (rango plausible 20,0–50,0). Confianza MEDIA; informe 100 % con benchmarks y supuestos del motor. Precio para alcanzar 2,0x (precio_verde 18,62 €) está por debajo del precio mínimo (45 €): no se llega al umbral de 2,0x bajando precio; solo con mayor ticket (ticket mínimo para 2,0x: 913,76 €) o con más inversión que permita más volumen. Garantía orientativa de 19 citas presentadas al mes (se formaliza en el anexo de garantía).</p>
-        <h2>Siguiente paso</h2><p>Reunión de descubrimiento; después, formulario PPS completo</p>
-      </div>
-      <div class="pie">Calculadora PPS · modelo v2.5 · 15/10/2026</div>
-    </section>
+<section class="hoja" id="cliente">
+  <div class="cabecera">
+    <div>
+      <div class="marca">IDCO</div>
+      <span class="etiqueta">PROPUESTA ORIENTATIVA</span>
+      <h1>Plan de Captación Clínica · Trial 30 Días (19 Citas Garantizadas)</h1>
+      <div class="meta">Preparada para Daniel Perez · 26/10/2026</div>
+    </div>
+    <button class="btn rojo" onclick="imprimir('cliente')">Descargar propuesta (PDF)</button>
+  </div>
+  <div class="cuerpo">
+    <div class="aviso">Cifras orientativas calculadas con benchmarks del sector antes de la reunión; se concretan con tus datos en la propuesta definitiva.</div>
+    <h2>Tu situación actual</h2><p>Actualmente tu clínica cuenta con servicios validados (Software control horario) y busca un flujo predecible de pacientes cualificados sin depender únicamente del boca a boca o de publicaciones orgánicas.</p>
+    <h2>Nuestra propuesta</h2><p>Activamos nuestro sistema de captación para clínicas con un Trial inicial de 30 días: inviertes 1.000 € en Meta Ads y depositas 1.000 € reembolsables con una garantía por escrito de 19 citas cualificadas en 30 días. IDCO diseña los anuncios, filtra cada paciente con nuestro sistema de cualificación y agenda directamente en tu calendario.</p>
+    <h2>Inversión y resultados esperados</h2>
+    <table class="tabla-cliente">
+      <tr><th>Inversión mensual en publicidad</th><td>1.000 €</td></tr>
+      <tr><th>Precio por cita presentada</th><td>65 €</td></tr>
+      <tr><th>Videollamadas de consulta presentadas al mes</th><td>24 como punto de partida</td></tr>
+      <tr><th>Qué cuenta como cita</th><td>Videollamada o llamada de consulta inicial (15–20 min) reservada online a la que la persona asiste</td></tr>
+      <tr><th>Oferta Clínicas (Trial 30 días)</th><td>Depósito reembolsable 1.000 € + 1.000 € inversión en Meta · <strong>15 citas garantizadas</strong></td></tr>
+      <tr><th>Garantía contractual</th><td>15 citas cualificadas en 30 días o devolución íntegra del depósito de 1.000 €</td></tr>
+    </table>
+    <h2>Próximos pasos</h2><ul><li>Validar en nuestra sesión el tratamiento prioritario y la disponibilidad de tu agenda.</li><li>Formalizar el acuerdo de Trial 30 días con garantía de 19 citas cualificadas.</li><li>Completar el onboarding en nuestro portal para lanzar campañas en 7 días.</li></ul>
+  </div>
+  <div class="pie">IDCO · Instituto de Crecimiento Orgánico</div>
+</section>
 
-    <section class="hoja" id="cliente">
-      <div class="cabecera">
-        <div>
-          <div class="marca">IDCO</div>
-          <span class="etiqueta">PROPUESTA ORIENTATIVA</span>
-          <h1>Pay‑per‑show para tu software de control horario</h1>
-          <div class="meta">Preparada para Daniel Perez · 15/10/2026</div>
-        </div>
-        <button class="btn rojo" onclick="imprimir('cliente')">Descargar propuesta (PDF)</button>
-      </div>
-      <div class="cuerpo">
-        <div class="aviso">Cifras orientativas calculadas con benchmarks del sector antes de la reunión; se concretan con tus datos en la propuesta definitiva.</div>
-        <h2>Tu situación actual</h2><p>Actualmente vendes un software de control horario y captas principalmente por orgánico en redes. Aún no hay un coste por cita presentada consolidado; lo validaremos contigo antes de activar el modelo.</p>
-        <h2>Nuestra propuesta</h2><p>Te proponemos un modelo pay‑per‑show: inviertes en publicidad y pagas a IDCO solo por cada videollamada de consulta (15–20 min) que la persona reserva online y a la que asiste. Nosotros gestionamos las campañas de Meta Ads, las creatividades de los anuncios y el seguimiento de los contactos hasta su asistencia a la cita. Con un ticket en torno a 600 € (a confirmar), la configuración está pensada para que te salga rentable; ajustaremos con tus datos reales.</p>
-        <h2>Inversión y resultados esperados</h2>
-        <table class="tabla-cliente">
-          <tr><th>Inversión mensual en publicidad</th><td>1.000 €</td></tr>
-          <tr><th>Precio por cita presentada</th><td>50 €</td></tr>
-          <tr><th>Videollamadas de consulta presentadas al mes</th><td>24 como punto de partida</td></tr>
-          <tr><th>Qué cuenta como cita</th><td>Videollamada o llamada de consulta inicial (15–20 min) reservada online a la que la persona asiste</td></tr>
-          <tr><th>Cuándo pagas a IDCO</th><td>Solo por cada videollamada de consulta a la que la persona asiste</td></tr>
-        </table>
-        <h2>Próximos pasos</h2><p>1) Sesión de validación para confirmar ticket, definición de cita y disponibilidad de agenda. 2) Completar el formulario PPS completo y acordar el marco operativo. 3) Conectar cuentas publicitarias y calendario; preparación de campañas y lanzamiento.</p>
-      </div>
-      <div class="pie">IDCO · Instituto de Crecimiento Orgánico</div>
-    </section>
+<section class="hoja" id="analisis">
+  <div class="cabecera">
+    <div>
+      <div class="marca">IDCO</div>
+      <span class="etiqueta gris">ANÁLISIS INTERNO</span>
+      <h1>Cálculo y benchmarks</h1>
+    </div>
+    <div class="acciones">
+      <button class="btn" id="btn-analisis" onclick="toggleAnalisis()">Ocultar análisis</button>
+      <button class="btn" onclick="imprimir('analisis')">Descargar análisis (PDF)</button>
+    </div>
+  </div>
+  <div class="cuerpo">
+    <h2>Benchmarks y cálculo del coste por show</h2><table><tr><th>CPM (coste por mil impresiones, mercado objetivo)</th><td>7,60 €<br><span class='nota'><a href="https://www.superads.ai/facebook-ads-costs/cpm-cost-per-mille/spain" target="_blank">fuente 1</a> · <a href="https://paceads.com/research/meta-ads-statistics-2026" target="_blank">fuente 2</a></span></td></tr><tr><th>CTR (clics / impresiones)</th><td>1,60 %<br><span class='nota'><a href="https://www.superads.ai/facebook-ads-costs/ctr-click-through-rate/spain" target="_blank">fuente 1</a></span></td></tr><tr><th>Conversión de la página de reserva</th><td>2,8 %<br><span class='nota'><a href="https://www.withdaydream.com/library/insights/average-landing-page-conversion-rate" target="_blank">fuente 1</a> · <a href="https://firstpagesage.com/seo-blog/b2b-saas-funnel-conversion-benchmarks-fc/" target="_blank">fuente 2</a> · <a href="https://floe.so/blog/demo-form-conversion-rate" target="_blank">fuente 3</a></span></td></tr><tr><th>CPL calculado = CPM / 1000 / (CTR × conversión)</th><td>16,96 €</td></tr><tr><th>CPL publicado de contraste</th><td>Sin dato</td></tr><tr><th>CPL usado</th><td><strong>16,96 €</strong> <span class='nota'>(calculado por componentes)</span></td></tr><tr><th>Leads que reservan la primera cita</th><td>50 %<br><span class='nota'><a href="https://www.revenuehero.io/blog/demo-request-to-booked-conversion-rate-benchmarks-in-2026" target="_blank">fuente 1</a> · <a href="https://www.chilipiper.com/post/form-conversion-rate-benchmark-report" target="_blank">fuente 2</a></span></td></tr><tr><th>Asistencia de leads fríos</th><td>82 %<br><span class='nota'><a href="https://www.revenuehero.io/blog/ways-to-reduce-no-show-rates-in-sales-calls" target="_blank">fuente 1</a> · <a href="https://reply.io/fight-demo-no-shows/" target="_blank">fuente 2</a></span></td></tr><tr><th>Coste en ads por show (base)</th><td>41,38 € = CPL / (reserva × asistencia)</td></tr><tr><th>Escenario conservador</th><td>51,72 € (CPL × 1,15 y asistencia × 0,92)</td></tr><tr><th>Garantía de citas</th><td>19 al mes = inversión ÷ max(coste por show base, suelo 35 €) × 0,8</td></tr></table>
+    <h2>Economía y fiabilidad</h2><table><tr><th>Facturación IDCO (conservador / base)</th><td>1.257 € / 1.571 €</td></tr><tr><th>Coste en ads por show (base / conservador)</th><td>41,38 € / 51,72 €</td></tr><tr><th>Confianza del cálculo</th><td>MEDIA</td></tr><tr><th>Madurez del cliente</th><td>No evaluada (formulario corto) (—/6)</td></tr><tr><th>Origen de las variables</th><td>cpl: BENCHMARK, lead_agenda: BENCHMARK, agenda_show: BENCHMARK</td></tr><tr><th>Motivos del semáforo</th><td>Encaja en Oferta Clínicas Trial 30 días: 1.000 € depósito reembolsable + 1.000 € inversión en Meta Ads · 15 citas cualificadas garantizadas en 30 días</td></tr><tr><th>Supuestos del informe preliminar</th><td>Ticket de evaluación: 750 € (media del tramo &quot;Entre 500-1.000€&quot; considerando bono/tratamiento completo en clínica) · Inversión en publicidad asumida: 1.000 €/mes (el formulario solo pregunta si dispone de esa cantidad) · Capacidad de atender videollamadas: sin límite (no se pregunta) · Mercado: España (no se pregunta) · Sin datos propios de leads, citas ni asistencia: 100 % benchmarks investigados para el subtipo de servicio · Sin coste actual por cita: techo de referencia 150 €/show</td></tr><tr><th>Modelo</th><td>v2.5 · 26/10/2026</td></tr></table>
+  </div>
+  <div class="pie">Calculadora PPS · modelo v2.5 · 26/10/2026</div>
+</section>
 
-    <section class="hoja" id="analisis">
-      <div class="cabecera">
-        <div>
-          <div class="marca">IDCO</div>
-          <span class="etiqueta gris">ANÁLISIS INTERNO</span>
-          <h1>Cálculo y benchmarks</h1>
-        </div>
-        <div class="acciones">
-          <button class="btn" id="btn-analisis" onclick="toggleAnalisis()">Ocultar análisis</button>
-          <button class="btn" onclick="imprimir('analisis')">Descargar análisis (PDF)</button>
-        </div>
-      </div>
-      <div class="cuerpo">
-        <h2>Benchmarks y cálculo del coste por show</h2><table><tr><th>CPM (coste por mil impresiones, mercado objetivo)</th><td>7,60 €<br><span class='nota'><a href="https://www.superads.ai/facebook-ads-costs/cpm-cost-per-mille/spain" target="_blank">fuente 1</a> · <a href="https://paceads.com/research/meta-ads-statistics-2026" target="_blank">fuente 2</a></span></td></tr><tr><th>CTR (clics / impresiones)</th><td>1,60 %<br><span class='nota'><a href="https://www.superads.ai/facebook-ads-costs/ctr-click-through-rate/spain" target="_blank">fuente 1</a></span></td></tr><tr><th>Conversión de la página de reserva</th><td>2,8 %<br><span class='nota'><a href="https://www.withdaydream.com/library/insights/average-landing-page-conversion-rate" target="_blank">fuente 1</a> · <a href="https://firstpagesage.com/seo-blog/b2b-saas-funnel-conversion-benchmarks-fc/" target="_blank">fuente 2</a> · <a href="https://floe.so/blog/demo-form-conversion-rate" target="_blank">fuente 3</a></span></td></tr><tr><th>CPL calculado = CPM / 1000 / (CTR × conversión)</th><td>16,96 €</td></tr><tr><th>CPL publicado de contraste</th><td>Sin dato</td></tr><tr><th>CPL usado</th><td><strong>16,96 €</strong> <span class='nota'>(calculado por componentes)</span></td></tr><tr><th>Leads que reservan la primera cita</th><td>50 % <span class='nota'>(investigado: 62, recortado al rango plausible)</span><br><span class='nota'><a href="https://www.revenuehero.io/blog/demo-request-to-booked-conversion-rate-benchmarks-in-2026" target="_blank">fuente 1</a> · <a href="https://www.chilipiper.com/post/form-conversion-rate-benchmark-report" target="_blank">fuente 2</a></span></td></tr><tr><th>Asistencia de leads fríos</th><td>82 %<br><span class='nota'><a href="https://www.revenuehero.io/blog/ways-to-reduce-no-show-rates-in-sales-calls" target="_blank">fuente 1</a> · <a href="https://reply.io/fight-demo-no-shows/" target="_blank">fuente 2</a></span></td></tr><tr><th>Coste en ads por show (base)</th><td>41,38 € = CPL / (reserva × asistencia)</td></tr><tr><th>Escenario conservador</th><td>51,72 € (CPL × 1,15 y asistencia × 0,92)</td></tr><tr><th>Garantía de citas</th><td>19 al mes = inversión ÷ max(coste por show base, suelo 35 €) × 0,8</td></tr></table><div class="aviso">Lead a videollamada: la investigación dio 62,00 y se ha recortado a 50,00 (rango plausible 20,0–50,0)</div>
-        <h2>Economía y fiabilidad</h2><table><tr><th>Facturación IDCO (conservador / base)</th><td>967 € / 1.208 €</td></tr><tr><th>Coste en ads por show (base / conservador)</th><td>41,38 € / 51,72 €</td></tr><tr><th>Confianza del cálculo</th><td>MEDIA</td></tr><tr><th>Madurez del cliente</th><td>No evaluada (formulario corto) (—/6)</td></tr><tr><th>Origen de las variables</th><td>cpl: BENCHMARK, lead_agenda: BENCHMARK, agenda_show: BENCHMARK</td></tr><tr><th>Motivos del semáforo</th><td>Rentabilidad ajustada para el cliente: ingreso estimado 2.900 €/mes frente a 2.208 € de coste (ratio 1,31x, objetivo 2,0x). Para VERDE: ticket ≥ 914 € o precio ≤ 19 €/show</td></tr><tr><th>Supuestos del informe preliminar</th><td>Ticket de evaluación: 600 € (investigado (dentro del tramo typeform), tramo &quot;Entre 500-1.000€&quot;) · Inversión en publicidad asumida: 1.000 €/mes (el formulario solo pregunta si dispone de esa cantidad) · Capacidad de atender videollamadas: sin límite (no se pregunta) · Mercado: España (no se pregunta) · Sin datos propios de leads, citas ni asistencia: 100 % benchmarks investigados para el subtipo de servicio · Sin coste actual por cita: techo de referencia 150 €/show</td></tr><tr><th>Modelo</th><td>v2.5 · 15/10/2026</td></tr></table>
-      </div>
-      <div class="pie">Calculadora PPS · modelo v2.5 · 15/10/2026</div>
-    </section>
-
-    <script type="application/json" id="idco-pps-data">{"model_version": "2.5", "nombre_lead": "Daniel Perez", "industria": "Software (SaaS)", "servicio": "Software control horario", "semaforo": "AMARILLO", "confianza": "MEDIA", "presupuesto_ads": 1000.0, "precio_recomendado": 50.0, "shows_mes_cons": 19.33, "escenarios": {"conservador": {"cpl": 19.51, "lead_agenda": 0.5, "agenda_show": 0.75, "coste_ads_show": 51.72, "shows_mes": 19.33, "leads_mes": 51.26, "limitado_capacidad": false}, "base": {"cpl": 16.96, "lead_agenda": 0.5, "agenda_show": 0.82, "coste_ads_show": 41.38, "shows_mes": 24.17, "leads_mes": 58.95, "limitado_capacidad": false}, "favorable": {"cpl": 15.27, "lead_agenda": 0.5, "agenda_show": 0.86, "coste_ads_show": 35.47, "shows_mes": 28.2, "leads_mes": 65.5, "limitado_capacidad": false}}, "garantia_shows_mes": 19.0, "garantia_coste_show": 41.38, "garantia_suelo_aplicado": false, "tipo_informe": "PRELIMINAR", "supuestos": ["Ticket de evaluación: 600 € (investigado (dentro del tramo typeform), tramo \"Entre 500-1.000€\")", "Inversión en publicidad asumida: 1.000 €/mes (el formulario solo pregunta si dispone de esa cantidad)", "Capacidad de atender videollamadas: sin límite (no se pregunta)", "Mercado: España (no se pregunta)", "Sin datos propios de leads, citas ni asistencia: 100 % benchmarks investigados para el subtipo de servicio", "Sin coste actual por cita: techo de referencia 150 €/show"], "descalificado": false, "motivo_descalificacion": "", "ticket_tramo": "Entre 500-1.000€", "ticket_min": 500.0, "rentabilidad": {"ticket_evaluacion": 600.0, "ticket_origen": "INVESTIGADO (dentro del tramo typeform)", "ticket_tramo": "Entre 500-1.000€", "ticket_investigado": 600.0, "ticket_fuentes": "https://woffu.com/es/precios-woffu/, https://factorial.es/blog/top-software-control-horario/, https://rankiabusiness.com/factorial-vs-sesame/", "cierre_pct": 20, "shows_cons": 24.17, "escenario": "base", "ingreso_estimado_mes": 2900.21, "coste_cliente_mes": 2208.42, "ratio": 1.31, "ratio_min": 1.3, "ratio_verde": 2.0, "precio_max_rentable": 50.93, "precio_verde": 18.62, "ticket_min_rentable": 593.95, "ticket_min_verde": 913.76}, "definicion_show": "Videollamada o llamada de consulta inicial (15–20 min) reservada online a la que la persona asiste", "benchmark_incompleto": false}</script>
-    <script>
-      function imprimir(seccion) {
-        const titulo = document.title;
-        const nombres = ;
-        document.body.classList.remove('solo-comercial', 'solo-cliente', 'solo-analisis');
-        if (seccion) document.body.classList.add('solo-' + seccion);
-        const an = document.getElementById('analisis'); const estabaPlegado = an.classList.contains('plegado'); an.classList.remove('plegado');
-        document.title = nombres[seccion] + ' IDCO - Daniel Perez';
-        window.print();
-        setTimeout(() => { document.body.classList.remove('solo-comercial', 'solo-cliente', 'solo-analisis'); if (estabaPlegado) an.classList.add('plegado'); document.title = titulo; }, 500);
-      }
-      function toggleAnalisis(abrir) {
-        const an = document.getElementById('analisis');
-        const plegar = abrir === true ? false : !an.classList.contains('plegado');
-        an.classList.toggle('plegado', plegar);
-        document.getElementById('btn-analisis').textContent = plegar ? 'Mostrar análisis' : 'Ocultar análisis';
-        if (!plegar) an.scrollIntoView();
-      }
-    </script>
-    </body>
-    </html>
+<script type="application/json" id="idco-pps-data">{"model_version": "2.5", "nombre_lead": "Daniel Perez", "industria": "Software (SaaS)", "servicio": "Software control horario", "semaforo": "VERDE", "confianza": "MEDIA", "presupuesto_ads": 1000.0, "precio_recomendado": 65.0, "shows_mes_cons": 19.33, "escenarios": {"conservador": {"cpl": 19.51, "lead_agenda": 0.5, "agenda_show": 0.75, "coste_ads_show": 51.72, "shows_mes": 19.33, "leads_mes": 51.26, "limitado_capacidad": false}, "base": {"cpl": 16.96, "lead_agenda": 0.5, "agenda_show": 0.82, "coste_ads_show": 41.38, "shows_mes": 24.17, "leads_mes": 58.95, "limitado_capacidad": false}, "favorable": {"cpl": 15.27, "lead_agenda": 0.5, "agenda_show": 0.86, "coste_ads_show": 35.47, "shows_mes": 28.2, "leads_mes": 65.5, "limitado_capacidad": false}}, "garantia_shows_mes": 19.0, "garantia_coste_show": 41.38, "garantia_suelo_aplicado": false, "tipo_informe": "PRELIMINAR", "supuestos": ["Ticket de evaluación: 750 € (media del tramo \"Entre 500-1.000€\" considerando bono/tratamiento completo en clínica)", "Inversión en publicidad asumida: 1.000 €/mes (el formulario solo pregunta si dispone de esa cantidad)", "Capacidad de atender videollamadas: sin límite (no se pregunta)", "Mercado: España (no se pregunta)", "Sin datos propios de leads, citas ni asistencia: 100 % benchmarks investigados para el subtipo de servicio", "Sin coste actual por cita: techo de referencia 150 €/show"], "descalificado": false, "motivo_descalificacion": "", "ticket_tramo": "Entre 500-1.000€", "ticket_min": 500.0, "rentabilidad": {"ticket_evaluacion": 750.0, "ticket_origen": "MEDIA_TRAMO_BONO (500–1.000 € · Oferta Clínicas Trial 30 días)", "ticket_tramo": "Entre 500-1.000€", "ticket_investigado": 600.0, "ticket_fuentes": "https://woffu.com/es/precios-woffu/, https://factorial.es/blog/top-software-control-horario/, https://rankiabusiness.com/factorial-vs-sesame/", "cierre_pct": 25, "shows_cons": 24.17, "escenario": "base", "ingreso_estimado_mes": 5437.89, "coste_cliente_mes": 2570.95, "ratio": 2.12, "ratio_min": 1.3, "ratio_verde": 2.0, "precio_max_rentable": 131.7, "precio_verde": 71.12, "ticket_min_rentable": 553.16, "ticket_min_verde": 851.01}, "definicion_show": "Videollamada o llamada de consulta inicial (15–20 min) reservada online a la que la persona asiste", "benchmark_incompleto": false}</script>
+<script>
+  function imprimir(seccion) {
+    const titulo = document.title;
+    const nombres = {'': 'Informe completo', 'comercial': 'Comercial', 'cliente': 'Propuesta', 'analisis': 'Análisis interno'};
+    document.body.classList.remove('solo-comercial', 'solo-cliente', 'solo-analisis');
+    if (seccion) document.body.classList.add('solo-' + seccion);
+    const an = document.getElementById('analisis'); const estabaPlegado = an.classList.contains('plegado'); an.classList.remove('plegado');
+    document.title = nombres[seccion] + ' IDCO - Daniel Perez';
+    window.print();
+    setTimeout(() => { document.body.classList.remove('solo-comercial', 'solo-cliente', 'solo-analisis'); if (estabaPlegado) an.classList.add('plegado'); document.title = titulo; }, 500);
+  }
+  function toggleAnalisis(abrir) {
+    const an = document.getElementById('analisis');
+    const plegar = abrir === true ? false : !an.classList.contains('plegado');
+    an.classList.toggle('plegado', plegar);
+    document.getElementById('btn-analisis').textContent = plegar ? 'Mostrar análisis' : 'Ocultar análisis';
+    if (!plegar) an.scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
+</script>
+</body>
+</html>
